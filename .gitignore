@@ -40,3 +40,13 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+#####################################################
+###                                               ###
+### Put your personal .gitignore stuff below here ###
+###                                               ###
+#####################################################
+
+# To prevent Kellen's backup format from interfering
+# ignores dotfiles
+.*.*
