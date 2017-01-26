@@ -5,5 +5,4 @@ A online judge program.
 
 * Ruby on Rails 5.0.1
 * Ruby 2.3.\* (revision number isn't terribly relevant probably 2.3.3)
-
-[Style Guide](https://github.com/bbatsov/ruby-style-guide)
+* [Style Guide](https://github.com/bbatsov/ruby-style-guide)
