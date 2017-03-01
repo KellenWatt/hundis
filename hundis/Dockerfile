@@ -10,6 +10,9 @@ RUN useradd -m -s /bin/bash jjeuser
 USER jjeuser
 WORKDIR /home/jjeuser
 
+RUN mkdir input
+RUN mkdir output
+
 # retrieve the code/output to be graded
 # This should be put inside a specific folder in the container by the host
 #     Can either place in directory or communicate with bridge on host
@@ -18,9 +21,10 @@ WORKDIR /home/jjeuser
 # run the grading mechanism on the retrieved files
 
 
+# clean up changes made to the system by execution and grading
+
+
 # return success or failure to host
-
-
 
 #####
 # Clarify:
