@@ -30,24 +30,22 @@ RUN useradd -m -s /bin/bash jjeuser
 USER jjeuser
 WORKDIR /home/jjeuser
 
-RUN mkdir input
-RUN mkdir output
-
 # retrieve the code/output to be graded
 # should be implicitly done with a mounted filesystem between the host and the container
 
 
 # run the grading mechanism on the input files and code
-
+CMD "grader" && exit $?
+# NOTE: This is not an ENTRYPOINT so that the container can still be accessed 
+# in case of debugging
 
 # clean up changes made to the system by execution and grading, if any
-
+# Just delete the container so it doesn't matter
 
 # return success or failure to host, should be implicit from script
 
+
 #####
-# Clarify:
-# Should we build a single image that runs everything, or build a new image for submission?
-# Should be build a bunch of containers or create a new one per submission.
+# Single image for all purposes, spin up new container per submission
 #   Have to check this with benchmark testing. May not be very fast to generate every time. 
 #####
