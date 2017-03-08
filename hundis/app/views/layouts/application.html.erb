@@ -9,20 +9,24 @@
 	</head>
 
 	<body>
-		<header class="navbar navbar-fixed-top navbar-inverse">
-			<div class="container">
-				<nav>
+		<header class="navbar navbar-default navbar-static-top navbar-inverse">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">Doggis/Hundis/JJE</a>
+			</div>
+			<div id="navigation-container" class="container">
+				<nav role="navigation">
 					<ul class="nav navbar-nav navbar-right">
-						<li><%= link_to "Home", '/Home' %></li>
-						<li><%= link_to "Problems", '/Problems' %></li>
-						<li><%= link_to "Account", '/User_Account' %></li>
-						<li><%= link_to "Sign In", '/User_Signin' %></li>
-						<li><%= link_to "User Creation", '/Create_User' %></li>
+						<li><a href="/">Home</a></li>
+						<li><a href="/problems">Problems</a></li>
+						<li><a href="/tournaments">Tournaments</a></li>
+						<li><a href="/users">Users</a></li>
+						<li><a href="/login">Log In</a></li>
+						<li><a href="/register">Register</a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
-		<main class="content">
+		<main id="main-container" class="content container">
 			<%= yield %>
 		</main>
 	</body>

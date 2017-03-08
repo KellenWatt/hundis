@@ -1,13 +1,32 @@
 Rails.application.routes.draw do
-  get 'Home', to: 'static_pages#Home'
+  get '/Home',        to: redirect('/')
 
-  get 'Problems', to: 'static_pages#Problems'
+  get '/login',        to: 'static_pages#login'
 
-  get 'User_Signin', to: 'static_pages#User_Signin'
+  get '/register',     to: 'static_pages#register'
 
-  get 'Create_User', to: 'static_pages#Create_User'
+  # Subsection Homepages
+  get '/problems',    to: 'static_pages#problems'
+  get '/users',       to: 'static_pages#users'
+  get '/tournaments', to: 'static_pages#tournaments'
 
-  get 'User_Account', to: 'static_pages#User_Account'
+  # Problems Subsection
+  get '/problems/statistics', to: 'problems#stats'
+  get '/problems/:id',        to: 'problems#show', constraints: { id: /\d+/ }
+  get '/problems/:name',      to: 'problems#show'
+  #get '/problems/submit',     to: '???'
+  get '/problems/submit/:id/code',    to: 'problems#uploadCode', constraints: { id: /\d+/ }
+  get '/problems/submit/:id/output',  to: 'problems#uploadOutput', constraints: { id: /\d+/ }
+  
+  # Users Subsection
+  get '/users/current',             to: 'users#show'
+  get '/users/current/statistics',  to: 'users#stats'
+  get '/users/:id',                 to: 'users#show'
+  get '/users/:id/statistics',      to: 'users#stats'
+  
+  # Tourtnaments Subsection
+  get '/tournaments/:id',     to: 'tournaments#show', constraints: { id: /\d+/ }
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
