@@ -1,13 +1,11 @@
 class CreateProblems < ActiveRecord::Migration[5.0]
   def change
-    create_table :problems do |t|
-      t.integer :ID
+    create_table :problems, id: false do |t|
+      t.primary_key :problem_id
       t.string :name
       t.integer :score
-      t.text :keyword
       t.text :problem_description
       t.string :path
-      t.text :tags
 
       t.timestamps
     end

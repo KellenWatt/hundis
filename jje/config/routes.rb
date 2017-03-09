@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :problems
+  resources :users
   get 'static_pages/Home'
 
   get 'static_pages/Problems'

@@ -10,34 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307044114) do
+ActiveRecord::Schema.define(version: 20170309033240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "problems", force: :cascade do |t|
-    t.integer  "ID"
+  create_table "problems", primary_key: "problem_id", force: :cascade do |t|
     t.string   "name"
     t.integer  "score"
-    t.text     "keyword"
     t.text     "problem_description"
     t.string   "path"
-    t.text     "tags"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
 
-  create_table "tournaments", force: :cascade do |t|
-    t.integer  "ID"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.boolean  "checktime_flag"
-    t.text     "supported_languages"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-  end
-
-  create_table "users", force: :cascade do |t|
+  create_table "users", primary_key: "user_id", force: :cascade do |t|
     t.string   "university"
     t.integer  "score"
     t.string   "company"
@@ -45,7 +32,6 @@ ActiveRecord::Schema.define(version: 20170307044114) do
     t.string   "email"
     t.string   "hash"
     t.string   "salt"
-    t.integer  "ID"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

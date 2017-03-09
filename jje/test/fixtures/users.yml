@@ -1,21 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  university: MyString
-  score: 1
-  company: MyString
-  display_name: MyString
-  email: MyString
-  hash: MyString
-  salt: MyString
-  ID: 
+  user_id: MyString
 
 two:
-  university: MyString
-  score: 1
-  company: MyString
-  display_name: MyString
-  email: MyString
-  hash: MyString
-  salt: MyString
-  ID: 
+  user_id: MyString
