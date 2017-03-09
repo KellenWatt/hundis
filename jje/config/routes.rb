@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :tournament_languages
+  resources :tournaments
+  resources :problem_tags
+  resources :problem_keywords
   resources :problems
   resources :users
   get 'static_pages/Home'

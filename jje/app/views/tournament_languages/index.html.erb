@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tournament Languages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tournament_languages.each do |tournament_language| %>
+      <tr>
+        <td><%= link_to 'Show', tournament_language %></td>
+        <td><%= link_to 'Edit', edit_tournament_language_path(tournament_language) %></td>
+        <td><%= link_to 'Destroy', tournament_language, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tournament Language', new_tournament_language_path %>

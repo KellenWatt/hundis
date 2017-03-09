@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309033240) do
+ActiveRecord::Schema.define(version: 20170309063910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "problem_keywords", id: false, force: :cascade do |t|
+    t.integer  "problem_id", null: false
+    t.string   "keyword",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "problem_tags", id: false, force: :cascade do |t|
+    t.integer  "problem_id", null: false
+    t.string   "tag",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "problems", primary_key: "problem_id", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +36,22 @@ ActiveRecord::Schema.define(version: 20170309033240) do
     t.string   "path"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  create_table "tournament_languages", id: false, force: :cascade do |t|
+    t.integer  "tournament_id", null: false
+    t.string   "language",      null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "tournaments", id: false, force: :cascade do |t|
+    t.integer  "tournament_id", null: false
+    t.datetime "start"
+    t.datetime "end"
+    t.boolean  "checktime"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", primary_key: "user_id", force: :cascade do |t|
