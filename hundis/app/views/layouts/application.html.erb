@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<title>Doggis</title>
 		<%= csrf_meta_tags %>
@@ -9,23 +9,7 @@
 	</head>
 
 	<body>
-		<header class="navbar navbar-default navbar-static-top navbar-inverse">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/">Doggis/Hundis/JJE</a>
-			</div>
-			<div id="navigation-container" class="container">
-				<nav role="navigation">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/">Home</a></li>
-						<li><a href="/problems">Problems</a></li>
-						<li><a href="/tournaments">Tournaments</a></li>
-						<li><a href="/users">Users</a></li>
-						<li><a href="/login">Log In</a></li>
-						<li><a href="/register">Register</a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
+		<%= render "shared/page_header" %>
 		<main id="main-container" class="content container">
 			<%= yield %>
 		</main>
