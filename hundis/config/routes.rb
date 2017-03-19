@@ -22,18 +22,18 @@ Rails.application.routes.draw do
   get   '/tournaments', to: 'static_pages#tournaments'
 
   # Problems Subsection
-  get   '/problems/statistics', to: 'problems#stats'
-  get   '/problems/:id',        to: 'problems#show', constraints: { id: id_cnstrt }
-  get   '/problems/:name',      to: 'problems#show'
+  get   '/problems/statistics',         to: 'problems#stats'
+  get   '/problems/:id',                to: 'problems#show', constraints: { id: id_cnstrt }
+  get   '/problems/:name/(*all)',       to: redirect('/temp') # TODO: reprocess names to IDs
   get   '/problems/:id/submit/',        to: 'problems#showUpload',    constraints: { id: id_cnstrt }
   post  '/problems/:id/submit/code',    to: 'problems#uploadCode',    constraints: { id: id_cnstrt }
   post  '/problems/:id/submit/output',  to: 'problems#uploadOutput',  constraints: { id: id_cnstrt }
 
   # Users Subsection
-  get   '/users/current',             to: 'users#show'
-  get   '/users/current/statistics',  to: 'users#stats'
+  get   '/users/current',             to: redirect('/temp') # TODO: reprocess names to IDs
   get   '/users/:id',                 to: 'users#show',   constraints: { id: id_cnstrt }
   get   '/users/:id/statistics',      to: 'users#stats',  constraints: { id: id_cnstrt }
+  get   '/users/:name/(*all)',        to: redirect('/temp') # TODO: reprocess names to IDs
 
   # Tourtnaments Subsection
   get   '/tournaments/:id',             to: 'tournaments#show', constraints: { id: id_cnstrt }
