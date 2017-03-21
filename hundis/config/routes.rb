@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get   '/auth/login',    to: 'static_pages#login'
   post  '/auth/login',    to: 'sessions#create', as: 'login'
   get   '/auth/logout',   to: 'sessions#destroy', as: 'logout'
-  get   '/auth/register', to: 'static_pages#register'
+  get   '/auth/register', to: 'static_pages#register', as: 'register'
   post  '/auth/register', to: 'users#create'
   get   '/auth/:provider/callback',  to: 'sessions#create'
   get   '/auth/failure',  to: redirect('/auth/login')
