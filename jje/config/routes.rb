@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :user_submissions
+  resources :competes_ins
   resources :contains
   resources :tournament_languages
   resources :tournaments

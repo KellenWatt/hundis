@@ -10,5 +10,13 @@ class CreateTournaments < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+
+    create_table :tournament_languages, id: false do |t|
+      t.belongs_to :tournaments, index: true
+      t.integer :tournament_id, null: false
+      t.string :language, null: false
+
+      t.timestamps
+    end
   end
 end

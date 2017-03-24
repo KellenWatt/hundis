@@ -10,39 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309063910) do
+ActiveRecord::Schema.define(version: 20170324185759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "competes_ins", id: false, force: :cascade do |t|
+    t.integer  "user_id",       null: false
+    t.integer  "tournament_id", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "contains", id: false, force: :cascade do |t|
+    t.integer  "tournament_id", null: false
+    t.integer  "problem_id",    null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "problem_keywords", id: false, force: :cascade do |t|
-    t.integer  "problem_id", null: false
-    t.string   "keyword",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "problems_id"
+    t.integer "problem_id",  null: false
+    t.string  "keyword",     null: false
+    t.index ["problems_id"], name: "index_problem_keywords_on_problems_id", using: :btree
   end
 
   create_table "problem_tags", id: false, force: :cascade do |t|
-    t.integer  "problem_id", null: false
-    t.string   "tag",        null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "problems_id"
+    t.integer "problem_id",  null: false
+    t.string  "tag",         null: false
+    t.index ["problems_id"], name: "index_problem_tags_on_problems_id", using: :btree
   end
 
   create_table "problems", primary_key: "problem_id", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "score"
-    t.text     "problem_description"
-    t.string   "path"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.string  "name"
+    t.integer "score"
+    t.text    "problem_description"
+    t.string  "path"
   end
 
   create_table "tournament_languages", id: false, force: :cascade do |t|
-    t.integer  "tournament_id", null: false
-    t.string   "language",      null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "tournaments_id"
+    t.integer  "tournament_id",  null: false
+    t.string   "language",       null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["tournaments_id"], name: "index_tournament_languages_on_tournaments_id", using: :btree
   end
 
   create_table "tournaments", id: false, force: :cascade do |t|
@@ -52,6 +66,17 @@ ActiveRecord::Schema.define(version: 20170309063910) do
     t.boolean  "checktime"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "user_submissions", id: false, force: :cascade do |t|
+    t.datetime "timestamp",  null: false
+    t.integer  "user_id",    null: false
+    t.integer  "problem_id", null: false
+    t.boolean  "solved"
+    t.string   "language"
+    t.decimal  "runtime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", primary_key: "user_id", force: :cascade do |t|
