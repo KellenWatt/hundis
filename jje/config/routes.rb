@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contains
   resources :tournament_languages
   resources :tournaments
   resources :problem_tags

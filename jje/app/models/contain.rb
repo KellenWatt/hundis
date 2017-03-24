@@ -1,0 +1,2 @@
+class Contain < ApplicationRecord
+end
