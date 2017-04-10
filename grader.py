@@ -8,7 +8,9 @@ def main():
     # TODO: Run code
     # TODO: Diff output
     # TODO: Floating-point validation
-    output = cpp("test.txt")
+    cpp("test.txt")
+
+    compare_output()
 
 
 def cpp(input_file):
@@ -25,9 +27,12 @@ def cpp(input_file):
     if completed_process.returncode != 0:
         exit(1)
 
-    return completed_process.stdout
 
+def compare_output():
+    completed_process = run("diff test_output.txt program_output.txt", shell=True, stdout=PIPE, stderr=PIPE)
 
+    if completed_process.returncode != 0:
+        exit(1)
 
 if __name__ == "__main__":
     main()
