@@ -50,3 +50,7 @@ bower.json
 # To prevent Kellen's backup format from interfering
 # ignores dotfiles
 .*.*
+
+# Pycharm garbage
+.idea/*
+__pycache__/*
