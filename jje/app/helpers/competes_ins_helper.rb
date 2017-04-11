@@ -1,0 +1,2 @@
+module CompetesInsHelper
+end

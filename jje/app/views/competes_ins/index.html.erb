@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Competes Ins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @competes_ins.each do |competes_in| %>
+      <tr>
+        <td><%= link_to 'Show', competes_in %></td>
+        <td><%= link_to 'Edit', edit_competes_in_path(competes_in) %></td>
+        <td><%= link_to 'Destroy', competes_in, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Competes In', new_competes_in_path %>

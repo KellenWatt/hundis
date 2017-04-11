@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  problem_id: MyString
+  keyword: MyString
+
+two:
+  problem_id: MyString
+  keyword: MyString
