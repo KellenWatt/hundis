@@ -4,6 +4,8 @@
 
 Rails.application.routes.draw do
 
+  get 'problems/index'
+
   id_cnstrt = /\d+/
 
 
