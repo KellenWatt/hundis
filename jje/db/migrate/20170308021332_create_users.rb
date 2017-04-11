@@ -5,9 +5,9 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :university
       t.integer :score
       t.string :company
-      t.string :display_name
+      t.string :display_name, null: false
       t.string :email
-      t.string :hash
+      t.string :pass
       t.string :salt
 
       t.timestamps

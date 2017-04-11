@@ -1,14 +1,31 @@
 <h1>Home</h1>
-	<header class="navbar navbar-fixed-top navbar-inverse">
-  		<div class="container">
-  			<nav>
-  				<ul class="nav navbar-nav navbar-right">
-            		<li><%= link_to "Problems", 'http://localhost:3000/static_pages/Problems' %></li>
-            		<li><%= link_to "User Creation", 'http://localhost:3000/static_pages/Create_User' %></li>
-  					<li><%= link_to "Sign In", 'http://localhost:3000/static_pages/User_Signin' %></li>
-  					<li><%= link_to "Account", 'http://localhost:3000/static_pages/User_Account' %></li>
-  				</ul>
-  			</nav>
-  		</div>
-  	</header>
-<p>Find me in app/views/static_pages/Home.html.erb</p>
+
+<article>
+	<section>
+		<h2>About Us</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis pretium sapien, et vulputate elit congue tempor. Donec non libero molestie, consectetur dui at, porta diam. Mauris rutrum facilisis velit at accumsan. Aenean in nulla ut orci tempor dignissim. Vestibulum blandit luctus erat suscipit pellentesque. Nunc posuere, lacus at scelerisque lobortis, ligula arcu aliquam velit, a sodales turpis libero eu risus. Morbi rhoncus scelerisque dui, vel sodales metus interdum at.</p>
+		<p>Sed et tristique ipsum. Phasellus at commodo felis. Suspendisse auctor eleifend dignissim. Nulla ut euismod dui. Nam dignissim vel purus ut lacinia. Curabitur euismod, nisi quis dapibus sodales, orci enim volutpat risus, a posuere tellus dui ut turpis. Phasellus quis sapien ac ligula finibus pharetra. Nam commodo rhoncus augue ac sagittis. Mauris ac nulla non eros faucibus cursus a eu libero.</p>
+	</section>
+	<section class="row">
+		<div class="col-md-6">
+			<h3>Problems Snippet</h3>
+			<%= render "snippets/problems" %>
+		</div>
+		<div class="col-md-6">
+			<h3>Tournaments Snippet</h3>
+			<%= render "snippets/tournaments" %>
+		</div>
+	</section>
+	<section class="row">
+		<div class="col-md-6">
+			<h3>Top Users</h3>
+			<%= render "snippets/top_users" %>
+		</div>
+		<div class="col-md-6">
+			<h3>Meta Stats Snippet</h3>
+			<%= render "snippets/meta" %>
+		</div>
+	</section>
+
+</article>
+
