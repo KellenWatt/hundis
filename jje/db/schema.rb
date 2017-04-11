@@ -83,9 +83,9 @@ ActiveRecord::Schema.define(version: 20170324185759) do
     t.string   "university"
     t.integer  "score"
     t.string   "company"
-    t.string   "display_name"
+    t.string   "display_name", null: false
     t.string   "email"
-    t.string   "hash"
+    t.string   "pass"
     t.string   "salt"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
