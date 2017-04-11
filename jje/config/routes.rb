@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :user_submissions
   resources :competes_ins
   resources :contains
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   resources :problem_keywords
   resources :problems
   resources :users
+
   get 'static_pages/Home'
 
   get 'static_pages/Problems'
