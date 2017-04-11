@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   get   '/auth/logout',   to: 'sessions#destroy', as: 'logout'
   get   '/auth/register', to: 'static_pages#register', as: 'register'
   post  '/auth/register', to: 'users#create'
-  get   '/auth/:provider/callback',  to: 'sessions#create'
   get   '/auth/failure',  to: redirect('/auth/login')
+  get   '/auth/:provider/callback',  to: 'sessions#create'
 
   resources :sessions, only: [:create, :destroy]
 
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   get   '/users/:username/(*all)',    to: redirect('/temp') # TODO: reprocess names to IDs
   get   '/users/:id/statistics',      to: 'users#stats',  id: id_cnstrt
 
-  # Tourtnaments Subsection
+  # Tournaments Subsection
   get   '/tournaments/:id',             to: 'tournaments#show',   id: id_cnstrt
   get   '/tournaments/:id/statistics',  to: 'tournaments#stats',  id: id_cnstrt
 
