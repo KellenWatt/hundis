@@ -4,17 +4,6 @@
 
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :user_submissions
-  resources :competes_ins
-  resources :contains
-  resources :tournament_languages
-  resources :tournaments
-  resources :problem_tags
-  resources :problem_keywords
-  resources :problems
-  resources :users
-
-  get 'problems/index'
 
   id_cnstrt = /\d+/
 
@@ -42,13 +31,13 @@ Rails.application.routes.draw do
 
   # Problems Subsection
   get   '/problems/statistics',         to: 'problems#stats'
-  get   '/problems/:id',                to: 'problems#show',          id: id_cnstrt, as: :problemlist
+  get   '/problems/:id',                to: 'problems#show',          id: id_cnstrt, as: :problem
   get   '/problems/:id/submit/',        to: 'problems#showUpload',    id: id_cnstrt
   post  '/problems/:id/submit/code',    to: 'problems#uploadCode',    id: id_cnstrt
   post  '/problems/:id/submit/output',  to: 'problems#uploadOutput',  id: id_cnstrt
 
   # Users Subsection
-  get   '/users/:id',                 to: 'users#show',   id: id_cnstrt,  as: :userlist
+  get   '/users/:id',                 to: 'users#show',   id: id_cnstrt,  as: :user
   get   '/users/:username/(*all)',    to: redirect('/temp') # TODO: reprocess names to IDs
   get   '/users/:id/statistics',      to: 'users#stats',  id: id_cnstrt
 
