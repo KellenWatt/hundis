@@ -15,51 +15,91 @@ def main():
     floating_point_validation()
 
 
-def cpp(input_file):
+def java(main_file, input_file, output_file_name):
     completed_process = \
-        run("g++ *.cpp -std=c++11 -o executable", stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
+        run(JAVA_COMPILE_COMMAND,
+            stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
+
+    if completed_process.returncode != 0:
+        exit(1)
+
+    # The [:-5] slice is to remove the '.java' ending from the main file
+    completed_process = \
+        run(JAVA_RUN_COMMAND.format(main_file[:-5], input_file, output_file_name),
+            stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
+
+    if completed_process.returncode != 0:
+        exit(1)
+
+
+def python2(script_file, input_file, output_file_name):
+    # Python is interpreted, so no need to compile
+
+    completed_process = run(PYTHON2_RUN_COMMAND.format(script_file, input_file, output_file_name),
+                            stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
+
+    if completed_process.returncode != 0:
+        exit(1)
+
+
+def python3(script_file, input_file, output_file_name):
+    # Python is interpreted, so no need to compile
+
+    completed_process = run(PYTHON3_RUN_COMMAND.format(script_file, input_file, output_file_name),
+                            stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
+
+    if completed_process.returncode != 0:
+        exit(1)
+
+
+def cpp(executable_name, input_file, output_file_name):
+    completed_process = \
+        run(CPP_COMPILE_COMMAND.format(executable_name),
+            stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
         exit(1)
 
     completed_process = \
-        run("./executable < {} > program_output.txt".format(input_file), stdout=PIPE, stderr=PIPE, encoding="UTF-8",
-            shell=True)
+        run(CPP_RUN_COMMAND.format(executable_name,input_file, output_file_name),
+            stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
         exit(1)
 
 
-def compare_output():
-    completed_process = run("diff test_output.txt program_output.txt", shell=True, stdout=PIPE, stderr=PIPE)
+def compare_output(solution_filename, program_output_filename):
+    completed_process = run(DIFF_COMMAND.format(program_output_filename, solution_filename),
+                            shell=True, stdout=PIPE, stderr=PIPE)
 
     if completed_process.returncode != 0:
-        return floating_point_validation()
+        return floating_point_validation(solution_filename, program_output_filename)
 
     return True
 
 
-def floating_point_validation(delta=.001):
-    sample_output = open("test_output.txt", "r")
-    program_output = open("program_output.txt", "r")
+def floating_point_validation(solution_filename, program_output_filename, delta=.001):
+    solution_output = open(solution_filename, "r")
+    program_output = open(program_output_filename, "r")
 
-    sample_floats = [word.strip("\n") for line in sample_output for word in line.split(" ")
-                     if re.match("(\+|-)?[0-9]+\.[0-9]+", word)]
+    # Find all floating point numbers and throw them into a list
+    solution_floats = [word.strip("\n") for line in solution_output for word in line.split(" ")
+                       if re.match("(\+|-)?[0-9]+\.[0-9]+", word)]
 
     program_floats = [word.strip("\n") for line in program_output for word in line.split(" ")
                       if re.match("(\+|-)?[0-9]+\.[0-9]+", word)]
 
-    if len(sample_floats) == 0:
+    if len(solution_floats) == 0:
         # No floats to look at
         return False
-    elif len(sample_floats) != len(program_floats):
+    elif len(solution_floats) != len(program_floats):
         # Output is certainly wrong, there aren't the same number of floats
         return False
 
     # Same number of floats
-    for i in range(len(sample_floats)):
+    for i in range(len(solution_floats)):
         # Grab the correct answer
-        f = sample_floats[i]
+        f = solution_floats[i]
 
         # Convert it to a float
         f = float(f)
