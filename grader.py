@@ -1,6 +1,18 @@
 from subprocess import run, PIPE
 import re
 
+PROGRAM_EXECUTABLE_NAME = "user_executable"
+JAVA_COMPILE_COMMAND = "javac *.java"
+JAVA_RUN_COMMAND = "java {} < {} > {}"
+CPP_COMPILE_COMMAND = "g++ *.cpp -std=c++11 -o {}".format(PROGRAM_EXECUTABLE_NAME)
+CPP_RUN_COMMAND = "./{} < {} > {}"
+PYTHON2_RUN_COMMAND = "python2 {} < {} > {}"
+PYTHON3_RUN_COMMAND = "python3 {} < {} > {}"
+INPUT_FILENAME = "input.txt"
+PROGRAM_OUTPUT_FILENAME = "program_output.txt"
+SOLUTION_OUTPUT_FILENAME = "solution_output.txt"
+DIFF_COMMAND = "diff {} {}"
+
 
 def main():
     # TODO: Parse cli arguments
@@ -119,6 +131,7 @@ def floating_point_validation(solution_filename, program_output_filename, delta=
 
     # Reached the end without returning false, return true
     return True
+
 
 if __name__ == "__main__":
     main()
