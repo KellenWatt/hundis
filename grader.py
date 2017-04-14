@@ -1,4 +1,5 @@
 from subprocess import run, PIPE
+import argparse
 import re
 
 PROGRAM_EXECUTABLE_NAME = "user_executable"
@@ -10,21 +11,45 @@ PYTHON2_RUN_COMMAND = "python2 {} < {} > {}"
 PYTHON3_RUN_COMMAND = "python3 {} < {} > {}"
 INPUT_FILENAME = "input.txt"
 PROGRAM_OUTPUT_FILENAME = "program_output.txt"
-SOLUTION_OUTPUT_FILENAME = "solution_output.txt"
+SOLUTION_FILENAME = "solution_output.txt"
 DIFF_COMMAND = "diff {} {}"
 
 
 def main():
     # TODO: Parse cli arguments
+    parser = argparse.ArgumentParser(description="A grading script to judge programming problems")
+
+    parser.add_argument("language", help="For a list of supported languages, see the website")
+    parser.add_argument("input_file", help="The input file to be fed to the user's code")
+    parser.add_argument("-o", "--output_file", help="The file to have the user's code output to. "
+                                                    "Defaults to \"program_output.txt\"",
+                        default="program_output.txt")
+    parser.add_argument("-m", "--main_file", help="For languages that mandate a specific file to run.")
+    parser.add_argument("-e", "--executable", help="For languages that compile to an executable, the name of the "
+                                                   "executable. Defaults to \"user_executable\"",
+                        default="user_executable")
+    parser.add_argument("-d", "--diff_command", help="The command used when making calls to diff. "
+                                                     "Defaults to \"diff {solution_output}{user_output}\"",
+                        default="diff {} {}")
+    parser.add_argument("-s", "--solution_file", help="The solution file for the user's output to be compared to. "
+                                                      "Defaults to \"solution_output.txt\"",
+                        default="solution_output.txt")
+    args = parser.parse_args()
+
+    # TODO: Convert this to an enum call
+    language = args.language.lower()
+    input_file = args.input_file
+    PROGRAM_OUTPUT_FILENAME = args.output_file
+    MAIN_FILE = args.main_file
+    PROGRAM_EXECUTABLE_NAME = args.executable
+    DIFF_COMMAND = args.diff_command
+    SOLUTION_FILENAME = args.solution_file
+
     # TODO: Logging
     # TODO: Compile code
     # TODO: Run code
     # TODO: Diff output
     # TODO: Floating-point validation
-    # cpp("test.txt")
-
-    # compare_output()
-    floating_point_validation()
 
 
 def java(main_file, input_file, output_file_name):
