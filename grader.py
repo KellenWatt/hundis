@@ -34,6 +34,8 @@ def main():
     parser.add_argument("-s", "--solution_file", help="The solution file for the user's output to be compared to. "
                                                       "Defaults to \"solution_output.txt\"",
                         default="solution_output.txt")
+    parser.add_argument("--delta", help="The floating-point delta to apply when validating floating-point arithmetic."
+                                        "Defaults to .001", default=.001)
     args = parser.parse_args()
 
     # TODO: Convert this to an enum call
@@ -44,6 +46,7 @@ def main():
     PROGRAM_EXECUTABLE_NAME = args.executable
     DIFF_COMMAND = args.diff_command
     SOLUTION_FILENAME = args.solution_file
+    delta = args.delta
 
     # TODO: Logging
     # TODO: Compile code
