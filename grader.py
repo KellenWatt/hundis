@@ -2,20 +2,27 @@ from subprocess import run, PIPE
 import argparse
 import re
 
-PROGRAM_EXECUTABLE_NAME = "user_executable"
+MAIN_FILE = None
+PROGRAM_EXECUTABLE_NAME = None
+PROGRAM_OUTPUT_FILENAME = None
+SOLUTION_FILENAME = None
+DIFF_COMMAND = None
 JAVA_COMPILE_COMMAND = "javac *.java"
 JAVA_RUN_COMMAND = "java {} < {} > {}"
 CPP_COMPILE_COMMAND = "g++ *.cpp -std=c++11 -o {}".format(PROGRAM_EXECUTABLE_NAME)
 CPP_RUN_COMMAND = "./{} < {} > {}"
 PYTHON2_RUN_COMMAND = "python2 {} < {} > {}"
 PYTHON3_RUN_COMMAND = "python3 {} < {} > {}"
-INPUT_FILENAME = "input.txt"
-PROGRAM_OUTPUT_FILENAME = "program_output.txt"
-SOLUTION_FILENAME = "solution_output.txt"
-DIFF_COMMAND = "diff {} {}"
 
 
 def main():
+    # Declare the globals
+    global PROGRAM_EXECUTABLE_NAME
+    global PROGRAM_OUTPUT_FILENAME
+    global MAIN_FILE
+    global SOLUTION_FILENAME
+    global DIFF_COMMAND
+
     # TODO: Parse cli arguments
     parser = argparse.ArgumentParser(description="A grading script to judge programming problems")
 
@@ -41,11 +48,11 @@ def main():
     # TODO: Convert this to an enum call
     language = args.language.lower()
     input_file = args.input_file
-    PROGRAM_OUTPUT_FILENAME = args.output_file
     MAIN_FILE = args.main_file
     PROGRAM_EXECUTABLE_NAME = args.executable
-    DIFF_COMMAND = args.diff_command
+    PROGRAM_OUTPUT_FILENAME = args.output_file
     SOLUTION_FILENAME = args.solution_file
+    DIFF_COMMAND = args.diff_command
     delta = args.delta
 
     # TODO: Logging
