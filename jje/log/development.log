@@ -3501,3 +3501,1053 @@ Processing by StaticPagesController#Home as HTML
 Completed 200 OK in 46ms (Views: 44.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2017-04-13 14:19:17 -0500
+Processing by StaticPagesController#Home as HTML
+  Rendering static_pages/Home.html.erb within layouts/application
+  Rendered snippets/_problems.html.erb (0.3ms)
+  Rendered snippets/_tournaments.html.erb (0.3ms)
+  Rendered snippets/_top_users.html.erb (0.3ms)
+  Rendered snippets/_meta.html.erb (0.2ms)
+  Rendered static_pages/Home.html.erb within layouts/application (6.3ms)
+  Rendered shared/_page_header.html.erb (0.3ms)
+Completed 200 OK in 52ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-13 14:19:26 -0500
+Processing by StaticPagesController#Home as HTML
+  Rendering static_pages/Home.html.erb within layouts/application
+  Rendered snippets/_problems.html.erb (0.2ms)
+  Rendered snippets/_tournaments.html.erb (0.3ms)
+  Rendered snippets/_top_users.html.erb (0.2ms)
+  Rendered snippets/_meta.html.erb (0.2ms)
+  Rendered static_pages/Home.html.erb within layouts/application (7.9ms)
+  Rendered shared/_page_header.html.erb (0.3ms)
+Completed 200 OK in 50ms (Views: 48.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/problems" for ::1 at 2017-04-13 14:19:27 -0500
+Processing by StaticPagesController#problems as HTML
+  Rendering static_pages/problems.html.erb within layouts/application
+  Rendered static_pages/problems.html.erb within layouts/application (0.3ms)
+  Rendered shared/_page_header.html.erb (0.6ms)
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tournaments" for ::1 at 2017-04-13 14:19:29 -0500
+Processing by StaticPagesController#tournaments as HTML
+  Rendering static_pages/tournaments.html.erb within layouts/application
+  Rendered static_pages/tournaments.html.erb within layouts/application (0.3ms)
+  Rendered shared/_page_header.html.erb (0.3ms)
+Completed 200 OK in 39ms (Views: 37.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2017-04-13 14:19:42 -0500
+Processing by StaticPagesController#users as HTML
+  Rendering static_pages/users.html.erb within layouts/application
+  Rendered snippets/_top_users.html.erb (0.2ms)
+  Rendered static_pages/users.html.erb within layouts/application (1.6ms)
+  Rendered shared/_page_header.html.erb (0.3ms)
+Completed 200 OK in 38ms (Views: 36.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-14 11:55:26 -0500
+Processing by StaticPagesController#Home as HTML
+  Rendering static_pages/Home.html.erb within layouts/application
+  Rendered snippets/_problems.html.erb (0.3ms)
+  Rendered snippets/_tournaments.html.erb (0.3ms)
+  Rendered snippets/_top_users.html.erb (0.3ms)
+  Rendered snippets/_meta.html.erb (0.2ms)
+  Rendered static_pages/Home.html.erb within layouts/application (6.9ms)
+  Rendered shared/_page_header.html.erb (0.3ms)
+Completed 200 OK in 67ms (Views: 65.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/problems" for ::1 at 2017-04-14 11:55:37 -0500
+Processing by StaticPagesController#problems as HTML
+  Rendering static_pages/problems.html.erb within layouts/application
+  Rendered static_pages/problems.html.erb within layouts/application (0.3ms)
+  Rendered shared/_page_header.html.erb (0.3ms)
+Completed 200 OK in 42ms (Views: 40.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tournaments" for ::1 at 2017-04-14 11:55:38 -0500
+Processing by StaticPagesController#tournaments as HTML
+  Rendering static_pages/tournaments.html.erb within layouts/application
+  Rendered static_pages/tournaments.html.erb within layouts/application (0.3ms)
+  Rendered shared/_page_header.html.erb (1.4ms)
+Completed 200 OK in 45ms (Views: 43.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2017-04-14 11:55:39 -0500
+Processing by StaticPagesController#users as HTML
+  Rendering static_pages/users.html.erb within layouts/application
+  Rendered snippets/_top_users.html.erb (0.2ms)
+  Rendered static_pages/users.html.erb within layouts/application (1.7ms)
+  Rendered shared/_page_header.html.erb (0.3ms)
+Completed 200 OK in 50ms (Views: 48.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/login" for ::1 at 2017-04-14 11:55:40 -0500
+Processing by StaticPagesController#login as HTML
+  Rendering static_pages/login.html.erb within layouts/application
+  Rendered static_pages/login.html.erb within layouts/application (4.3ms)
+  Rendered shared/_page_header.html.erb (0.3ms)
+Completed 200 OK in 51ms (Views: 49.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (6.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (187.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[35m (192.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_test"[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3114933384305455230);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170308021332)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.4ms)[0m  [1m[35mCREATE TABLE "users" ("user_id" serial primary key, "university" character varying, "score" integer, "company" character varying, "display_name" character varying NOT NULL, "email" character varying, "pass" character varying, "salt" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170308021332"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProblems (20170309033240)
+  [1m[35m (6.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.4ms)[0m  [1m[35mCREATE TABLE "problems" ("problem_id" serial primary key, "name" character varying, "score" integer, "problem_description" text, "path" character varying)[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "problem_keywords" ("problems_id" integer, "problem_id" integer NOT NULL, "keyword" character varying NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_problem_keywords_on_problems_id" ON "problem_keywords"  ("problems_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "problem_tags" ("problems_id" integer, "problem_id" integer NOT NULL, "tag" character varying NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_problem_tags_on_problems_id" ON "problem_tags"  ("problems_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309033240"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTournaments (20170309054835)
+  [1m[35m (5.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "tournaments" ("tournament_id" integer NOT NULL, "start" timestamp, "end" timestamp, "checktime" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "tournament_languages" ("tournaments_id" integer, "tournament_id" integer NOT NULL, "language" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE  INDEX  "index_tournament_languages_on_tournaments_id" ON "tournament_languages"  ("tournaments_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309054835"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContains (20170320034714)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "contains" ("tournament_id" integer NOT NULL, "problem_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170320034714"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompetesIns (20170324052540)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "competes_ins" ("user_id" integer NOT NULL, "tournament_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324052540"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserSubmissions (20170324185759)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "user_submissions" ("timestamp" timestamp NOT NULL, "user_id" integer NOT NULL, "problem_id" integer NOT NULL, "solved" boolean, "language" character varying, "runtime" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324185759"]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-14 16:57:02 UTC], ["updated_at", 2017-04-14 16:57:02 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3114933384305455230)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (7.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (191.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[35m (190.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_test"[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3114933384305455230);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170308021332)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (23.0ms)[0m  [1m[35mCREATE TABLE "users" ("user_id" serial primary key, "university" character varying, "score" integer, "company" character varying, "display_name" character varying NOT NULL, "email" character varying, "pass" character varying, "salt" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170308021332"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProblems (20170309033240)
+  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE "problems" ("problem_id" serial primary key, "name" character varying, "score" integer, "problem_description" text, "path" character varying)[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "problem_keywords" ("problems_id" integer, "problem_id" integer NOT NULL, "keyword" character varying NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_problem_keywords_on_problems_id" ON "problem_keywords"  ("problems_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "problem_tags" ("problems_id" integer, "problem_id" integer NOT NULL, "tag" character varying NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_problem_tags_on_problems_id" ON "problem_tags"  ("problems_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309033240"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTournaments (20170309054835)
+  [1m[35m (5.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "tournaments" ("tournament_id" integer NOT NULL, "start" timestamp, "end" timestamp, "checktime" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "tournament_languages" ("tournaments_id" integer, "tournament_id" integer NOT NULL, "language" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE  INDEX  "index_tournament_languages_on_tournaments_id" ON "tournament_languages"  ("tournaments_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309054835"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContains (20170320034714)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "contains" ("tournament_id" integer NOT NULL, "problem_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170320034714"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompetesIns (20170324052540)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "competes_ins" ("user_id" integer NOT NULL, "tournament_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324052540"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserSubmissions (20170324185759)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "user_submissions" ("timestamp" timestamp NOT NULL, "user_id" integer NOT NULL, "problem_id" integer NOT NULL, "solved" boolean, "language" character varying, "runtime" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324185759"]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-16 15:54:58 UTC], ["updated_at", 2017-04-16 15:54:58 UTC]]
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3114933384305455230)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3114933384305455230);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3114933384305455230)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "user_id"[0m  [["user_id", 0], ["created_at", 2017-04-16 16:10:27 UTC], ["updated_at", 2017-04-16 16:10:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("university", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "user_id"[0m  [["university", "mst"], ["created_at", 2017-04-16 16:12:07 UTC], ["updated_at", 2017-04-16 16:12:07 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "mst"], ["score", 1000], ["display_name", "john"], ["email", "jjnb78@mst.edu"], ["pass", "530900"], ["created_at", 2017-04-16 16:13:37 UTC], ["updated_at", 2017-04-16 16:13:37 UTC]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "mst"], ["score", 1000], ["display_name", "john"], ["email", "jjnb78@gmail.com"], ["pass", "adh"], ["created_at", 2017-04-16 16:20:26 UTC], ["updated_at", 2017-04-16 16:20:26 UTC]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (7352.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (187.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[35m (179.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_test"[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3114933384305455230);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170308021332)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "users" ("user_id" serial primary key, "university" character varying, "score" integer, "company" character varying, "display_name" character varying NOT NULL, "email" character varying, "pass" character varying, "salt" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170308021332"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProblems (20170309033240)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "problems" ("problem_id" serial primary key, "name" character varying, "score" integer, "problem_description" text, "path" character varying)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "problem_keywords" ("problems_id" integer, "problem_id" integer NOT NULL, "keyword" character varying NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_problem_keywords_on_problems_id" ON "problem_keywords"  ("problems_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "problem_tags" ("problems_id" integer, "problem_id" integer NOT NULL, "tag" character varying NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_problem_tags_on_problems_id" ON "problem_tags"  ("problems_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309033240"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTournaments (20170309054835)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "tournaments" ("tournament_id" integer NOT NULL, "start" timestamp, "end" timestamp, "checktime" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "tournament_languages" ("tournaments_id" integer, "tournament_id" integer NOT NULL, "language" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_tournament_languages_on_tournaments_id" ON "tournament_languages"  ("tournaments_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309054835"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContains (20170320034714)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "contains" ("tournament_id" integer NOT NULL, "problem_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170320034714"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompetesIns (20170324052540)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "competes_ins" ("user_id" integer NOT NULL, "tournament_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324052540"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserSubmissions (20170324185759)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "user_submissions" ("timestamp" timestamp NOT NULL, "user_id" integer NOT NULL, "problem_id" integer NOT NULL, "solved" boolean, "language" character varying, "runtime" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324185759"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-16 16:21:47 UTC], ["updated_at", 2017-04-16 16:21:47 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3114933384305455230)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("university", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "user_id"[0m  [["university", "mst"], ["created_at", 2017-04-16 16:58:38 UTC], ["updated_at", 2017-04-16 16:58:38 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "mst"], ["score", 0], ["display_name", "JJNB78"], ["email", "jjnb78@mst.edu"], ["pass", "ijanrg"], ["created_at", 2017-04-16 17:00:03 UTC], ["updated_at", 2017-04-16 17:00:03 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/" for ::1 at 2017-04-16 12:01:33 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#Home as HTML
+  Rendering static_pages/Home.html.erb within layouts/application
+  Rendered snippets/_problems.html.erb (0.3ms)
+  Rendered snippets/_tournaments.html.erb (0.3ms)
+  Rendered snippets/_top_users.html.erb (0.4ms)
+  Rendered snippets/_meta.html.erb (0.2ms)
+  Rendered static_pages/Home.html.erb within layouts/application (9.6ms)
+  Rendered shared/_page_header.html.erb (0.3ms)
+Completed 200 OK in 301ms (Views: 291.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-16 12:01:33 -0500
+Processing by StaticPagesController#Home as HTML
+  Rendering static_pages/Home.html.erb within layouts/application
+  Rendered snippets/_problems.html.erb (0.2ms)
+  Rendered snippets/_tournaments.html.erb (0.2ms)
+  Rendered snippets/_top_users.html.erb (0.2ms)
+  Rendered snippets/_meta.html.erb (0.2ms)
+  Rendered static_pages/Home.html.erb within layouts/application (5.5ms)
+  Rendered shared/_page_header.html.erb (0.3ms)
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (7880.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (154.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[35m (189.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_test"[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3114933384305455230);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170308021332)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "users" ("user_id" serial primary key, "university" character varying, "score" integer, "company" character varying, "display_name" character varying NOT NULL, "email" character varying, "pass" character varying, "salt" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170308021332"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProblems (20170309033240)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "problems" ("problem_id" serial primary key, "name" character varying, "score" integer, "problem_description" text, "path" character varying)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "problem_keywords" ("problems_id" integer, "problem_id" integer NOT NULL, "keyword" character varying NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_problem_keywords_on_problems_id" ON "problem_keywords"  ("problems_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "problem_tags" ("problems_id" integer, "problem_id" integer NOT NULL, "tag" character varying NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_problem_tags_on_problems_id" ON "problem_tags"  ("problems_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309033240"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTournaments (20170309054835)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "tournaments" ("tournament_id" integer NOT NULL, "start" timestamp, "end" timestamp, "checktime" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "tournament_languages" ("tournaments_id" integer, "tournament_id" integer NOT NULL, "language" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_tournament_languages_on_tournaments_id" ON "tournament_languages"  ("tournaments_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309054835"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContains (20170320034714)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "contains" ("tournament_id" integer NOT NULL, "problem_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170320034714"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompetesIns (20170324052540)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "competes_ins" ("user_id" integer NOT NULL, "tournament_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324052540"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserSubmissions (20170324185759)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "user_submissions" ("timestamp" timestamp NOT NULL, "user_id" integer NOT NULL, "problem_id" integer NOT NULL, "solved" boolean, "language" character varying, "runtime" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324185759"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-16 17:05:57 UTC], ["updated_at", 2017-04-16 17:05:57 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3114933384305455230)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "JJNB78"], ["email", "jjnb78@mst.edu"], ["pass", "liabrh"], ["created_at", 2017-04-16 17:06:02 UTC], ["updated_at", 2017-04-16 17:06:02 UTC]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "JJNB78"], ["email", "jjnb78@mst.edu"], ["pass", "liabrh"], ["created_at", 2017-04-16 17:07:40 UTC], ["updated_at", 2017-04-16 17:07:40 UTC]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "jjniemeyer46"], ["email", "jjniemeyer46@gmail.com"], ["pass", "ohuag"], ["created_at", 2017-04-16 17:07:40 UTC], ["updated_at", 2017-04-16 17:07:40 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (128.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[35m (148.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_test"[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3114933384305455230);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170308021332)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "users" ("user_id" serial primary key, "university" character varying, "score" integer, "company" character varying, "display_name" character varying NOT NULL, "email" character varying, "pass" character varying, "salt" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170308021332"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProblems (20170309033240)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "problems" ("problem_id" serial primary key, "name" character varying, "score" integer, "problem_description" text, "path" character varying)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "problem_keywords" ("problems_id" integer, "problem_id" integer NOT NULL, "keyword" character varying NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_problem_keywords_on_problems_id" ON "problem_keywords"  ("problems_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "problem_tags" ("problems_id" integer, "problem_id" integer NOT NULL, "tag" character varying NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_problem_tags_on_problems_id" ON "problem_tags"  ("problems_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309033240"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTournaments (20170309054835)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "tournaments" ("tournament_id" integer NOT NULL, "start" timestamp, "end" timestamp, "checktime" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "tournament_languages" ("tournaments_id" integer, "tournament_id" integer NOT NULL, "language" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_tournament_languages_on_tournaments_id" ON "tournament_languages"  ("tournaments_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309054835"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContains (20170320034714)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "contains" ("tournament_id" integer NOT NULL, "problem_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170320034714"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompetesIns (20170324052540)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "competes_ins" ("user_id" integer NOT NULL, "tournament_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324052540"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserSubmissions (20170324185759)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "user_submissions" ("timestamp" timestamp NOT NULL, "user_id" integer NOT NULL, "problem_id" integer NOT NULL, "solved" boolean, "language" character varying, "runtime" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324185759"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-16 17:08:10 UTC], ["updated_at", 2017-04-16 17:08:10 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3114933384305455230)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "JJNB78"], ["email", "jjnb78@mst.edu"], ["pass", "liabrh"], ["created_at", 2017-04-16 17:08:15 UTC], ["updated_at", 2017-04-16 17:08:15 UTC]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "jjniemeyer46"], ["email", "jjniemeyer46@gmail.com"], ["pass", "ohuag"], ["created_at", 2017-04-16 17:08:15 UTC], ["updated_at", 2017-04-16 17:08:15 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "JJNB78"], ["email", "jjnb78@mst.edu"], ["pass", "liabrh"], ["created_at", 2017-04-16 17:09:17 UTC], ["updated_at", 2017-04-16 17:09:17 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "salt", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "jjniemeyer46"], ["email", "jjniemeyer46@gmail.com"], ["pass", "ohuag"], ["salt", "aibrgqerh"], ["created_at", 2017-04-16 17:09:17 UTC], ["updated_at", 2017-04-16 17:09:17 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (182.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[35m (182.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_test"[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3114933384305455230);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170308021332)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "users" ("user_id" serial primary key, "university" character varying, "score" integer, "company" character varying, "display_name" character varying NOT NULL, "email" character varying, "pass" character varying, "salt" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170308021332"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProblems (20170309033240)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "problems" ("problem_id" serial primary key, "name" character varying, "score" integer, "problem_description" text, "path" character varying)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "problem_keywords" ("problems_id" integer, "problem_id" integer NOT NULL, "keyword" character varying NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_problem_keywords_on_problems_id" ON "problem_keywords"  ("problems_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "problem_tags" ("problems_id" integer, "problem_id" integer NOT NULL, "tag" character varying NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_problem_tags_on_problems_id" ON "problem_tags"  ("problems_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309033240"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTournaments (20170309054835)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "tournaments" ("tournament_id" integer NOT NULL, "start" timestamp, "end" timestamp, "checktime" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "tournament_languages" ("tournaments_id" integer, "tournament_id" integer NOT NULL, "language" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_tournament_languages_on_tournaments_id" ON "tournament_languages"  ("tournaments_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309054835"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContains (20170320034714)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "contains" ("tournament_id" integer NOT NULL, "problem_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170320034714"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompetesIns (20170324052540)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "competes_ins" ("user_id" integer NOT NULL, "tournament_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324052540"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserSubmissions (20170324185759)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "user_submissions" ("timestamp" timestamp NOT NULL, "user_id" integer NOT NULL, "problem_id" integer NOT NULL, "solved" boolean, "language" character varying, "runtime" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324185759"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-16 17:10:36 UTC], ["updated_at", 2017-04-16 17:10:36 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3114933384305455230)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "stuff"], ["email", "stuff@mst.edu"], ["pass", "liabrh"], ["created_at", 2017-04-16 17:10:40 UTC], ["updated_at", 2017-04-16 17:10:40 UTC]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "things"], ["email", "things@gmail.com"], ["pass", "ohuag"], ["created_at", 2017-04-16 17:10:40 UTC], ["updated_at", 2017-04-16 17:10:40 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (19.5ms)[0m  [1m[32mINSERT INTO "problems" DEFAULT VALUES RETURNING "problem_id"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "problems"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "problems"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (7639.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (167.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[35m (189.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_test"[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3114933384305455230);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170308021332)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.2ms)[0m  [1m[35mCREATE TABLE "users" ("user_id" serial primary key, "university" character varying, "score" integer, "company" character varying, "display_name" character varying NOT NULL, "email" character varying, "pass" character varying, "salt" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170308021332"]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProblems (20170309033240)
+  [1m[35m (6.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.3ms)[0m  [1m[35mCREATE TABLE "problems" ("problem_id" serial primary key, "name" character varying, "score" integer, "problem_description" text, "path" character varying)[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "problem_keywords" ("problems_id" integer, "problem_id" integer NOT NULL, "keyword" character varying NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_problem_keywords_on_problems_id" ON "problem_keywords"  ("problems_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "problem_tags" ("problems_id" integer, "problem_id" integer NOT NULL, "tag" character varying NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_problem_tags_on_problems_id" ON "problem_tags"  ("problems_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309033240"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTournaments (20170309054835)
+  [1m[35m (5.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "tournaments" ("tournament_id" integer NOT NULL, "start" timestamp, "end" timestamp, "checktime" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "tournament_languages" ("tournaments_id" integer, "tournament_id" integer NOT NULL, "language" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE  INDEX  "index_tournament_languages_on_tournaments_id" ON "tournament_languages"  ("tournaments_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309054835"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContains (20170320034714)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "contains" ("tournament_id" integer NOT NULL, "problem_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170320034714"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompetesIns (20170324052540)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "competes_ins" ("user_id" integer NOT NULL, "tournament_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324052540"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserSubmissions (20170324185759)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "user_submissions" ("timestamp" timestamp NOT NULL, "user_id" integer NOT NULL, "problem_id" integer NOT NULL, "solved" boolean, "language" character varying, "runtime" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324185759"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-17 18:07:37 UTC], ["updated_at", 2017-04-17 18:07:37 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3114933384305455230)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "Sam"], ["email", "Sam@mst.edu"], ["pass", "liabsrtjsrtksrh"], ["created_at", 2017-04-17 18:07:42 UTC], ["updated_at", 2017-04-17 18:07:42 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 10], ["display_name", "John"], ["email", "John@gmail.com"], ["pass", "ohsrtjsrtjsuag"], ["created_at", 2017-04-17 18:07:42 UTC], ["updated_at", 2017-04-17 18:07:42 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 50], ["display_name", "Kellen"], ["email", "Kellen@gmail.com"], ["pass", "ohstrkstksuag"], ["created_at", 2017-04-17 18:07:42 UTC], ["updated_at", 2017-04-17 18:07:42 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 5], ["display_name", "Jordan"], ["email", "Jordan@gmail.com"], ["pass", "ostrkshuag"], ["created_at", 2017-04-17 18:07:42 UTC], ["updated_at", 2017-04-17 18:07:42 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 70], ["display_name", "Shawn"], ["email", "Shawn@gmail.com"], ["pass", "osrtjartkahuag"], ["created_at", 2017-04-17 18:07:42 UTC], ["updated_at", 2017-04-17 18:07:42 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 35], ["display_name", "Kyle"], ["email", "Kyle@gmail.com"], ["pass", "ohutjdtykag"], ["created_at", 2017-04-17 18:07:42 UTC], ["updated_at", 2017-04-17 18:07:42 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 62], ["display_name", "James"], ["email", "James@gmail.com"], ["pass", "trstrjsr"], ["created_at", 2017-04-17 18:07:42 UTC], ["updated_at", 2017-04-17 18:07:42 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 100], ["display_name", "Justin"], ["email", "Justin@gmail.com"], ["pass", "dytkdk"], ["created_at", 2017-04-17 18:07:42 UTC], ["updated_at", 2017-04-17 18:07:42 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 90], ["display_name", "Morgan"], ["email", "Morgan@gmail.com"], ["pass", "tykdldu"], ["created_at", 2017-04-17 18:07:42 UTC], ["updated_at", 2017-04-17 18:07:42 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 200], ["display_name", "Ashley"], ["email", "Ashley@gmail.com"], ["pass", "srtjstyk"], ["created_at", 2017-04-17 18:07:42 UTC], ["updated_at", 2017-04-17 18:07:42 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 350], ["display_name", "Grace"], ["email", "Grace@gmail.com"], ["pass", "srkstksy"], ["created_at", 2017-04-17 18:07:42 UTC], ["updated_at", 2017-04-17 18:07:42 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 600], ["display_name", "Maranda"], ["email", "Maranda@gmail.com"], ["pass", "stjaj"], ["created_at", 2017-04-17 18:07:42 UTC], ["updated_at", 2017-04-17 18:07:42 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "Sam"], ["email", "Sam@mst.edu"], ["pass", "liabsrtjsrtksrh"], ["created_at", 2017-04-17 18:08:03 UTC], ["updated_at", 2017-04-17 18:08:03 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 10], ["display_name", "John"], ["email", "John@gmail.com"], ["pass", "ohsrtjsrtjsuag"], ["created_at", 2017-04-17 18:08:03 UTC], ["updated_at", 2017-04-17 18:08:03 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 50], ["display_name", "Kellen"], ["email", "Kellen@gmail.com"], ["pass", "ohstrkstksuag"], ["created_at", 2017-04-17 18:08:03 UTC], ["updated_at", 2017-04-17 18:08:03 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 5], ["display_name", "Jordan"], ["email", "Jordan@gmail.com"], ["pass", "ostrkshuag"], ["created_at", 2017-04-17 18:08:03 UTC], ["updated_at", 2017-04-17 18:08:03 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 70], ["display_name", "Shawn"], ["email", "Shawn@gmail.com"], ["pass", "osrtjartkahuag"], ["created_at", 2017-04-17 18:08:03 UTC], ["updated_at", 2017-04-17 18:08:03 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 35], ["display_name", "Kyle"], ["email", "Kyle@gmail.com"], ["pass", "ohutjdtykag"], ["created_at", 2017-04-17 18:08:03 UTC], ["updated_at", 2017-04-17 18:08:03 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 62], ["display_name", "James"], ["email", "James@gmail.com"], ["pass", "trstrjsr"], ["created_at", 2017-04-17 18:08:03 UTC], ["updated_at", 2017-04-17 18:08:03 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 100], ["display_name", "Justin"], ["email", "Justin@gmail.com"], ["pass", "dytkdk"], ["created_at", 2017-04-17 18:08:03 UTC], ["updated_at", 2017-04-17 18:08:03 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 90], ["display_name", "Morgan"], ["email", "Morgan@gmail.com"], ["pass", "tykdldu"], ["created_at", 2017-04-17 18:08:03 UTC], ["updated_at", 2017-04-17 18:08:03 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 200], ["display_name", "Ashley"], ["email", "Ashley@gmail.com"], ["pass", "srtjstyk"], ["created_at", 2017-04-17 18:08:03 UTC], ["updated_at", 2017-04-17 18:08:03 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 350], ["display_name", "Grace"], ["email", "Grace@gmail.com"], ["pass", "srkstksy"], ["created_at", 2017-04-17 18:08:03 UTC], ["updated_at", 2017-04-17 18:08:03 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 600], ["display_name", "Maranda"], ["email", "Maranda@gmail.com"], ["pass", "stjaj"], ["created_at", 2017-04-17 18:08:03 UTC], ["updated_at", 2017-04-17 18:08:03 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (7976.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "problems"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (4440.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[35m (178.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_test"[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3114933384305455230);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170308021332)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "users" ("user_id" serial primary key, "university" character varying, "score" integer, "company" character varying, "display_name" character varying NOT NULL, "email" character varying, "pass" character varying, "salt" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170308021332"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProblems (20170309033240)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "problems" ("problem_id" serial primary key, "name" character varying, "score" integer, "problem_description" text, "path" character varying)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "problem_keywords" ("problems_id" integer, "problem_id" integer NOT NULL, "keyword" character varying NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_problem_keywords_on_problems_id" ON "problem_keywords"  ("problems_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "problem_tags" ("problems_id" integer, "problem_id" integer NOT NULL, "tag" character varying NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_problem_tags_on_problems_id" ON "problem_tags"  ("problems_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309033240"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTournaments (20170309054835)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "tournaments" ("tournament_id" integer NOT NULL, "start" timestamp, "end" timestamp, "checktime" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "tournament_languages" ("tournaments_id" integer, "tournament_id" integer NOT NULL, "language" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_tournament_languages_on_tournaments_id" ON "tournament_languages"  ("tournaments_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309054835"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContains (20170320034714)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "contains" ("tournament_id" integer NOT NULL, "problem_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170320034714"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompetesIns (20170324052540)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "competes_ins" ("user_id" integer NOT NULL, "tournament_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324052540"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserSubmissions (20170324185759)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "user_submissions" ("timestamp" timestamp NOT NULL, "user_id" integer NOT NULL, "problem_id" integer NOT NULL, "solved" boolean, "language" character varying, "runtime" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324185759"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-17 18:10:43 UTC], ["updated_at", 2017-04-17 18:10:43 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3114933384305455230)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "Sam"], ["email", "Sam@mst.edu"], ["pass", "liabsrtjsrtksrh"], ["created_at", 2017-04-17 18:10:48 UTC], ["updated_at", 2017-04-17 18:10:48 UTC]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 10], ["display_name", "John"], ["email", "John@gmail.com"], ["pass", "ohsrtjsrtjsuag"], ["created_at", 2017-04-17 18:10:48 UTC], ["updated_at", 2017-04-17 18:10:48 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 50], ["display_name", "Kellen"], ["email", "Kellen@gmail.com"], ["pass", "ohstrkstksuag"], ["created_at", 2017-04-17 18:10:48 UTC], ["updated_at", 2017-04-17 18:10:48 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 5], ["display_name", "Jordan"], ["email", "Jordan@gmail.com"], ["pass", "ostrkshuag"], ["created_at", 2017-04-17 18:10:48 UTC], ["updated_at", 2017-04-17 18:10:48 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 70], ["display_name", "Shawn"], ["email", "Shawn@gmail.com"], ["pass", "osrtjartkahuag"], ["created_at", 2017-04-17 18:10:48 UTC], ["updated_at", 2017-04-17 18:10:48 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 35], ["display_name", "Kyle"], ["email", "Kyle@gmail.com"], ["pass", "ohutjdtykag"], ["created_at", 2017-04-17 18:10:48 UTC], ["updated_at", 2017-04-17 18:10:48 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 62], ["display_name", "James"], ["email", "James@gmail.com"], ["pass", "trstrjsr"], ["created_at", 2017-04-17 18:10:48 UTC], ["updated_at", 2017-04-17 18:10:48 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 100], ["display_name", "Justin"], ["email", "Justin@gmail.com"], ["pass", "dytkdk"], ["created_at", 2017-04-17 18:10:48 UTC], ["updated_at", 2017-04-17 18:10:48 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 90], ["display_name", "Morgan"], ["email", "Morgan@gmail.com"], ["pass", "tykdldu"], ["created_at", 2017-04-17 18:10:48 UTC], ["updated_at", 2017-04-17 18:10:48 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 200], ["display_name", "Ashley"], ["email", "Ashley@gmail.com"], ["pass", "srtjstyk"], ["created_at", 2017-04-17 18:10:48 UTC], ["updated_at", 2017-04-17 18:10:48 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 350], ["display_name", "Grace"], ["email", "Grace@gmail.com"], ["pass", "srkstksy"], ["created_at", 2017-04-17 18:10:48 UTC], ["updated_at", 2017-04-17 18:10:48 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 600], ["display_name", "Maranda"], ["email", "Maranda@gmail.com"], ["pass", "stjaj"], ["created_at", 2017-04-17 18:10:48 UTC], ["updated_at", 2017-04-17 18:10:48 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "Sam"], ["email", "Sam@mst.edu"], ["pass", "liabsrtjsrtksrh"], ["created_at", 2017-04-17 18:11:06 UTC], ["updated_at", 2017-04-17 18:11:06 UTC]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 10], ["display_name", "John"], ["email", "John@gmail.com"], ["pass", "ohsrtjsrtjsuag"], ["created_at", 2017-04-17 18:11:06 UTC], ["updated_at", 2017-04-17 18:11:06 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 50], ["display_name", "Kellen"], ["email", "Kellen@gmail.com"], ["pass", "ohstrkstksuag"], ["created_at", 2017-04-17 18:11:06 UTC], ["updated_at", 2017-04-17 18:11:06 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 5], ["display_name", "Jordan"], ["email", "Jordan@gmail.com"], ["pass", "ostrkshuag"], ["created_at", 2017-04-17 18:11:06 UTC], ["updated_at", 2017-04-17 18:11:06 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 70], ["display_name", "Shawn"], ["email", "Shawn@gmail.com"], ["pass", "osrtjartkahuag"], ["created_at", 2017-04-17 18:11:06 UTC], ["updated_at", 2017-04-17 18:11:06 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 35], ["display_name", "Kyle"], ["email", "Kyle@gmail.com"], ["pass", "ohutjdtykag"], ["created_at", 2017-04-17 18:11:06 UTC], ["updated_at", 2017-04-17 18:11:06 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 62], ["display_name", "James"], ["email", "James@gmail.com"], ["pass", "trstrjsr"], ["created_at", 2017-04-17 18:11:06 UTC], ["updated_at", 2017-04-17 18:11:06 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 100], ["display_name", "Justin"], ["email", "Justin@gmail.com"], ["pass", "dytkdk"], ["created_at", 2017-04-17 18:11:06 UTC], ["updated_at", 2017-04-17 18:11:06 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 90], ["display_name", "Morgan"], ["email", "Morgan@gmail.com"], ["pass", "tykdldu"], ["created_at", 2017-04-17 18:11:06 UTC], ["updated_at", 2017-04-17 18:11:06 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 200], ["display_name", "Ashley"], ["email", "Ashley@gmail.com"], ["pass", "srtjstyk"], ["created_at", 2017-04-17 18:11:06 UTC], ["updated_at", 2017-04-17 18:11:06 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 350], ["display_name", "Grace"], ["email", "Grace@gmail.com"], ["pass", "srkstksy"], ["created_at", 2017-04-17 18:11:06 UTC], ["updated_at", 2017-04-17 18:11:06 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 600], ["display_name", "Maranda"], ["email", "Maranda@gmail.com"], ["pass", "stjaj"], ["created_at", 2017-04-17 18:11:06 UTC], ["updated_at", 2017-04-17 18:11:06 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (194.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[35m (184.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_test"[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3114933384305455230);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170308021332)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "users" ("user_id" serial primary key, "university" character varying, "score" integer, "company" character varying, "display_name" character varying NOT NULL, "email" character varying, "pass" character varying, "salt" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170308021332"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProblems (20170309033240)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "problems" ("problem_id" serial primary key, "name" character varying, "score" integer, "problem_description" text, "path" character varying)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "problem_keywords" ("problems_id" integer, "problem_id" integer NOT NULL, "keyword" character varying NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_problem_keywords_on_problems_id" ON "problem_keywords"  ("problems_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "problem_tags" ("problems_id" integer, "problem_id" integer NOT NULL, "tag" character varying NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_problem_tags_on_problems_id" ON "problem_tags"  ("problems_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309033240"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTournaments (20170309054835)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "tournaments" ("tournament_id" integer NOT NULL, "start" timestamp, "end" timestamp, "checktime" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "tournament_languages" ("tournaments_id" integer, "tournament_id" integer NOT NULL, "language" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_tournament_languages_on_tournaments_id" ON "tournament_languages"  ("tournaments_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309054835"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContains (20170320034714)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "contains" ("tournament_id" integer NOT NULL, "problem_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170320034714"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompetesIns (20170324052540)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "competes_ins" ("user_id" integer NOT NULL, "tournament_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324052540"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserSubmissions (20170324185759)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "user_submissions" ("timestamp" timestamp NOT NULL, "user_id" integer NOT NULL, "problem_id" integer NOT NULL, "solved" boolean, "language" character varying, "runtime" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324185759"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-17 18:11:36 UTC], ["updated_at", 2017-04-17 18:11:36 UTC]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3114933384305455230)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "Sam"], ["email", "Sam@mst.edu"], ["pass", "liabsrtjsrtksrh"], ["created_at", 2017-04-17 18:11:41 UTC], ["updated_at", 2017-04-17 18:11:41 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 10], ["display_name", "John"], ["email", "John@gmail.com"], ["pass", "ohsrtjsrtjsuag"], ["created_at", 2017-04-17 18:11:41 UTC], ["updated_at", 2017-04-17 18:11:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 50], ["display_name", "Kellen"], ["email", "Kellen@gmail.com"], ["pass", "ohstrkstksuag"], ["created_at", 2017-04-17 18:11:41 UTC], ["updated_at", 2017-04-17 18:11:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 5], ["display_name", "Jordan"], ["email", "Jordan@gmail.com"], ["pass", "ostrkshuag"], ["created_at", 2017-04-17 18:11:41 UTC], ["updated_at", 2017-04-17 18:11:41 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 70], ["display_name", "Shawn"], ["email", "Shawn@gmail.com"], ["pass", "osrtjartkahuag"], ["created_at", 2017-04-17 18:11:41 UTC], ["updated_at", 2017-04-17 18:11:41 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 35], ["display_name", "Kyle"], ["email", "Kyle@gmail.com"], ["pass", "ohutjdtykag"], ["created_at", 2017-04-17 18:11:41 UTC], ["updated_at", 2017-04-17 18:11:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 62], ["display_name", "James"], ["email", "James@gmail.com"], ["pass", "trstrjsr"], ["created_at", 2017-04-17 18:11:41 UTC], ["updated_at", 2017-04-17 18:11:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 100], ["display_name", "Justin"], ["email", "Justin@gmail.com"], ["pass", "dytkdk"], ["created_at", 2017-04-17 18:11:41 UTC], ["updated_at", 2017-04-17 18:11:41 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 90], ["display_name", "Morgan"], ["email", "Morgan@gmail.com"], ["pass", "tykdldu"], ["created_at", 2017-04-17 18:11:41 UTC], ["updated_at", 2017-04-17 18:11:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 200], ["display_name", "Ashley"], ["email", "Ashley@gmail.com"], ["pass", "srtjstyk"], ["created_at", 2017-04-17 18:11:41 UTC], ["updated_at", 2017-04-17 18:11:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 350], ["display_name", "Grace"], ["email", "Grace@gmail.com"], ["pass", "srkstksy"], ["created_at", 2017-04-17 18:11:41 UTC], ["updated_at", 2017-04-17 18:11:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 600], ["display_name", "Maranda"], ["email", "Maranda@gmail.com"], ["pass", "stjaj"], ["created_at", 2017-04-17 18:11:41 UTC], ["updated_at", 2017-04-17 18:11:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "problems" ("name", "score", "problem_description") VALUES ($1, $2, $3) RETURNING "problem_id"[0m  [["name", "Test_problem_1"], ["score", 1], ["problem_description", "stuff"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (194.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_development"[0m
+  [1m[35m (181.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jje_test"[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3114933384305455230);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170308021332)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "users" ("user_id" serial primary key, "university" character varying, "score" integer, "company" character varying, "display_name" character varying NOT NULL, "email" character varying, "pass" character varying, "salt" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170308021332"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProblems (20170309033240)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "problems" ("problem_id" serial primary key, "name" character varying, "score" integer, "problem_description" text, "path" character varying)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "problem_keywords" ("problems_id" integer, "problem_id" integer NOT NULL, "keyword" character varying NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_problem_keywords_on_problems_id" ON "problem_keywords"  ("problems_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "problem_tags" ("problems_id" integer, "problem_id" integer NOT NULL, "tag" character varying NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_problem_tags_on_problems_id" ON "problem_tags"  ("problems_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309033240"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTournaments (20170309054835)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "tournaments" ("tournament_id" integer NOT NULL, "start" timestamp, "end" timestamp, "checktime" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "tournament_languages" ("tournaments_id" integer, "tournament_id" integer NOT NULL, "language" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_tournament_languages_on_tournaments_id" ON "tournament_languages"  ("tournaments_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170309054835"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateContains (20170320034714)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "contains" ("tournament_id" integer NOT NULL, "problem_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170320034714"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompetesIns (20170324052540)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "competes_ins" ("user_id" integer NOT NULL, "tournament_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324052540"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserSubmissions (20170324185759)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "user_submissions" ("timestamp" timestamp NOT NULL, "user_id" integer NOT NULL, "problem_id" integer NOT NULL, "solved" boolean, "language" character varying, "runtime" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170324185759"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-17 18:16:22 UTC], ["updated_at", 2017-04-17 18:16:22 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3114933384305455230)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "Sam"], ["email", "Sam@mst.edu"], ["pass", "liabsrtjsrtksrh"], ["created_at", 2017-04-17 18:16:40 UTC], ["updated_at", 2017-04-17 18:16:40 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 10], ["display_name", "John"], ["email", "John@gmail.com"], ["pass", "ohsrtjsrtjsuag"], ["created_at", 2017-04-17 18:16:40 UTC], ["updated_at", 2017-04-17 18:16:40 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 50], ["display_name", "Kellen"], ["email", "Kellen@gmail.com"], ["pass", "ohstrkstksuag"], ["created_at", 2017-04-17 18:16:40 UTC], ["updated_at", 2017-04-17 18:16:40 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 5], ["display_name", "Jordan"], ["email", "Jordan@gmail.com"], ["pass", "ostrkshuag"], ["created_at", 2017-04-17 18:16:40 UTC], ["updated_at", 2017-04-17 18:16:40 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 70], ["display_name", "Shawn"], ["email", "Shawn@gmail.com"], ["pass", "osrtjartkahuag"], ["created_at", 2017-04-17 18:16:40 UTC], ["updated_at", 2017-04-17 18:16:40 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 35], ["display_name", "Kyle"], ["email", "Kyle@gmail.com"], ["pass", "ohutjdtykag"], ["created_at", 2017-04-17 18:16:40 UTC], ["updated_at", 2017-04-17 18:16:40 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 62], ["display_name", "James"], ["email", "James@gmail.com"], ["pass", "trstrjsr"], ["created_at", 2017-04-17 18:16:40 UTC], ["updated_at", 2017-04-17 18:16:40 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 100], ["display_name", "Justin"], ["email", "Justin@gmail.com"], ["pass", "dytkdk"], ["created_at", 2017-04-17 18:16:40 UTC], ["updated_at", 2017-04-17 18:16:40 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 90], ["display_name", "Morgan"], ["email", "Morgan@gmail.com"], ["pass", "tykdldu"], ["created_at", 2017-04-17 18:16:40 UTC], ["updated_at", 2017-04-17 18:16:40 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 200], ["display_name", "Ashley"], ["email", "Ashley@gmail.com"], ["pass", "srtjstyk"], ["created_at", 2017-04-17 18:16:40 UTC], ["updated_at", 2017-04-17 18:16:40 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 350], ["display_name", "Grace"], ["email", "Grace@gmail.com"], ["pass", "srkstksy"], ["created_at", 2017-04-17 18:16:40 UTC], ["updated_at", 2017-04-17 18:16:40 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 600], ["display_name", "Maranda"], ["email", "Maranda@gmail.com"], ["pass", "stjaj"], ["created_at", 2017-04-17 18:16:40 UTC], ["updated_at", 2017-04-17 18:16:40 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "problems" ("name", "score", "problem_description", "path") VALUES ($1, $2, $3, $4) RETURNING "problem_id"[0m  [["name", "Test_problem_1"], ["score", 1], ["problem_description", "stuff"], ["path", "some path"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 0], ["display_name", "Sam"], ["email", "Sam@mst.edu"], ["pass", "liabsrtjsrtksrh"], ["created_at", 2017-04-17 18:19:29 UTC], ["updated_at", 2017-04-17 18:19:29 UTC]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 10], ["display_name", "John"], ["email", "John@gmail.com"], ["pass", "ohsrtjsrtjsuag"], ["created_at", 2017-04-17 18:19:29 UTC], ["updated_at", 2017-04-17 18:19:29 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 50], ["display_name", "Kellen"], ["email", "Kellen@gmail.com"], ["pass", "ohstrkstksuag"], ["created_at", 2017-04-17 18:19:29 UTC], ["updated_at", 2017-04-17 18:19:29 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 5], ["display_name", "Jordan"], ["email", "Jordan@gmail.com"], ["pass", "ostrkshuag"], ["created_at", 2017-04-17 18:19:29 UTC], ["updated_at", 2017-04-17 18:19:29 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 70], ["display_name", "Shawn"], ["email", "Shawn@gmail.com"], ["pass", "osrtjartkahuag"], ["created_at", 2017-04-17 18:19:29 UTC], ["updated_at", 2017-04-17 18:19:29 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 35], ["display_name", "Kyle"], ["email", "Kyle@gmail.com"], ["pass", "ohutjdtykag"], ["created_at", 2017-04-17 18:19:29 UTC], ["updated_at", 2017-04-17 18:19:29 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 62], ["display_name", "James"], ["email", "James@gmail.com"], ["pass", "trstrjsr"], ["created_at", 2017-04-17 18:19:29 UTC], ["updated_at", 2017-04-17 18:19:29 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 100], ["display_name", "Justin"], ["email", "Justin@gmail.com"], ["pass", "dytkdk"], ["created_at", 2017-04-17 18:19:29 UTC], ["updated_at", 2017-04-17 18:19:29 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 90], ["display_name", "Morgan"], ["email", "Morgan@gmail.com"], ["pass", "tykdldu"], ["created_at", 2017-04-17 18:19:29 UTC], ["updated_at", 2017-04-17 18:19:29 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 200], ["display_name", "Ashley"], ["email", "Ashley@gmail.com"], ["pass", "srtjstyk"], ["created_at", 2017-04-17 18:19:29 UTC], ["updated_at", 2017-04-17 18:19:29 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 350], ["display_name", "Grace"], ["email", "Grace@gmail.com"], ["pass", "srkstksy"], ["created_at", 2017-04-17 18:19:29 UTC], ["updated_at", 2017-04-17 18:19:29 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("university", "score", "display_name", "email", "pass", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "user_id"[0m  [["university", "Missouri S&T"], ["score", 600], ["display_name", "Maranda"], ["email", "Maranda@gmail.com"], ["pass", "stjaj"], ["created_at", 2017-04-17 18:19:29 UTC], ["updated_at", 2017-04-17 18:19:29 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "problems" ("name", "score", "problem_description", "path") VALUES ($1, $2, $3, $4) RETURNING "problem_id"[0m  [["name", "Test_problem_1"], ["score", 1], ["problem_description", "stuff"], ["path", "some path"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "problems" ("name", "score", "problem_description", "path") VALUES ($1, $2, $3, $4) RETURNING "problem_id"[0m  [["name", "Test_problem_2"], ["score", 1], ["problem_description", "stuff and"], ["path", "some path"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "problems" ("name", "score", "problem_description", "path") VALUES ($1, $2, $3, $4) RETURNING "problem_id"[0m  [["name", "Test_problem_3"], ["score", 1], ["problem_description", "stuff and things"], ["path", "some path"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "problems" ("name", "score", "problem_description", "path") VALUES ($1, $2, $3, $4) RETURNING "problem_id"[0m  [["name", "Test_problem_4"], ["score", 1], ["problem_description", "stuff and thing like"], ["path", "some path"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "problems" ("name", "score", "problem_description", "path") VALUES ($1, $2, $3, $4) RETURNING "problem_id"[0m  [["name", "Test_problem_5"], ["score", 1], ["problem_description", "stuff and things like that"], ["path", "some path"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "problems" ("name", "score", "problem_description", "path") VALUES ($1, $2, $3, $4) RETURNING "problem_id"[0m  [["name", "Test_problem_6"], ["score", 1], ["problem_description", "stuff and things like that for"], ["path", "some path"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "problems" ("name", "score", "problem_description", "path") VALUES ($1, $2, $3, $4) RETURNING "problem_id"[0m  [["name", "Test_problem_7"], ["score", 1], ["problem_description", "stuff and things like that for all"], ["path", "some path"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "problems" ("name", "score", "problem_description", "path") VALUES ($1, $2, $3, $4) RETURNING "problem_id"[0m  [["name", "Test_problem_8"], ["score", 1], ["problem_description", "stuff and things like that for all people"], ["path", "some path"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "problems" ("name", "score", "problem_description", "path") VALUES ($1, $2, $3, $4) RETURNING "problem_id"[0m  [["name", "Test_problem_9"], ["score", 1], ["problem_description", "stuff and things like that for all people on"], ["path", "some path"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "problems" ("name", "score", "problem_description", "path") VALUES ($1, $2, $3, $4) RETURNING "problem_id"[0m  [["name", "Test_problem_10"], ["score", 1], ["problem_description", "stuff and things like that for all people on Earth"], ["path", "some path"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
