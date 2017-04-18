@@ -104,63 +104,115 @@ def main():
         exit(1)
 
     # TODO: Logging
-    # TODO: Compile code
-    # TODO: Run code
-    # TODO: Diff output
-    # TODO: Floating-point validation
 
 
-def java(main_file, input_file, output_file_name):
+def c(input_file):
+    completed_process = run(Language.C.compile_command.format(PROGRAM_EXECUTABLE_NAME),
+                            stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
+
+    if completed_process.returncode != 0:
+        exit(1)
+
     completed_process = \
-        run(JAVA_COMPILE_COMMAND,
+        run(Language.C.run_command.format(PROGRAM_EXECUTABLE_NAME, input_file, PROGRAM_OUTPUT_FILENAME),
             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
+
+    if completed_process.returncode != 0:
+        exit(1)
+
+
+def cpp(input_file):
+    completed_process = \
+        run(Language.CPP.compile_command.format(PROGRAM_EXECUTABLE_NAME),
+            stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
+
+    if completed_process.returncode != 0:
+        exit(1)
+
+    completed_process = \
+        run(Language.CPP.run_command.format(PROGRAM_EXECUTABLE_NAME, input_file, PROGRAM_OUTPUT_FILENAME),
+            stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
+
+    if completed_process.returncode != 0:
+        exit(1)
+
+
+def java(input_file):
+    completed_process = \
+        run(Language.JAVA.compile_command, stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
         exit(1)
 
     # The [:-5] slice is to remove the '.java' ending from the main file
     completed_process = \
-        run(JAVA_RUN_COMMAND.format(main_file[:-5], input_file, output_file_name),
+        run(Language.JAVA.run_command.format(MAIN_FILE[:-5], input_file, PROGRAM_OUTPUT_FILENAME),
             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
         exit(1)
 
 
-def python2(script_file, input_file, output_file_name):
+def python2(input_file):
     # Python is interpreted, so no need to compile
-
-    completed_process = run(PYTHON2_RUN_COMMAND.format(script_file, input_file, output_file_name),
+    completed_process = run(Language.PYTHON_2.run_command.format(MAIN_FILE, input_file, PROGRAM_OUTPUT_FILENAME),
                             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
         exit(1)
 
 
-def python3(script_file, input_file, output_file_name):
+def python3(input_file):
     # Python is interpreted, so no need to compile
-
-    completed_process = run(PYTHON3_RUN_COMMAND.format(script_file, input_file, output_file_name),
+    completed_process = run(Language.PYTHON_3.run_command.format(MAIN_FILE, input_file, PROGRAM_OUTPUT_FILENAME),
                             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
         exit(1)
 
 
-def cpp(executable_name, input_file, output_file_name):
-    completed_process = \
-        run(CPP_COMPILE_COMMAND.format(executable_name),
-            stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
+def c_sharp(input_file):
+    pass
 
-    if completed_process.returncode != 0:
-        exit(1)
 
-    completed_process = \
-        run(CPP_RUN_COMMAND.format(executable_name,input_file, output_file_name),
-            stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
+def d(input_file):
+    pass
 
-    if completed_process.returncode != 0:
-        exit(1)
+
+def go(input_file):
+    pass
+
+
+def ruby(input_file):
+    pass
+
+
+def pascal(input_file):
+    pass
+
+
+def javascript(input_file):
+    pass
+
+
+def scala(input_file):
+    pass
+
+
+def php(input_file):
+    pass
+
+
+def haskell(input_file):
+    pass
+
+
+def lisp(input_file):
+    pass
+
+
+def lua(input_file):
+    pass
 
 
 def compare_output(solution_filename, program_output_filename, delta):
