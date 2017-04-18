@@ -43,6 +43,12 @@ class Language(Enum):
 
 
 def main():
+    # Create the language->function dictionary
+    functions = {Language.C: c, Language.CPP: cpp, Language.JAVA: java, Language.PYTHON_2: python2, 
+                 Language.PYTHON_3: python3, Language.C_SHARP: c_sharp, Language.D: d, Language.GO: go, 
+                 Language.RUBY: ruby, Language.PASCAL: pascal, Language.JAVASCRIPT: javascript, Language.SCALA: scala,
+                 Language.PHP: php, Language.HASKELL: haskell, Language.LISP: lisp, Language.LUA: lua}
+    
     # Declare the globals
     global PROGRAM_EXECUTABLE_NAME
     global PROGRAM_OUTPUT_FILENAME
@@ -53,7 +59,8 @@ def main():
     # TODO: Parse cli arguments
     parser = argparse.ArgumentParser(description="A grading script to judge programming problems")
 
-    parser.add_argument("language", help="For a list of supported languages, see the website")
+    parser.add_argument("language", help="Any of these languages: {}".format(
+        [name for name, value in Language.__members__.items()]))
     parser.add_argument("input_file", help="The input file to be fed to the user's code")
     parser.add_argument("-o", "--output_file", help="The file to have the user's code output to. "
                                                     "Defaults to \"program_output.txt\"",
@@ -72,8 +79,7 @@ def main():
                                         "Defaults to .001", default=.001)
     args = parser.parse_args()
 
-    # TODO: Convert this to an enum call
-    language = args.language.lower()
+    language = args.language.upper()
     input_file = args.input_file
     MAIN_FILE = args.main_file
     PROGRAM_EXECUTABLE_NAME = args.executable
@@ -81,6 +87,21 @@ def main():
     SOLUTION_FILENAME = args.solution_file
     DIFF_COMMAND = args.diff_command
     delta = args.delta
+
+    # Grab the given language from the enum
+    try:
+        language = Language[language]
+        
+        # Call the appropriate function based on language
+        functions[language](input_file)
+        
+        # Perform output validation
+        return_code = compare_output(SOLUTION_FILENAME, PROGRAM_OUTPUT_FILENAME, delta)
+        
+        return return_code
+    except KeyError:
+        print("Language \"{}\" is not supported".format(language))
+        exit(1)
 
     # TODO: Logging
     # TODO: Compile code
