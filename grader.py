@@ -1,6 +1,7 @@
 from subprocess import run, PIPE
 import argparse
 import re
+from enum import Enum
 
 MAIN_FILE = None
 PROGRAM_EXECUTABLE_NAME = None
@@ -13,6 +14,32 @@ CPP_COMPILE_COMMAND = "g++ *.cpp -std=c++11 -o {}".format(PROGRAM_EXECUTABLE_NAM
 CPP_RUN_COMMAND = "./{} < {} > {}"
 PYTHON2_RUN_COMMAND = "python2 {} < {} > {}"
 PYTHON3_RUN_COMMAND = "python3 {} < {} > {}"
+
+
+# Declare the language enum
+class Language(Enum):
+    C = ("gcc *.c -o {}", "./{} < {} > {}")
+    CPP = ("g++ *.cpp -std=c++11 -o {}", "./{} < {} > {}")
+    JAVA = ("javac *.java", "java {} < {} > {}")
+    PYTHON_2 = (None, "python3 {} < {} > {}")
+    PYTHON_3 = (None, "python3 {} < {} > {}")
+    
+    # TODO: @Kellen, figure out the commands. Format is (COMPILE_COMMAND, RUN_COMMAND)
+    C_SHARP = (None, None)
+    D = (None, None)
+    GO = (None, None)
+    RUBY = (None, None)
+    PASCAL = (None, None)
+    JAVASCRIPT = (None, None)
+    SCALA = (None, None)
+    PHP = (None, None)
+    HASKELL = (None, None)
+    LISP = (None, None)
+    LUA = (None, None)
+
+    def __init__(self, compile_command, run_command):
+        self.compile_command = compile_command
+        self.run_command = run_command
 
 
 def main():
