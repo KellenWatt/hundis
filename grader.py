@@ -1,7 +1,7 @@
 from subprocess import run, PIPE
 import argparse
 import re
-from enum import Enum
+from enum import Enum, IntEnum
 
 MAIN_FILE = None
 PROGRAM_EXECUTABLE_NAME = None
@@ -14,6 +14,14 @@ CPP_COMPILE_COMMAND = "g++ *.cpp -std=c++11 -o {}".format(PROGRAM_EXECUTABLE_NAM
 CPP_RUN_COMMAND = "./{} < {} > {}"
 PYTHON2_RUN_COMMAND = "python2 {} < {} > {}"
 PYTHON3_RUN_COMMAND = "python3 {} < {} > {}"
+
+
+# Declare the judgement return code enum
+class Judgement(IntEnum):
+    ACCEPTED = 0
+    COMPILE_ERROR = 1
+    RUNTIME_ERROR = 2
+    WRONG_ANSWER = 3
 
 
 # Declare the language enum
@@ -111,14 +119,14 @@ def c(input_file):
                             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
-        exit(1)
+        exit(Judgement.COMPILE_ERROR)
 
     completed_process = \
         run(Language.C.run_command.format(PROGRAM_EXECUTABLE_NAME, input_file, PROGRAM_OUTPUT_FILENAME),
             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
-        exit(1)
+        exit(Judgement.RUNTIME_ERROR)
 
 
 def cpp(input_file):
@@ -127,14 +135,14 @@ def cpp(input_file):
             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
-        exit(1)
+        exit(Judgement.COMPILE_ERROR)
 
     completed_process = \
         run(Language.CPP.run_command.format(PROGRAM_EXECUTABLE_NAME, input_file, PROGRAM_OUTPUT_FILENAME),
             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
-        exit(1)
+        exit(Judgement.RUNTIME_ERROR)
 
 
 def java(input_file):
@@ -145,7 +153,7 @@ def java(input_file):
         run(Language.JAVA.compile_command, stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
-        exit(1)
+        exit(Judgement.COMPILE_ERROR)
 
     # The [:-5] slice is to remove the '.java' ending from the main file
     completed_process = \
@@ -153,7 +161,7 @@ def java(input_file):
             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
-        exit(1)
+        exit(Judgement.RUNTIME_ERROR)
 
 
 def python2(input_file):
@@ -165,19 +173,19 @@ def python2(input_file):
                             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
-        exit(1)
+        exit(Judgement.RUNTIME_ERROR)
 
 
 def python3(input_file):
     if MAIN_FILE is None:
         exit(1)
-        
+
     # Python is interpreted, so no need to compile
     completed_process = run(Language.PYTHON_3.run_command.format(MAIN_FILE, input_file, PROGRAM_OUTPUT_FILENAME),
                             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
-        exit(1)
+        exit(Judgement.RUNTIME_ERROR)
 
 
 def c_sharp(input_file):
@@ -231,7 +239,7 @@ def compare_output(solution_filename, program_output_filename, delta):
     if completed_process.returncode != 0:
         return floating_point_validation(solution_filename, program_output_filename, delta)
 
-    return True
+    return Judgement.ACCEPTED
 
 
 def floating_point_validation(solution_filename, program_output_filename, delta=.001):
@@ -247,10 +255,10 @@ def floating_point_validation(solution_filename, program_output_filename, delta=
 
     if len(solution_floats) == 0:
         # No floats to look at
-        return False
+        return Judgement.WRONG_ANSWER
     elif len(solution_floats) != len(program_floats):
         # Output is certainly wrong, there aren't the same number of floats
-        return False
+        return Judgement.WRONG_ANSWER
 
     # Same number of floats
     for i in range(len(solution_floats)):
@@ -271,10 +279,10 @@ def floating_point_validation(solution_filename, program_output_filename, delta=
 
         # Check if the program output is within that window
         if not (window[0] <= program_answer <= window[1]):
-            return False
+            return Judgement.WRONG_ANSWER
 
     # Reached the end without returning false, return true
-    return True
+    return Judgement.ACCEPTED
 
 
 if __name__ == "__main__":
