@@ -163,12 +163,12 @@ def cpp(executable_name, input_file, output_file_name):
         exit(1)
 
 
-def compare_output(solution_filename, program_output_filename):
+def compare_output(solution_filename, program_output_filename, delta):
     completed_process = run(DIFF_COMMAND.format(program_output_filename, solution_filename),
                             shell=True, stdout=PIPE, stderr=PIPE)
 
     if completed_process.returncode != 0:
-        return floating_point_validation(solution_filename, program_output_filename)
+        return floating_point_validation(solution_filename, program_output_filename, delta)
 
     return True
 
