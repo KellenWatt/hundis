@@ -138,6 +138,9 @@ def cpp(input_file):
 
 
 def java(input_file):
+    if MAIN_FILE is None:
+        exit(1)
+
     completed_process = \
         run(Language.JAVA.compile_command, stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
@@ -154,6 +157,9 @@ def java(input_file):
 
 
 def python2(input_file):
+    if MAIN_FILE is None:
+        exit(1)
+
     # Python is interpreted, so no need to compile
     completed_process = run(Language.PYTHON_2.run_command.format(MAIN_FILE, input_file, PROGRAM_OUTPUT_FILENAME),
                             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
@@ -163,6 +169,9 @@ def python2(input_file):
 
 
 def python3(input_file):
+    if MAIN_FILE is None:
+        exit(1)
+        
     # Python is interpreted, so no need to compile
     completed_process = run(Language.PYTHON_3.run_command.format(MAIN_FILE, input_file, PROGRAM_OUTPUT_FILENAME),
                             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
