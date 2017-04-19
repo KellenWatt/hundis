@@ -8,8 +8,8 @@
 
 
 	# The following comments are how to create a sseed
-# User(user_id: integer, university: string, score: integer, 
-# company: string, display_name: string, email: string, pass: string, 
+# User(user_id: integer, university: string, score: integer,
+# company: string, display_name: string, email: string, pass: string,
 # salt: string, created_at: datetime, updated_at: datetime)
 
 User.create(university: 'Missouri S&T', score: 0, display_name: 'Sam', email: 'Sam@mst.edu', pass: 'liabsrtjsrtksrh')
