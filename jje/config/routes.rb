@@ -1,6 +1,11 @@
 #
 # def
 #
+def user_translator(params)
+  @user =
+  @user ? @user.user_id : 0
+end
+
 
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -39,18 +44,18 @@ Rails.application.routes.draw do
   post  '/problems/:id/submit/output',  to: 'problems#uploadOutput',  id: id_cnstrt
 
   # Users Subsection
-  get   '/users/:id',                 to: 'users#show',         id: id_cnstrt,  as: :user
-  get   '/users/:username/(*all)',    to: redirect('/temp') # TODO: reprocess names to IDs
-  get   '/users/:id/edit',            to: 'users#edit',         id: id_cnstrt
-  put   '/users/:id',                 to: 'users#update',       id: id_cnstrt
-  get   '/users/:id/submissions',     to: 'users#submissions',  id: id_cnstrt
+  get   '/users/:id',                   to: 'users#show',             id: id_cnstrt,  as: :user
+  get   '/users/:id/edit',              to: 'users#edit',             id: id_cnstrt,  as: :edit_user
+  put   '/users/:id',                   to: 'users#update',           id: id_cnstrt,  as: :update_user
+  get   '/users/:id/submissions',       to: 'users#submissions',      id: id_cnstrt,  as: :submissions_user
+  get   '/users/:username/(*all)',      to: 'users#name_to_id'
 
   # Tournaments Subsection
   get   '/tournaments/new',             to: 'tournaments#new'
   post  '/tournaments',                 to: 'tournaments#create'
   get   '/tournaments/:id',             to: 'tournaments#show',     id: id_cnstrt
   get   '/tournaments/:id/statistics',  to: 'tournaments#stats',    id: id_cnstrt
-  
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
