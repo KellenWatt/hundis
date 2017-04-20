@@ -25,5 +25,19 @@
   <%= @problem.path %>
 </p>
 
-<%= link_to 'Edit', edit_problem_path(@problem) %> |
+<p>
+  <strong>Keywords:</strong>
+  <% @keywords.each do |kw| %>
+    <span class="problem-keyword"><%= kw.keyword %></span>
+  <% end %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <% @tags.each do |tg| %>
+    <span class="problem-tag"><%= tg.keyword %></span>
+  <% end %>
+</p>
+
+<%= link_to 'Upload Solution', upload_problem_path(@problem) %> |
 <%= link_to 'Back', problems_path %>
