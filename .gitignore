@@ -50,3 +50,10 @@ bower.json
 # To prevent Kellen's backup format from interfering
 # ignores dotfiles
 .*.*
+
+# Ignore Mac junk
+.DS_Store
+
+# Ignore devlog
+
+*/log/development.log
