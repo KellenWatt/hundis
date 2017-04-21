@@ -1,40 +1,34 @@
 <div class="panel panel-info">
     <div class="panel-heading">
         <h2 class="panel-title">Upload Solution</h2>
-        <h3><strong>Problem:</strong> #<%= @problem.problem_id %>: <%= @problem.name %></h3>
+        <h4><strong>Problem:</strong> #<%= @problem.problem_id %>: <%= link_to(@problem.name, problem_path(@problem)) %></h4>
     </div>
-    
+
     <div class="row container">
         <div class="col-md-6 center-text">
             <h3>Upload Code</h3>
-            <form method="POST" action="/problems/<%= @problem.problem_id %>/submit/code">
-                <label for="uploadCode_language">Language</label>
-                <select required name="language" id="uploadCode_language">
-                    <%= render "snippets/language_options" %>
-                </select>
-                
-                <label for="uploadCode_main">Main File</label>
-                <input required type="file" name="main" id="uploadCode_main">
-                
-                <label for="uploadCode_support">Support Files</label>
-                <input multiple type="file" name="support" id="uploadCode_support">
-                
+            <%= form_tag(uploadCode_problem_path(@problem), method: "post", multipart: true) do %>
+                <%= label_tag(:language, "Language") %>
+                <%= select_tag(:language, options_for_select(LanguageOptions)) %>
+
+                <%= label_tag(:main, "Main File") %>
+                <%= file_field_tag(:main) %>
+
+                <%= label_tag('support[]', "Support Files") %>
+                <%= file_field_tag('support[]', multiple: true) %>
                 <hr />
-                <button type="submit">Submit</button>
-                <button type="reset">Reset</button>
-            </form>
-            
+                <%= submit_tag("Submit") %><%= submit_tag("Reset", { :name => 'reset', :type => 'reset' }) %>
+            <% end %>
+
         </div>
         <div class="col-md-5 center-text">
             <h3>Upload Output</h3>
-            <form action="POST" action="/problems/<%= @problem.problem_id %>/submit/output">
-                <label for="uploadOutput_output">Output</label>
-                <input required type="file" name="output" id="uploadOutput_output">
-                    
-                    <hr />
-                    <button type="submit">Submit</button>
-                    <button type="reset">Reset</button>
-          </form>
+            <%= form_tag(uploadOutput_problem_path(@problem), method: "post", multipart: true) do %>
+                <%= label_tag(:output, "Output") %>
+                <%= file_field_tag(:output) %>
+                <hr />
+                <%= submit_tag("Submit") %>
+          <% end %>
         </div>
     </div>
 </div>
