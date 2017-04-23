@@ -26,8 +26,6 @@ Rails.application.routes.draw do
   get   '/auth/failure',  to: redirect('/auth/login')
   get   '/auth/:provider/callback',  to: 'sessions#create'
 
-  resources :sessions, only: [:create, :destroy]
-
 
   # Subsection Homepages
   get   '/problems',    to: 'static_pages#problems',    as: :problems
