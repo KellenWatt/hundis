@@ -7,7 +7,6 @@
 	<section>
 		<h3>All Users</h3>
 		<table class="table table-striped">
-
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -34,7 +33,7 @@
 		<nav aria-label="Page navigation">
 			<ul class="pagination">
 				<li class="<%= (@pg > 1) ? '' : 'disabled' %>">
-					<%= link_to(users_path(pg: @pg - 1)) do %>
+					<%= link_to(@pg > 1 ? users_path(pg: @pg - 1) : '#') do %>
 						<span aria-hidden="true">&laquo;</span>
 					<% end %>
 				</li>
@@ -45,13 +44,13 @@
 
 				<li class="disabled"><%= link_to(@pg, '#') %></li>
 
-				<% ((@pg + 1)..(@pg_count + 1)).each do |i| %>
+				<% ((@pg + 1)..(@pg_count)).each do |i| %>
 					<li><%= link_to(i, users_path(pg: i)) %></li>
 				<% end %>
 
 
-				<li class="<%= (@pg < (@pg_count + 1)) ? '' : 'disabled' %>">
-					<%= link_to(users_path(pg: @pg + 1)) do %>
+				<li class="<%= (@pg < @pg_count) ? '' : 'disabled' %>">
+					<%= link_to(@pg < @pg_count ? users_path(pg: @pg + 1) : '#') do %>
 						<span aria-hidden="true">&raquo;</span>
 					<% end %>
 				</li>

@@ -1,3 +1,53 @@
 <h1>Problems</h1>
-<p>Find me in app/views/static_pages/problems.html.erb</p>
 
+<article>
+	<section>
+		<h3>All Problems</h3>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Value</th>
+					<th>Solves</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @problems.each do |prob| %>
+				<tr>
+					<td><%= prob.problem_id %></td>
+					<td><%= link_to(prob.name, problem_path(prob.problem_id)) %></td>
+					<td><%= prob.score %></td>
+					<td>TODO<!-- TODO: get solves --></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<nav aria-label="Page navigation">
+			<ul class="pagination">
+				<li class="<%= (@pg > 1) ? '' : 'disabled' %>">
+					<%= link_to(@pg > 1 ? problems_path(pg: @pg - 1) : '#') do %>
+						<span aria-hidden="true">&laquo;</span>
+					<% end %>
+				</li>
+
+				<% (1..(@pg - 1)).each do |i| %>
+					<li><%= link_to(i, problems_path(pg: i)) %></li>
+				<% end %>
+
+				<li class="disabled"><%= link_to(@pg, '#') %></li>
+
+				<% ((@pg + 1)..(@pg_count)).each do |i| %>
+					<li><%= link_to(i, problems_path(pg: i)) %></li>
+				<% end %>
+
+
+				<li class="<%= (@pg < @pg_count) ? '' : 'disabled' %>">
+					<%= link_to(@pg < @pg_count ? problems_path(pg: @pg + 1) : '#') do %>
+						<span aria-hidden="true">&raquo;</span>
+					<% end %>
+				</li>
+			</ul>
+		</nav>
+	</section>
+</article>
