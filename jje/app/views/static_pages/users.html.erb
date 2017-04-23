@@ -7,24 +7,55 @@
 	<section>
 		<h3>All Users</h3>
 		<table class="table table-striped">
+
 			<thead>
 				<tr>
-					<th>Rank</th>
+					<th>ID</th>
 					<th>User</th>
-					<th>Org</th>
+					<th>University</th>
+					<th>Company</th>
+					<th>Rank</th>
 					<th>Score</th>
 				</tr>
 			</thead>
 			<tbody>
+				<% @users.each do |user| %>
 				<tr>
-					<td>1</td>
-					<td><a href="/users/skgrush">skgrush</a></td>
-					<td><i>&lt;indie&gt;<i></td>
-					<td>9001</td>
+					<td><%= user.user_id %></td>
+					<td><%= link_to(user.display_name, user_path(user.user_id)) %></td>
+					<td><%= user.university %></td>
+					<td><%= user.company %></td>
+					<td>TODO<!-- TODO: get rank --></td>
+					<td>TODO<!-- TODO: get score --></td>
 				</tr>
-				<!-- ... -->
+				<% end %>
 			</tbody>
 		</table>
+		<nav aria-label="Page navigation">
+			<ul class="pagination">
+				<li class="<%= (@pg > 1) ? '' : 'disabled' %>">
+					<%= link_to(users_path(pg: @pg - 1)) do %>
+						<span aria-hidden="true">&laquo;</span>
+					<% end %>
+				</li>
+
+				<% (1..(@pg - 1)).each do |i| %>
+					<li><%= link_to(i, users_path(pg: i)) %></li>
+				<% end %>
+
+				<li class="disabled"><%= link_to(@pg, '#') %></li>
+
+				<% ((@pg + 1)..(@pg_count + 1)).each do |i| %>
+					<li><%= link_to(i, users_path(pg: i)) %></li>
+				<% end %>
+
+
+				<li class="<%= (@pg < (@pg_count + 1)) ? '' : 'disabled' %>">
+					<%= link_to(users_path(pg: @pg + 1)) do %>
+						<span aria-hidden="true">&raquo;</span>
+					<% end %>
+				</li>
+			</ul>
+		</nav>
 	</section>
 </article>
-

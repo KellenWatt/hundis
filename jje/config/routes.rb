@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   get   '/users/:id/edit',              to: 'users#edit',             id: id_cnstrt,  as: :edit_user
   put   '/users/:id',                   to: 'users#update',           id: id_cnstrt,  as: :update_user
   get   '/users/:id/submissions',       to: 'users#submissions',      id: id_cnstrt,  as: :submissions_user
-  get   '/users/:username/(*all)',      to: 'users#name_to_id', username: nonid_cnst
+  match '/users/:username/(*all)',      to: 'users#name_to_id', username: nonid_cnst, via: [:get, :put]
 
   # Tournaments Subsection
   get   '/tournaments/new',             to: 'tournaments#new',                        as: :new_tournament
