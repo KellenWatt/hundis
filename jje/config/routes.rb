@@ -1,6 +1,3 @@
-#
-# def
-#
 
 Rails.application.routes.draw do
   devise_scope :user do
@@ -10,7 +7,10 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  # contains only digits
   id_cnstrt = /\d+/
+  # contains at least one non-digit
+  nonid_cnst = /[^\/]*[^\d\/][^\/]*/
 
 
   root  'static_pages#Home'
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get   '/auth/logout',   to: 'sessions#destroy',       as: 'logout'
   get   '/auth/register', to: 'static_pages#register',  as: 'register'
   post  '/auth/register', to: 'users#create',           as: :create_user
-  get   '/auth/failure',  to: redirect('/auth/login')
+  get   '/auth/failure',  to: redirect('/auth/login?failed')
   get   '/auth/:provider/callback',  to: 'sessions#create'
 
 
@@ -43,10 +43,10 @@ Rails.application.routes.draw do
 
   # Users Subsection
   get   '/users/:id',                   to: 'users#show',             id: id_cnstrt,  as: :user
-  get   '/users/:username/(*all)',      to: redirect('/temp') # TODO: reprocess names to IDs
   get   '/users/:id/edit',              to: 'users#edit',             id: id_cnstrt,  as: :edit_user
   put   '/users/:id',                   to: 'users#update',           id: id_cnstrt,  as: :update_user
   get   '/users/:id/submissions',       to: 'users#submissions',      id: id_cnstrt,  as: :submissions_user
+  match '/users/:username/(*all)',      to: 'users#name_to_id', username: nonid_cnst, via: [:get, :put]
 
   # Tournaments Subsection
   get   '/tournaments/new',             to: 'tournaments#new',                        as: :new_tournament

@@ -1,24 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /users
-  # GET /users.json
   def index
-    @users = User.all
+
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-  end
-
-  # GET /users/new
-  def new
-    @user = User.new
-  end
-
-  # GET /users/1/edit
-  def edit
   end
 
   # POST /users
@@ -37,9 +26,16 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/edit
+  def edit
+  end
+
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    render_inline "HELLO"
+
+    # TODO: handle user profile edits
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -51,14 +47,14 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  # *VERB* /users/:username/(*all)  =>  *VERB* /users/:id/:all
+  def name_to_id
+      @user = User.where(display_name: params[:username]).first
+      if @user
+        redirect_to "/users/#{@user.user_id}/#{params[:all]}"
+      else
+        raise ActiveRecord::RecordNotFound
+      end
   end
 
   private

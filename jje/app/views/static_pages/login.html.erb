@@ -31,7 +31,7 @@
                     <button id="login-submit" name="login-submit" class="btn btn-info btn-sm pull-right">Log In</button>
                 </fieldset>
             </form>-->
-            <%= form_for(:session, url: "/auth/login", method: "post", class: "form-horizontal ") do |f| %>
+            <%= form_for(:session, url: :login, method: "post", class: "form-horizontal ") do |f| %>
                 <%= f.label :username %>
                 <%= f.text_field :username, class: 'form-control' %>
 
