@@ -1,8 +1,9 @@
 
 Rails.application.routes.draw do
   devise_scope :user do
-    get "/sign_in" => "devise/sessions#new" # custom path to login/sign_in
+    get "/sign_in" => "devise/sessions#new",      as: 'sign_in' # custom path to login/sign_in
     get "/sign_up" => "devise/registrations#new", as: "new_user_registration" # custom path to sign_up/registration
+    get "/sign_out"=> "devise/sessions#destroy",  as: 'sign_out'
   end
 
   devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
 
 
   root  'static_pages#Home'
-  get   '/Home',          to: redirect('/')
+  get   '/Home',          to: redirect('/'),            as: :home
 
 
   # Authorization

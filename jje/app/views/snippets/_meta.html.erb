@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+	<h3>Signed In</h3>
+	<%= current_user().inspect %>
+
+<% else %>
+	<h3>Not Signed In</h3>
+<% end %>

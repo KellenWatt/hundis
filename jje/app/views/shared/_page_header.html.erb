@@ -5,12 +5,17 @@
 	<div id="navigation-container" class="container">
 		<nav role="navigation">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/">Home</a></li>
-				<li><a href="/problems">Problems</a></li>
-				<li><a href="/tournaments">Tournaments</a></li>
-				<li><a href="/users">Users</a></li>
-				<li><a href="/auth/login">Log In</a></li>
-				<li><a href="/auth/register">Register</a></li>
+				<li><%= link_to('Home', :home) %></li>
+				<li><%= link_to('Problems', :problems) %></li>
+				<li><%= link_to('Tournaments', :tournaments) %></li>
+				<li><%= link_to('Users', :users) %></li>
+				<% if user_signed_in? %>
+					<li style='font-weight: bold'><%= link_to(current_user().display_name, user_path(current_user())) %></li>
+					<li><%= link_to('Sign Out', :sign_out) %></li>
+				<% else %>
+					<li><%= link_to('Sign In', :sign_in) %></li>
+					<li><%= link_to('Register', :new_user_registration) %></li>
+				<% end %>
 			</ul>
 		</nav>
 	</div>
