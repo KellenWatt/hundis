@@ -20,3 +20,10 @@
 		</nav>
 	</div>
 </header>
+<div class="navbar-alert-box container">
+	<% flash.each do |key, value| %>
+		<div class="<%= flash_class(key) %>">
+			<%= value %>
+		</div>
+	<% end %>
+</div>
