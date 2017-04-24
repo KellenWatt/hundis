@@ -5,7 +5,11 @@
 		<%= render "snippets/top_users" %>
 	</section>
 	<section>
-		<h3>All Users</h3>
+		<h3>All Users<%=
+			if @pg_count > 1
+				render inline: " <small>(#{@pg} of #{@pg_count})</small>"
+			end
+		%></h3>
 		<table class="table table-striped">
 			<thead>
 				<tr>

@@ -2,7 +2,11 @@
 
 <article>
 	<section>
-		<h3>All Problems</h3>
+		<h3>All Problems<%=
+			if @pg_count > 1
+				render inline: " <small>(#{@pg} of #{@pg_count})</small>"
+			end
+		%></h3>
 		<table class="table table-striped">
 			<thead>
 				<tr>
