@@ -1,3 +1,32 @@
 <h1>Tournaments</h1>
-<p>Page for tournaments</p>
 
+<article>
+	<section>
+		<h3>All Tournaments</h3>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Starts</th>
+					<th>Ends</th>
+					<th>Status</th>
+					<th>Languages</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @tourneys.each do |tourney| %>
+				<tr>
+					<td><%= tourney.tournament_id %></td>
+					<td>TODO<!-- TODO: get tourney name --></td>
+					<td><%= tourney.start %></td>
+					<td><%= tourney.end %></td>
+					<td><%= (tourney.end < @now ? 'over' : (tourney.start < @now ? 'active' : 'not yet')) %></td>
+					<td>TODO<!-- TODO: tourney langs --></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<%= render partial: 'shared/paginator', locals: { pg: @pg, pg_count: @pg_count } %>
+	</section>
+</article>
