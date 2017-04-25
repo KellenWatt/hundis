@@ -6,3 +6,29 @@
 	height: 2em;
 }
 
+h1, h2, h3, h4 {
+	color: goldenrod;
+}
+
+a {
+  color: white;
+
+  &:visited {
+    color: purple;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+theads, th {
+	background-color: goldenrod;
+	color: white;
+}
+
+tr {
+	background-color: tan;
+	color: grey;
+}

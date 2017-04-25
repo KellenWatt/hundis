@@ -14,7 +14,14 @@
  *= require_self
  */
 
+/* layout across all pages */
+
 .center-text {
 	text-align: center;
 }
 
+/* Coloring of all pages */
+
+body {
+	background-color: black;
+}
