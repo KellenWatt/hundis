@@ -1,8 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.navbar-default .navbar-nav {
-	color: purple;
+.navbar-default .navbar-nav > li > a{
+	color: white;
+
+	&:visited {
+		color: purple;
+	}
+
+	&:hover {
+		background-color: purple;
+		color: goldenrod;
+	}
 }
 
 .navbar-default {
