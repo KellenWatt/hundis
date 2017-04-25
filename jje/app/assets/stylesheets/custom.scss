@@ -2,11 +2,8 @@
 @import "bootstrap";
 
 .navbar-default .navbar-nav > li > a{
-	color: white;
-
-	&:visited {
-		color: purple;
-	}
+	color: purple;
+	font-size: 15px;
 
 	&:hover {
 		background-color: purple;
@@ -21,4 +18,9 @@
 .navbar-default .navbar-brand {
 	font-size: 20px;
 	color: purple;
+
+	&:hover {
+		background-color:purple;
+		color: goldenrod;
+	}
 }
