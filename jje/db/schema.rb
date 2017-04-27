@@ -30,17 +30,15 @@ ActiveRecord::Schema.define(version: 20170411184553) do
   end
 
   create_table "problem_keywords", id: false, force: :cascade do |t|
-    t.integer "problems_id"
-    t.integer "problem_id",  null: false
-    t.string  "keyword",     null: false
-    t.index ["problems_id"], name: "index_problem_keywords_on_problems_id", using: :btree
+    t.integer "problem_id", null: false
+    t.string  "keyword",    null: false
+    t.index ["problem_id"], name: "index_problem_keywords_on_problem_id", using: :btree
   end
 
   create_table "problem_tags", id: false, force: :cascade do |t|
-    t.integer "problems_id"
-    t.integer "problem_id",  null: false
-    t.string  "tag",         null: false
-    t.index ["problems_id"], name: "index_problem_tags_on_problems_id", using: :btree
+    t.integer "problem_id", null: false
+    t.string  "tag",        null: false
+    t.index ["problem_id"], name: "index_problem_tags_on_problem_id", using: :btree
   end
 
   create_table "problems", primary_key: "problem_id", force: :cascade do |t|
@@ -51,12 +49,11 @@ ActiveRecord::Schema.define(version: 20170411184553) do
   end
 
   create_table "tournament_languages", id: false, force: :cascade do |t|
-    t.integer  "tournaments_id"
-    t.integer  "tournament_id",  null: false
-    t.string   "language",       null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["tournaments_id"], name: "index_tournament_languages_on_tournaments_id", using: :btree
+    t.integer  "tournament_id", null: false
+    t.string   "language",      null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["tournament_id"], name: "index_tournament_languages_on_tournament_id", using: :btree
   end
 
   create_table "tournaments", id: false, force: :cascade do |t|

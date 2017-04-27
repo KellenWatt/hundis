@@ -12,7 +12,7 @@ class CreateTournaments < ActiveRecord::Migration[5.0]
     end
 
     create_table :tournament_languages, id: false do |t|
-      t.belongs_to :tournaments, index: true
+      t.belongs_to :tournament, index: true
       t.integer :tournament_id, null: false
       t.string :language, null: false
 
