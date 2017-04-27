@@ -29,8 +29,8 @@ class Language(Enum):
     C = ("gcc *.c -o {}", "./{} < {} > {}")
     CPP = ("g++ *.cpp -std=c++11 -o {}", "./{} < {} > {}")
     JAVA = ("javac *.java", "java {} < {} > {}")
-    PYTHON_2 = (None, "python3 {} < {} > {}")
-    PYTHON_3 = (None, "python3 {} < {} > {}")
+    PYTHON2 = (None, "python2 {} < {} > {}")
+    PYTHON3 = (None, "python3 {} < {} > {}")
     
     # TODO: @Kellen, figure out the commands. Format is (COMPILE_COMMAND, RUN_COMMAND)
     C_SHARP = (None, None)
@@ -52,8 +52,8 @@ class Language(Enum):
 
 def main():
     # Create the language->function dictionary
-    functions = {Language.C: c, Language.CPP: cpp, Language.JAVA: java, Language.PYTHON_2: python2,
-                 Language.PYTHON_3: python3, Language.C_SHARP: c_sharp, Language.D: d, Language.GO: go,
+    functions = {Language.C: c, Language.CPP: cpp, Language.JAVA: java, Language.PYTHON2: python2,
+                 Language.PYTHON3: python3, Language.C_SHARP: c_sharp, Language.D: d, Language.GO: go,
                  Language.RUBY: ruby, Language.PASCAL: pascal, Language.JAVASCRIPT: javascript, Language.SCALA: scala,
                  Language.PHP: php, Language.HASKELL: haskell, Language.LISP: lisp, Language.LUA: lua}
     
@@ -169,7 +169,7 @@ def python2(input_file):
         exit(1)
 
     # Python is interpreted, so no need to compile
-    completed_process = run(Language.PYTHON_2.run_command.format(MAIN_FILE, input_file, PROGRAM_OUTPUT_FILENAME),
+    completed_process = run(Language.PYTHON2.run_command.format(MAIN_FILE, input_file, PROGRAM_OUTPUT_FILENAME),
                             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
@@ -181,7 +181,7 @@ def python3(input_file):
         exit(1)
 
     # Python is interpreted, so no need to compile
-    completed_process = run(Language.PYTHON_3.run_command.format(MAIN_FILE, input_file, PROGRAM_OUTPUT_FILENAME),
+    completed_process = run(Language.PYTHON3.run_command.format(MAIN_FILE, input_file, PROGRAM_OUTPUT_FILENAME),
                             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
