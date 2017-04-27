@@ -85,6 +85,7 @@ def main():
                         default="solution_output.txt")
     parser.add_argument("--delta", help="The floating-point delta to apply when validating floating-point arithmetic."
                                         "Defaults to .001", default=.001)
+    parser.add_argument("--diff_files", help="Skip running code and compare output directly", action="store_true")
     args = parser.parse_args()
 
     language = args.language.upper()
@@ -95,21 +96,26 @@ def main():
     SOLUTION_FILENAME = args.solution_file
     DIFF_COMMAND = args.diff_command
     delta = args.delta
+    diff_files = args.diff_files
 
-    # Grab the given language from the enum
-    try:
-        language = Language[language]
-        
-        # Call the appropriate function based on language
-        functions[language](input_file)
-        
-        # Perform output validation
-        return_code = compare_output(SOLUTION_FILENAME, PROGRAM_OUTPUT_FILENAME, delta)
-        
-        return return_code
-    except KeyError:
-        print("Language \"{}\" is not supported".format(language))
-        exit(1)
+    if not diff_files:
+        # Grab the given language from the enum
+        try:
+            language = Language[language]
+
+            # Call the appropriate function based on language
+            functions[language](input_file)
+
+            # Perform output validation
+            return_code = compare_output(SOLUTION_FILENAME, PROGRAM_OUTPUT_FILENAME, delta)
+
+            return return_code
+        except KeyError:
+            print("Language \"{}\" is not supported".format(language))
+            exit(1)
+    else:
+        # Just diff the files
+        return compare_output(SOLUTION_FILENAME, PROGRAM_OUTPUT_FILENAME, delta)
 
     # TODO: Logging
 
