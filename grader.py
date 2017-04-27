@@ -252,8 +252,61 @@ def floating_point_validation(solution_filename, program_output_filename, delta=
     solution_output = open(solution_filename, "r")
     program_output = open(program_output_filename, "r")
 
+    solution_line = solution_output.readline()
+    while solution_line != "":
+        output_line = program_output.readline()
+
+        if output_line == "":
+            # Program output hit EOF and the solution has not
+            return Judgement.WRONG_ANSWER
+
+        solution_words = solution_line.split(" ")
+        output_words = output_line.split(" ")
+
+        for i in range(len(solution_words)):
+            # Grab each word
+            solution_word = solution_words[i].strip("\n")
+            output_word = output_words[i].strip("\n")
+
+            # Is this word in the solution a float?
+            if re.match("(\+|-)?[0-9]+\.[0-9]+", solution_word):
+                # Check the other one too
+                if re.match("(\+|-)?[0-9]+\.[0-9]+", output_word):
+                    # They're both floats. Check the window
+
+                    # Convert them
+                    solution_float = float(solution_word)
+                    output_float = float(output_word)
+
+                    # Create an upper and lower bound based on delta
+                    window = solution_float - delta, solution_float + delta
+
+                    # Check if the program output is within that window
+                    if not (window[0] <= output_float <= window[1]):
+                        return Judgement.WRONG_ANSWER
+                else:
+                    # Other word isn't even a float...
+                    return Judgement.WRONG_ANSWER
+            else:
+                # Just a regular(non-float) 'token'. Check if they're equal
+                if solution_word != output_word:
+                    # Not equal. Wrong
+                    return Judgement.WRONG_ANSWER
+
+        solution_line = solution_output.readline()
+
+    # Advance the user's output one more line to make sure it's EOF for them too
+    output_line = program_output.readline()
+
+    if output_line != "":
+        # Still more user output. Wrong
+        return Judgement.WRONG_ANSWER
+
+    # Made it all the way out. Everything is validated
+    return Judgement.ACCEPTED
+
     # Find all floating point numbers and throw them into a list
-    solution_floats = [word.strip("\n") for line in solution_output for word in line.split(" ")
+    """solution_floats = [word.strip("\n") for line in solution_output for word in line.split(" ")
                        if re.match("(\+|-)?[0-9]+\.[0-9]+", word)]
 
     program_floats = [word.strip("\n") for line in program_output for word in line.split(" ")
@@ -288,7 +341,7 @@ def floating_point_validation(solution_filename, program_output_filename, delta=
             return Judgement.WRONG_ANSWER
 
     # Reached the end without returning false, return true
-    return Judgement.ACCEPTED
+    return Judgement.ACCEPTED"""
 
 
 if __name__ == "__main__":
