@@ -41,7 +41,7 @@
 	<%= link_to('Join!', join_tournament_path(@tournament)) %> |
 
 	<% if current_user().admin then %>
-		<%= link_to('Edit (admin)', edit_tournament_path(@tournaments)) %> |
+		<%= link_to('Edit (admin)', edit_tournament_path(@tournament)) %> |
 	<% end %>
 <% end %>
 

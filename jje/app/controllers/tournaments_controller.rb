@@ -16,41 +16,33 @@ class TournamentsController < ApplicationController
   # GET /tournaments/new
   def new
     unless current_user.admin?
-      flash[:error] = 'Only administrators can create new tournaments.'
-      redirect_to :tournaments_path
+      redirect_to :tournaments, flash: {error: 'Only administrators can create new tournaments.'}
       return
     end
     @tournament = Tournament.new
-  end
-
-  # GET /tournaments/1/edit
-  def edit
-    unless current_user.admin?
-      flash[:error] = 'Only administrators can edit tournaments.'
-      redirect_to :tournament_path
-      return
-    end
   end
 
   # POST /tournaments
   # POST /tournaments.json
   def create
     unless current_user.admin?
-      flash[:error] = 'Only administrators can create new tournaments.'
-      redirect_to :tournaments_path
+      redirect_to :tournaments, flash: {error: 'Only administrators can create new tournaments.'}
       return
     end
 
     @tournament = Tournament.new(tournament_params)
 
-    respond_to do |format|
-      if @tournament.save
-        format.html { redirect_to @tournament, notice: 'Tournament was successfully created.' }
-        format.json { render :show, status: :created, location: @tournament }
-      else
-        format.html { render :new }
-        format.json { render json: @tournament.errors, status: :unprocessable_entity }
-      end
+    if @tournament.save
+      redirect_to @tournament, flash: {success: 'Tournament was created!'}
+    end
+  end
+
+  # GET /tournaments/1/edit
+  def edit
+    unless current_user.admin?
+      #flash[:error] = 'Only administrators can edit tournaments.'
+      redirect_to :tournament, flash: {error: 'Only administrators can edit tournaments.'}
+      return
     end
   end
 
@@ -101,6 +93,6 @@ class TournamentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tournament_params
-      params.fetch(:tournament, {})
+      params.require(:tournament).permit(:name, 'start(1i)', :'start(2i)', :'start(3i)', :'start(4i)', :'start(5i)', :'end(1i)', :'end(2i)', :'end(3i)', :'end(4i)', :'end(5i)')
     end
 end
