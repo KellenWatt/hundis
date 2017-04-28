@@ -34,7 +34,7 @@
 
 <p>
 	<strong>Participants:</strong>
-	<%= CompetesIn.where(tournament_id: @tournament_id).count %>
+	<%= CompetesIn.where(tournament_id: @tournament.tournament_id).count %>
 </p>
 
 <% if user_signed_in? then %>

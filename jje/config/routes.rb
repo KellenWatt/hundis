@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   post  '/tournaments',                 to: 'tournaments#create',                     as: :create_tournament
   get   '/tournaments/:id',             to: 'tournaments#show',     id: id_cnstrt,    as: :tournament
   get   '/tournaments/:id/statistics',  to: 'tournaments#stats',    id: id_cnstrt,    as: :stats_tournament
-
+  get   '/tournaments/:id/join',        to: 'tournaments#join',     id: id_cnstrt,    as: :join_tournament
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

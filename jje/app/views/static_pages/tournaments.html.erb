@@ -27,7 +27,7 @@
 					<td><%= tourney.start.getlocal.to_s(:long) %></td>
 					<td><%= tourney.end.getlocal.to_s(:long) %></td>
 					<td><%= (tourney.end < @now ? 'over' : (tourney.start < @now ? 'active' : 'not yet')) %></td>
-					<td><%= CompetesIn.where(tournament_id: @tournament_id).count %></td>
+					<td><%= CompetesIn.where(tournament_id: tourney.tournament_id).count %></td>
 					<td>
 					<% for tourney_lang in TournamentLanguage.where(tournament_id: tourney.tournament_id) do %>
 						<span class="tournament-language"><%= tourney_lang.language %></span>
