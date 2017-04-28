@@ -1,4 +1,48 @@
-<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+
+<p>
+	<strong>Tournament:</strong>
+	<%= @tournament.tournament_id %>
+</p>
+
+<p>
+	<strong>Name:</strong>
+	<%= @tournament.name %>
+</p>
+
+<p>
+	<strong>Starts:</strong>
+	<%= @tournament.start ? @tournament.start.getlocal.to_s(:long) : "" %>
+</p>
+
+<p>
+	<strong>Ends:</strong>
+	<%= @tournament.end ? @tournament.end.getlocal.to_s(:long) : "" %>
+</p>
+
+<p>
+	<strong>Status:</strong>
+	<%= (@tournament.end < DateTime.current ? 'over' : (@tournament.start < DateTime.current ? 'active' : 'not yet')) %>
+</p>
+
+<p>
+	<strong>Languages:</strong>
+	<% for tourney_lang in TournamentLanguage.where(tournament_id: @tournament.tournament_id) do %>
+		<span class="tournament-language"><%= tourney_lang.language %></span>
+	<% end %>
+</p>
+
+<p>
+	<strong>Participants:</strong>
+	<%= CompetesIn.where(tournament_id: @tournament_id).count %>
+</p>
+
+<% if user_signed_in? then %>
+	<%= link_to('Join!', join_tournament_path(@tournament)) %> |
+
+	<% if current_user().admin then %>
+		<%= link_to('Edit (admin)', edit_tournament_path(@tournaments)) %> |
+	<% end %>
+<% end %>
+
 <%= link_to 'Back', tournaments_path %>

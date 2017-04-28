@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-	# The following comments are how to create a sseed
+    # The following comments are how to create a seed
 # User(user_id: integer, university: string, score: integer,
 # company: string, display_name: string, email: string, password: string,
 # salt: string, created_at: datetime, updated_at: datetime)
@@ -41,10 +41,10 @@ et  = Tournament.create!(name: 'Eternal Tournament', start: DateTime.new(1955, 5
 fg  = Tournament.create!(name: 'Future Gamez', start: DateTime.new(2018, 1, 1), end: DateTime.new(2018, 12, 1), checktime: true)
 
 for lang in [ 'C', 'Lisp', 'Pascal' ] do
-	TournamentLanguage.create!(tournament_id: sot.tournament_id, language: lang)
+  TournamentLanguage.create!(tournament_id: sot.tournament_id, language: lang)
 end
 for lang in [ 'C', 'C++', 'Go', 'JavaScript', 'Haskell'] do
-	TournamentLanguage.create!(tournament_id: et.tournament_id, language: lang)
+  TournamentLanguage.create!(tournament_id: et.tournament_id, language: lang)
 end
 TournamentLanguage.create!(tournament_id: fg.tournament_id, language: 'Python')
 
