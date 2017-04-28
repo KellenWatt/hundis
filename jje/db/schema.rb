@@ -56,13 +56,14 @@ ActiveRecord::Schema.define(version: 20170411184553) do
     t.index ["tournament_id"], name: "index_tournament_languages_on_tournament_id", using: :btree
   end
 
-  create_table "tournaments", id: false, force: :cascade do |t|
-    t.integer  "tournament_id", null: false
+  create_table "tournaments", primary_key: "tournament_id", force: :cascade do |t|
+    t.string   "name",       null: false
     t.datetime "start"
     t.datetime "end"
     t.boolean  "checktime"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tournaments_on_name", unique: true, using: :btree
   end
 
   create_table "user_submissions", id: false, force: :cascade do |t|
