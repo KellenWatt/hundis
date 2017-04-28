@@ -7,11 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-    # The following comments are how to create a seed
+# The following comments are how to create a seed
 # User(user_id: integer, university: string, score: integer,
 # company: string, display_name: string, email: string, password: string,
 # salt: string, created_at: datetime, updated_at: datetime)
 
+User.create!(score: 9001, display_name: 'ADMIN', email: 'admin@admin', password: 'adminadmin')
 User.create!(university: 'Missouri S&T', score: 0, display_name: 'Sam', email: 'Sam@mst.edu', password: 'liabsrtjsrtksrh')
 User.create!(university: 'Missouri S&T', score: 10, display_name: 'John', email: 'John@gmail.com', password: 'ohsrtjsrtjsuag')
 User.create!(university: 'Missouri S&T', score: 50, display_name: 'Kellen', email: 'Kellen@gmail.com', password: 'ohstrkstksuag')
