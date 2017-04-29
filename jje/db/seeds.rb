@@ -7,11 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-	# The following comments are how to create a sseed
+# The following comments are how to create a seed
 # User(user_id: integer, university: string, score: integer,
 # company: string, display_name: string, email: string, password: string,
 # salt: string, created_at: datetime, updated_at: datetime)
 
+User.create!(score: 9001, display_name: 'ADMIN', email: 'admin@admin', password: 'adminadmin')
 User.create!(university: 'Missouri S&T', score: 0, display_name: 'Sam', email: 'Sam@mst.edu', password: 'liabsrtjsrtksrh')
 User.create!(university: 'Missouri S&T', score: 10, display_name: 'John', email: 'John@gmail.com', password: 'ohsrtjsrtjsuag')
 User.create!(university: 'Missouri S&T', score: 50, display_name: 'Kellen', email: 'Kellen@gmail.com', password: 'ohstrkstksuag')
@@ -35,6 +36,19 @@ Problem.create!(name: 'Test_problem_7', score: 1, problem_description: 'stuff an
 Problem.create!(name: 'Test_problem_8', score: 1, problem_description: 'stuff and things like that for all people', path: 'some path')
 Problem.create!(name: 'Test_problem_9', score: 1, problem_description: 'stuff and things like that for all people on', path: 'some path')
 Problem.create!(name: 'Test_problem_10', score: 1, problem_description: 'stuff and things like that for all people on Earth', path: 'some path')
+
+sot = Tournament.create!(name: 'Some Old Tourney', start: DateTime.new(2012, 1, 15, 12), end: DateTime.new(2012, 5, 1), checktime: true)
+et  = Tournament.create!(name: 'Eternal Tournament', start: DateTime.new(1955, 5, 15), end: DateTime.new(2030, 5, 15), checktime: true)
+fg  = Tournament.create!(name: 'Future Gamez', start: DateTime.new(2018, 1, 1), end: DateTime.new(2018, 12, 1), checktime: true)
+
+for lang in [ 'C', 'Lisp', 'Pascal' ] do
+  TournamentLanguage.create!(tournament_id: sot.tournament_id, language: lang)
+end
+for lang in [ 'C', 'C++', 'Go', 'JavaScript', 'Haskell'] do
+  TournamentLanguage.create!(tournament_id: et.tournament_id, language: lang)
+end
+TournamentLanguage.create!(tournament_id: fg.tournament_id, language: 'Python')
+
 
 # User(user_id: integer, university: string, score: integer, company: string, display_name: string, email: string, password: string, salt: string, created_at: datetime, updated_at: datetime, encrypted_password: string, reset_password_token: string, reset_password_sent_at: datetime, remember_created_at: datetime, sign_in_count: integer, current_sign_in_at: datetime, last_sign_in_at: datetime, current_sign_in_ip: inet, last_sign_in_ip: inet)
 # User(user_id: integer, university: string, score: integer, company: string, display_name: string, email: string, password: string, salt: string, created_at: datetime, updated_at: datetime)

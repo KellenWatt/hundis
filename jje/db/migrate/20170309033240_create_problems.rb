@@ -9,13 +9,13 @@ class CreateProblems < ActiveRecord::Migration[5.0]
     end
 
     create_table :problem_keywords, id: false do |t|
-      t.belongs_to :problems, index: true
+      t.belongs_to :problem, index: true
       t.integer :problem_id, null: false
       t.string :keyword, null: false
     end
 
     create_table :problem_tags, id: false do |t|
-      t.belongs_to :problems, index: true
+      t.belongs_to :problem, index: true
       t.integer :problem_id, null: false
       t.string :tag, null: false
     end
