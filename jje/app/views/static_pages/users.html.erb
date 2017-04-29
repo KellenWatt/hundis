@@ -1,0 +1,39 @@
+<h1>Users</h1>
+
+<article>
+	<section>
+		<!-- snippet of top user to come -->
+	</section>
+	<section>
+		<h2>All Users<%=
+			if @pg_count > 1
+				render inline: " <small>(#{@pg} of #{@pg_count})</small>"
+			end
+		%></h2>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>User</th>
+					<th>University</th>
+					<th>Company</th>
+					<th>Rank</th>
+					<th>Score</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @users.each do |user| %>
+				<tr>
+					<td><%= user.user_id %></td>
+					<td><%= link_to(user.display_name, user_path(user.user_id)) %></td>
+					<td><%= user.university %></td>
+					<td><%= user.company %></td>
+					<td>TODO<!-- TODO: get rank --></td>
+					<td><%= user.score %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<%= render partial: 'shared/paginator', locals: { pg: @pg, pg_count: @pg_count } %>
+	</section>
+</article>

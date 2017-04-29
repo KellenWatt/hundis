@@ -1,0 +1,30 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar-default .navbar-nav > li > a{
+	color: purple;
+	font-size: 15px;
+
+	&:hover {
+		background-color: purple;
+		color: goldenrod;
+	}
+}
+
+.navbar-default {
+	background-color: goldenrod;
+}
+
+.navbar-default .navbar-brand {
+	font-size: 20px;
+	color: purple;
+
+	&:hover {
+		background-color:purple;
+		color: goldenrod;
+	}
+}
+
+input, select, textarea {
+	color: black;
+}

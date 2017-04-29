@@ -1,0 +1,29 @@
+<header class="navbar navbar-default navbar-static-top">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="/">JJE: Judge, Jury, &amp; Executable</a>
+	</div>
+	<div id="navigation-container" class="container">
+		<nav role="navigation">
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= link_to('Home', :home) %></li>
+				<li><%= link_to('Problems', :problems) %></li>
+				<li><%= link_to('Tournaments', :tournaments) %></li>
+				<li><%= link_to('Users', :users) %></li>
+				<% if user_signed_in? %>
+					<li style='font-weight: bold'><%= link_to(current_user().display_name, user_path(current_user())) %></li>
+					<li><%= link_to('Sign Out', :sign_out) %></li>
+				<% else %>
+					<li><%= link_to('Sign In', :sign_in) %></li>
+					<li><%= link_to('Register', :new_user_registration) %></li>
+				<% end %>
+			</ul>
+		</nav>
+	</div>
+</header>
+<div class="navbar-alert-box container">
+	<% flash.each do |key, value| %>
+		<div class="<%= flash_class(key) %>">
+			<%= value %>
+		</div>
+	<% end %>
+</div>

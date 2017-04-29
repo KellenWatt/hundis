@@ -1,0 +1,34 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login_btn_icon {
+	height: 2em;
+}
+
+h1, h2, h3, h4 {
+	color: goldenrod;
+}
+
+a {
+  color: goldenrod;
+
+  &:visited {
+    color: purple;
+  }
+
+  &:hover {
+    color: goldenrod;
+    background-color: purple;
+  }
+}
+
+thead, th {
+	background-color: goldenrod;
+	color: white;
+}
+
+tr {
+	background-color: whitesmoke;
+	color: black;
+}

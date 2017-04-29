@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Submissions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_submissions.each do |user_submission| %>
+      <tr>
+        <td><%= link_to 'Show', user_submission %></td>
+        <td><%= link_to 'Edit', edit_user_submission_path(user_submission) %></td>
+        <td><%= link_to 'Destroy', user_submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Submission', new_user_submission_path %>

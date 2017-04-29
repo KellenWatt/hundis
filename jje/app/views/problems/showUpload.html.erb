@@ -1,0 +1,34 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h2 class="panel-title">Upload Solution</h2>
+        <h4><strong>Problem:</strong> #<%= @problem.problem_id %>: <%= link_to(@problem.name, problem_path(@problem)) %></h4>
+    </div>
+
+    <div class="row container">
+        <div class="col-md-6 center-text">
+            <h3>Upload Code</h3>
+            <%= form_tag(uploadCode_problem_path(@problem), method: "post", multipart: true) do %>
+                <%= label_tag(:language, "Language") %>
+                <%= select_tag(:language, options_for_select(TournamentLanguage::LanguageOptions)) %>
+
+                <%= label_tag(:main, "Main File") %>
+                <%= file_field_tag(:main) %>
+
+                <%= label_tag('support[]', "Support Files") %>
+                <%= file_field_tag('support[]', multiple: true) %>
+                <hr />
+                <%= submit_tag("Submit") %><%= submit_tag("Reset", { :name => 'reset', :type => 'reset' }) %>
+            <% end %>
+
+        </div>
+        <div class="col-md-5 center-text">
+            <h3>Upload Output</h3>
+            <%= form_tag(uploadOutput_problem_path(@problem), method: "post", multipart: true) do %>
+                <%= label_tag(:output, "Output") %>
+                <%= file_field_tag(:output) %>
+                <hr />
+                <%= submit_tag("Submit") %>
+          <% end %>
+        </div>
+    </div>
+</div>

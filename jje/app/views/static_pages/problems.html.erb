@@ -1,0 +1,32 @@
+<h1>Problems</h1>
+
+<article>
+	<section>
+		<h3>All Problems<%=
+			if @pg_count > 1
+				render inline: " <small>(#{@pg} of #{@pg_count})</small>"
+			end
+		%></h3>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Value</th>
+					<th>Solves</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @problems.each do |prob| %>
+				<tr>
+					<td><%= prob.problem_id %></td>
+					<td><%= link_to(prob.name, problem_path(prob.problem_id)) %></td>
+					<td><%= prob.score %></td>
+					<td>TODO<!-- TODO: get solves --></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<%= render partial: 'shared/paginator', locals: { pg: @pg, pg_count: @pg_count } %>
+	</section>
+</article>

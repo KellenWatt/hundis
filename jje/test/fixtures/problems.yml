@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  problem_id: 
+  name: MyString
+  score: 1
+  problem_description: MyText
+  path: MyString
+
+two:
+  problem_id: 
+  name: MyString
+  score: 1
+  problem_description: MyText
+  path: MyString

@@ -54,3 +54,9 @@ bower.json
 # Pycharm garbage
 .idea/*
 __pycache__/*
+# Ignore Mac junk
+.DS_Store
+
+# Ignore devlog
+
+*/log/development.log
