@@ -15,6 +15,13 @@ class StaticPagesController < ApplicationController
     @tourneys = do_paging(Tournament)
   end
 
+  def search
+    if params[:q] and params[:q].length > 0 then
+      # do search
+      @results = []
+    end
+  end
+
   private
     def do_paging (pagetype)
       @pg_count = (pagetype.count / INDEX_PAGE_SIZE.to_f).ceil
