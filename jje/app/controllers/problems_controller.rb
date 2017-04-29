@@ -1,13 +1,21 @@
 class ProblemsController < ApplicationController
+  before_action :authenticate_user!, exclude: [:show]
   before_action :set_problem, only: [:show, :showUpload, :uploadCode, :uploadOutput]
 
   # GET /problems/new
   def new
+    unless current_user.admin?
+      redirect_to :tournaments, flash: {error: 'Only administrators can create new problems.'}
+    end
+    @problem = Problem.new
   end
 
   # POST /problems
   def create
-    # TODO: handle problem creation
+    unless current_user.admin?
+      redirect_to :problems, flash: {error: 'Only administrators can create new problems.'}
+    end
+    @problem = Problem.new(problem_params)
   end
 
   # GET /problems/statistics
@@ -56,8 +64,12 @@ class ProblemsController < ApplicationController
 
 
   private
-     # Use callbacks to share common setup or constraints between actions.
-     def set_problem
-       @problem = Problem.find(params[:id])
-     end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_problem
+      @problem = Problem.find(params[:id])
+    end
+
+    def problem_params
+      params.require(:problem).permit(:name, :score, :description)
+    end
 end
