@@ -35,7 +35,7 @@
 
 		<span class="col-md-6">
 			<div class="page-headline clearfix">
-				<h3> Problems </h3>
+				<h3> Recommended Problems </h3>
 			</div>
 
 			<table class="problems">
@@ -44,6 +44,7 @@
 						<th> ID </th>
 						<th> Name </th>
 						<th> Score </th>
+						<th> Solves </th>
 					</tr>
 				</thead>
 				<tbody>
@@ -52,6 +53,7 @@
 						<td><%= prob.problem_id %></td>
 						<td><%= link_to(prob.name, problem_path(prob.problem_id)) %></td>
 						<td><%= prob.score %></td>
+						<td>TODO<!-- TODO: get solves --></td>
 					</tr>
 					<% end %>
 				</tbody>
@@ -69,6 +71,7 @@
 						<th> ID </th>
 						<th> Name </th>
 						<th> Score </th>
+						<th> Solves </th>
 					</tr>
 				</thead>
 				<tbody>
@@ -77,6 +80,7 @@
 						<td><%= prob.problem_id %></td>
 						<td><%= link_to(prob.name, problem_path(prob.problem_id)) %></td>
 						<td><%= prob.score %></td>
+						<td>TODO<!-- TODO: get solves --></td>
 					</tr>
 					<% end %>
 				</tbody>
@@ -93,7 +97,8 @@
 					<tr>
 						<th> # </th>
 						<th> Tournament </th>
-						<th> Host </th>
+						<th> Started </th>
+						<th> Ends </th>
 					</tr>
 				</thead>
 				<tbody>
@@ -101,7 +106,8 @@
 					<tr>
 						<td><%= tourney.tournament_id %></td>
 						<td><%= (tourney.end < @now ? 'over' : (tourney.start < @now ? 'active' : 'not yet')) %></td>
-						<td> Bethesda </td>
+						<td><%= tourney.start %></td>
+						<td><%= tourney.end %></td>
 					</tr>
 					<% end %>
 				</tbody>
