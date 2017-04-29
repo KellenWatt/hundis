@@ -1,6 +1,12 @@
 <h1>Tournaments</h1>
 
 <article>
+	<% if user_signed_in? and current_user.admin then %>
+	<section>
+		<h4>Tournament Creation</h4>
+		<%= link_to('Create a New Tournament (admin)', :new_tournament) %>
+	</section>
+	<% end %>
 	<section>
 		<h3>All Tournaments<%=
 			if @pg_count > 1

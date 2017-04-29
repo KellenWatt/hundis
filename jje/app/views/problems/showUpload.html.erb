@@ -9,7 +9,7 @@
             <h3>Upload Code</h3>
             <%= form_tag(uploadCode_problem_path(@problem), method: "post", multipart: true) do %>
                 <%= label_tag(:language, "Language") %>
-                <%= select_tag(:language, options_for_select(LanguageOptions)) %>
+                <%= select_tag(:language, options_for_select(TournamentLanguage::LanguageOptions)) %>
 
                 <%= label_tag(:main, "Main File") %>
                 <%= file_field_tag(:main) %>

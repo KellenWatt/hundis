@@ -33,14 +33,21 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.new(tournament_params)
 
     if @tournament.save
+      # now create the TournamentLanguages
+      TournamentLanguage::LanguageOptions.each do |(name, key)|
+        if params['languages'][key] == "1"
+          TournamentLanguage.create(language: name, tournament_id: @tournament.tournament_id)
+        end
+      end
       redirect_to @tournament, flash: {success: 'Tournament was created!'}
+    else
+      redirect_to @tournament, flash: {error: "Failed to create tournament: #{@tournament.errors.full_messages}"}
     end
   end
 
   # GET /tournaments/1/edit
   def edit
     unless current_user.admin?
-      #flash[:error] = 'Only administrators can edit tournaments.'
       redirect_to :tournament, flash: {error: 'Only administrators can edit tournaments.'}
       return
     end
@@ -49,24 +56,28 @@ class TournamentsController < ApplicationController
   # PATCH/PUT /tournaments/1
   # PATCH/PUT /tournaments/1.json
   def update
-    respond_to do |format|
-      if @tournament.update(tournament_params)
-        format.html { redirect_to @tournament, notice: 'Tournament was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tournament }
-      else
-        format.html { render :edit }
-        format.json { render json: @tournament.errors, status: :unprocessable_entity }
-      end
+    unless current_user.admin?
+      redirect_to @tournament, flash: {error: 'Only administrators can edit tournaments.'}
+      return
+    end
+    if @tournament.update(tournament_params)
+      redirect_to @tournament, flash: {success: 'Tournament was successfully updated.'}
+    else
+      redirect_to @tournament, flash: {error: "Failed to edit tournament: #{@tournament.errors.full_messages}"}
     end
   end
 
   # DELETE /tournaments/1
   # DELETE /tournaments/1.json
   def destroy
-    @tournament.destroy
-    respond_to do |format|
-      format.html { redirect_to tournaments_url, notice: 'Tournament was successfully destroyed.' }
-      format.json { head :no_content }
+    unless current_user.admin?
+      redirect_to @tournament, flash: {error: 'Only administrators can delete tournaments.'}
+      return
+    end
+    if @tournament.destroy
+      redirect_to :tournaments, flash: {success: 'Tournament was successfully destroyed.'}
+    else
+      redirect_to @tournament, flash: {error: "Failed to delete tournament: #{@tournament.errors.full_messages}"}
     end
   end
 
@@ -81,7 +92,7 @@ class TournamentsController < ApplicationController
     else
       flash[:error] = "An error occurred while joining."
     end
-    redirect_to :tournament
+    redirect_to @tournament
   end
 
 
@@ -93,6 +104,7 @@ class TournamentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tournament_params
-      params.require(:tournament).permit(:name, 'start(1i)', :'start(2i)', :'start(3i)', :'start(4i)', :'start(5i)', :'end(1i)', :'end(2i)', :'end(3i)', :'end(4i)', :'end(5i)')
+      params.require(:tournament).permit(:name, 'start(1i)', 'start(2i)', 'start(3i)', 'start(4i)', 'start(5i)',
+                                                'end(1i)',   'end(2i)',   'end(3i)',   'end(4i)',   'end(5i)')
     end
 end

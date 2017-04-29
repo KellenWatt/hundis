@@ -1,20 +1,3 @@
-LanguageOptions = [
-  ['C',         'c'],
-  ['C++',       'cpp'],
-  ['Python',    'py'],
-  ['D',         'd'],
-  ['Go',        'go'],
-  ['Ruby',      'ruby'],
-  ['C#',        'csharp'],
-  ['Pascal',    'pascal'],
-  ['JavaScript','js'],
-  ['Scala',     'scala'],
-  ['PHP',       'php'],
-  ['Haskell',   'haskell'],
-  ['Lua',       'lua'],
-  ['Lisp',      'lisp']
-]
-
 class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :showUpload, :uploadCode, :uploadOutput]
 

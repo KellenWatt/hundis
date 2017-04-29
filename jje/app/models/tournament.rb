@@ -5,4 +5,6 @@ class Tournament < ApplicationRecord
   has_many :problems, through: :contains
   has_many :competes_ins, :class_name => 'CompetesIns', :foreign_key => [:tournament_id]
   has_many :users, through: :competes_ins
+
+  accepts_nested_attributes_for :languages
 end
