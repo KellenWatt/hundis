@@ -99,8 +99,8 @@
 				<tbody>
 					<% @homepage_tourneys.each do |tourney| %>
 					<tr>
-						<td> tourney.tournament_id </td>
-						<td> (tourney.end < @now ? 'over' : (tourney.start < @now ? 'active' : 'not yet')) </td>
+						<td><%= tourney.tournament_id %></td>
+						<td><%= (tourney.end < @now ? 'over' : (tourney.start < @now ? 'active' : 'not yet')) %></td>
 						<td> Bethesda </td>
 					</tr>
 					<% end %>

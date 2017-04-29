@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
   def Home
     @homepage_users = do_paging(User)
     @homepage_problems = do_paging(Problem)
+    @now = DateTime.current()
     @homepage_tourneys = do_paging(Tournament)
   end
 
