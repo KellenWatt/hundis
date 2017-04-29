@@ -60,3 +60,7 @@ gem 'composite_primary_keys'
 gem 'omniauth-google-oauth2'
 gem 'devise'
 gem 'safe_attributes'
+
+# Sandboxing stuff
+gem 'docker-api'
+
