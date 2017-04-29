@@ -6,8 +6,20 @@
 	height: 2em;
 }
 
-h1, h2, h3, h4 {
+h1 {
+  font-size: 50px;
+  text-align: center;
 	color: goldenrod;
+}
+
+h2, h3 {
+  font-size: 18px;
+  padding: 20px;
+  color: goldenrod;
+}
+
+p {
+  margin: 33px;
 }
 
 a {
@@ -23,12 +35,32 @@ a {
   }
 }
 
+table {
+  display: inline-table;
+  width: flex;
+}
+
 thead, th {
 	background-color: goldenrod;
 	color: white;
+
+  padding-bottom: 5px;
+  padding-right: 33px;
 }
 
 tr {
 	background-color: whitesmoke;
 	color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+td {
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+label {
+  display: block;
 }
