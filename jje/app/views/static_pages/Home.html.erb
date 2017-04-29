@@ -26,7 +26,7 @@
 					<tr>
 						<td> TODO<!-- TODO: get rank --> </td>
 						<td><%= link_to(user.display_name, user_path(user.user_id)) %></td>
-						<td> user.score </td>
+						<td><%= user.score %></td>
 					</tr>
 					<% end %>
 				</tbody>
@@ -51,7 +51,7 @@
 					<tr>
 						<td><%= prob.problem_id %></td>
 						<td><%= link_to(prob.name, problem_path(prob.problem_id)) %></td>
-						<td> prob.score </td>
+						<td><%= prob.score %></td>
 					</tr>
 					<% end %>
 				</tbody>
@@ -76,7 +76,7 @@
 					<tr>
 						<td><%= prob.problem_id %></td>
 						<td><%= link_to(prob.name, problem_path(prob.problem_id)) %></td>
-						<td> prob.score </td>
+						<td><%= prob.score %></td>
 					</tr>
 					<% end %>
 				</tbody>
