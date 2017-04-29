@@ -83,8 +83,6 @@ ActiveRecord::Schema.define(version: 20170411184553) do
     t.string   "company"
     t.string   "display_name",                        null: false
     t.string   "email"
-    t.string   "pass"
-    t.string   "salt"
     t.boolean  "admin"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
