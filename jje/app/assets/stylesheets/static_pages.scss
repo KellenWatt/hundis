@@ -10,7 +10,6 @@ div {
 }
 
 body {
-  background-color: #fff;
   color: white;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -20,24 +19,31 @@ body {
 h1 {
   font-size: 70px;
   text-align: center;
-	color: goldenrod;
+  color: goldenrod;
+}
+
+h2, h3, h4, h5, h6 {
+  padding: 20px;
+  color: goldenrod;
 }
 
 h2 {
   font-size: 45px;
-  padding: 20px;
-  color: goldenrod;
 }
 
 h3 {
   font-size: 30px;
-  padding: 20px;
-  color: goldenrod;
 }
 
-p {
-  font-size: 16px;
-  margin: 33px;
+h4 {
+  font-size: 20px;
+}
+
+.welcome {
+  p {
+    font-size: 16px;
+    margin: 33px;
+  }
 }
 
 a {
@@ -61,10 +67,6 @@ a {
   padding: 2px;
   background-color: red;
   display: table;
-}
-
-#notice {
-  color: green;
 }
 
 #error_explanation {
@@ -92,31 +94,15 @@ a {
   }
 }
 
-table {
-  width: 100%;
-}
-
 thead, th {
-	background-color: goldenrod;
-	color: white;
-
-  padding-bottom: 5px;
-  padding-right: 33px;
+  background-color: goldenrod;
+  color: white;
 }
 
 tr {
-	background-color: whitesmoke;
-	color: black;
-  padding-left: 10px;
-  padding-right: 100000px;
+  background-color: whitesmoke;
+  color: black;
 }
-
-td {
-  padding-bottom: 7px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
 label {
   display: block;
 }
