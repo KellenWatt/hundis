@@ -19,21 +19,23 @@ class StaticPagesController < ApplicationController
     if params[:q] and params[:q].length > 0 then
       @results = []
       @problem_result
-      @name_results = Problem.where('name LIKE ?', "%#{params[:q]}%")
-      @name_results.each do |result|
-        @results.push(result)
-      end
-      @keyword_results = ProblemKeyword.where('keyword LIKE ?', "%#{params[:q]}%")
-      @keyword_results.each do |result|
-        @results.push(result.problem)
-      end
-      if current_user.admin
-        @tag_results = ProblemTag.where('tag LIKE ?', "%#{params[:q]}%")
-        @tag_results.each do |result|
+      params[:q].split(" ").each do |word|
+        @name_results = Problem.where('name LIKE ?', "%#{word}%")
+        @name_results.each do |result|
+          @results.push(result)
+        end
+        @keyword_results = ProblemKeyword.where('keyword LIKE ?', "%#{word}%")
+        @keyword_results.each do |result|
           @results.push(result.problem)
         end
+        if current_user.admin
+          @tag_results = ProblemTag.where('tag LIKE ?', "%#{word}%")
+          @tag_results.each do |result|
+            @results.push(result.problem)
+          end
+        end
       end
-      @results.uniq{|x| x.problem_id}
+      @results = @results.uniq{|x| x.problem_id}
     end
   end
 

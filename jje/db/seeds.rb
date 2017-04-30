@@ -40,6 +40,7 @@ Problem.create!(name: 'The cat', score: 2, problem_description:'This exists sole
 
 ProblemKeyword.create!(problem_id: 1, keyword: "cat")
 ProblemKeyword.create!(problem_id: 2, keyword: "dog")
+ProblemKeyword.create!(problem_id: 11, keyword: "cat")
 ProblemKeyword.create!(problem_id: 3, keyword: "catdog")
 
 ProblemTag.create!(problem_id: 1, tag: "heap")
