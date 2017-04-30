@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170411184553) do
     t.string  "name"
     t.integer "score"
     t.text    "description"
+    t.integer "solves",      default: 0
     t.string  "path"
   end
 

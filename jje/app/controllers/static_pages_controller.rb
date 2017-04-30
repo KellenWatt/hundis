@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
     @homepage_users = User.limit(6).order(score: :desc)
     @easiest_problems = Problem.limit(6).order(score: :asc)
     @now = DateTime.current()
-    @least_solved_problems = []
+    @least_solved_problems = Problem.limit(6).order(solves: :asc)
     @homepage_tourneys = Tournament.limit(6)
   end
 
