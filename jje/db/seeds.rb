@@ -44,7 +44,6 @@ ProblemKeyword.create!(problem_id: 3, keyword: "catdog")
 ProblemTag.create!(problem_id: 1, tag: "heap")
 ProblemTag.create!(problem_id: 2, tag: "sort")
 ProblemTag.create!(problem_id: 3, tag: "heapsort")
->>>>>>> Search
 
 sot = Tournament.create!(name: 'Some Old Tourney', start: DateTime.new(2012, 1, 15, 12), end: DateTime.new(2012, 5, 1), checktime: true)
 et  = Tournament.create!(name: 'Eternal Tournament', start: DateTime.new(1955, 5, 15), end: DateTime.new(2030, 5, 15), checktime: true)
