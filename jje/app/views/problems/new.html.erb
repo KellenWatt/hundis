@@ -26,21 +26,21 @@ problem:
 	<div class="form-group">
 		<%= f.label :name, class: 'col-sm-2 control-label' %>
 		<div class="col-sm-10">
-			<%= f.text_field :name, class: 'form-control' %>
+			<%= f.text_field :name, required: true, class: 'form-control' %>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<%= f.label :score, class: 'col-sm-2 control-label' %>
 		<div class="col-sm-10">
-			<%= f.number_field :score, class: 'form-control', min: 0, step: 1 %>
+			<%= f.number_field :score, required: true, class: 'form-control', min: 0, step: 1 %>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<%= f.label :description, class: 'col-sm-2 control-label' %>
 		<div class="col-sm-10">
-			<%= f.text_area :description, class: 'form-control', rows: 3 %>
+			<%= f.text_area :description, required: true, class: 'form-control', rows: 3 %>
 		</div>
 	</div>
 
