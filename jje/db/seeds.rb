@@ -37,6 +37,14 @@ Problem.create!(name: 'Test_problem_8', score: 1, problem_description: 'stuff an
 Problem.create!(name: 'Test_problem_9', score: 1, problem_description: 'stuff and things like that for all people on', path: 'some path')
 Problem.create!(name: 'Test_problem_10', score: 1, problem_description: 'stuff and things like that for all people on Earth', path: 'some path')
 
+ProblemKeyword.create!(problem_id: 1, keyword: "cat")
+ProblemKeyword.create!(problem_id: 2, keyword: "dog")
+ProblemKeyword.create!(problem_id: 3, keyword: "catdog")
+
+ProblemTag.create!(problem_id: 1, tag: "heap")
+ProblemTag.create!(problem_id: 2, tag: "sort")
+ProblemTag.create!(problem_id: 3, tag: "heapsort")
+
 sot = Tournament.create!(name: 'Some Old Tourney', start: DateTime.new(2012, 1, 15, 12), end: DateTime.new(2012, 5, 1), checktime: true)
 et  = Tournament.create!(name: 'Eternal Tournament', start: DateTime.new(1955, 5, 15), end: DateTime.new(2030, 5, 15), checktime: true)
 fg  = Tournament.create!(name: 'Future Gamez', start: DateTime.new(2018, 1, 1), end: DateTime.new(2018, 12, 1), checktime: true)
