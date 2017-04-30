@@ -4,11 +4,14 @@ class ProblemsController < ApplicationController
 
   # GET /problems/new
   def new
+    unless current_user.admin?
+      redirect_to :tournaments, flash: {error: 'Only administrators can create new problems.'}
+    end
+    @problem = Problem.new
   end
 
   # POST /problems
   def create
-    # TODO: handle problem creation
     unless current_user.admin?
       redirect_to :problems, flash: {error: 'Only administrators can create new problems.'}
     end

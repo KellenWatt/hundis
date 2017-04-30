@@ -11,6 +11,7 @@
 	});
 </script>
 
+
 <%= form_for @problem, url: {action: 'create'}, html: {class: 'form-horizontal'} do |f| %>
 	<div class="form-group">
 		<%= f.label :name, class: 'col-sm-2 control-label' %>
@@ -58,4 +59,4 @@
 	</div>
 <% end %>
 
-<%= link_to 'Back', :problems 
+<%= link_to 'Back', :problems %>
