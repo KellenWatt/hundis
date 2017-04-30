@@ -68,15 +68,14 @@ def main():
     global SOLUTION_FILENAME
     global DIFF_COMMAND
 
-    # TODO: Parse cli arguments
+    # Parse cli arguments
     parser = argparse.ArgumentParser(description="A grading script to judge programming problems")
 
     parser.add_argument("language", help="Any of these languages: {}".format(
         [name for name, value in Language.__members__.items()]))
-    parser.add_argument("input_file", help="The input file to be fed to the user's code")
     parser.add_argument("-o", "--output_file", help="The file to have the user's code output to. "
-                                                    "Defaults to \"program_output.txt\"",
-                        default="program_output.txt")
+                                                    "Defaults to \"output/<input_filename>.out\"",
+                        default="output/{}.out")
     parser.add_argument("-m", "--main_file", help="For languages that mandate a specific file to run.")
     parser.add_argument("-e", "--executable", help="For languages that compile to an executable, the name of the "
                                                    "executable. Defaults to \"user_executable\"",
@@ -85,11 +84,12 @@ def main():
                                                      "Defaults to \"diff {solution_output}{user_output}\"",
                         default="diff {} {}")
     parser.add_argument("-s", "--solution_file", help="The solution file for the user's output to be compared to. "
-                                                      "Defaults to \"solution_output.txt\"",
-                        default="solution_output.txt")
+                                                      "Defaults to \"output/<input_filename>.sol\"",
+                        default="output/{}.sol")
     parser.add_argument("--delta", help="The floating-point delta to apply when validating floating-point arithmetic."
                                         "Defaults to .001", default=.001)
     parser.add_argument("--diff_files", help="Skip running code and compare output directly", action="store_true")
+    parser.add_argument("--debug", help="Turns on debug output", action="store_true")
     args = parser.parse_args()
 
     # Grab values out of the arg parser
