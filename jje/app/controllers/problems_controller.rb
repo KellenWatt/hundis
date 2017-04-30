@@ -85,9 +85,10 @@ class ProblemsController < ApplicationController
     uploaded_supp = params[:support]
 
     # TODO: handle submission
-    destpath = 'the/destination/path'
-    probpath = 'the/problem/path'
-    probnum = 'something'
+    sandhome = "/home/jjeuser"
+    probnum = @problem.problem_id
+    destpath = "users/#{current_user.user_id}/submissions/#{probnum}"
+    probpath = "problems/#{probnum}"
     File.open(destpath.join(uploaded_main.original_filename), 'wb') do |file|
       file.write(uploaded_main.read)
     end
@@ -96,9 +97,9 @@ class ProblemsController < ApplicationController
         file.write(upfile.read)
       end
     end
-    input = "/home/jjeuser/input"
-    output = "/home/jjeuser/output"
-    code = "/home/jjeuser/code"
+    input = "#{sandhome}/input"
+    output = "#{sandhome}/output"
+    code = "#{sandhome}/code"
     sandbox = Docker::Container.create(
       'Image' => 'jje_sandbox:latest',
       'Volumes' => {input => {},
@@ -116,14 +117,20 @@ class ProblemsController < ApplicationController
     uploaded_output = params[:output]
 
     # TODO: handle submission
-    destpath = 'the/destination/path'
+    sandhome = "/home/jjeuser"
+    probnum = @problem.problem_id
+    destpath = "users/#{current_user.user_id}/submissions/#{probnum}"
+    probpath = "problems/#{probnum}"
     File.open(destpath.join("output"), 'wb') do |file|
       file.write(uploaded_main.read)
     end
+    
+    output = "#{sandhome}/output"
+    code = "#{sandhome}/code"
     sandbox = Docker::Container.create(
       'Image' => 'jje_sandbox:latest',
-      'Volumes' => {"/home/jjeuser/code" => {},
-                    "/home/jjeuser/output" => {}}
+      'Volumes' => {"#{sandhome}/code" => {},
+                    "#{sandhome}/output" => {}}
     )
     sandbox.start('Binds' => {["#{probpath}/output:#{output}:ro", 
                                "#{destpath}:#{code}:rw"]})
