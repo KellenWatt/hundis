@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
     @homepage_users = User.limit(6).order(score: :desc)
     @easiest_problems = Problem.limit(6).order(score: :asc)
     @now = DateTime.current()
-    @least_solved_problems = []
+    @least_solved_problems = Problem.limit(6).order(solves: :asc)
     @homepage_tourneys = Tournament.limit(6)
   end
 
@@ -27,13 +27,26 @@ class StaticPagesController < ApplicationController
     if params[:q] and params[:q].length > 0 then
       @results = []
       @problem_result
-      @name_results = Problem.where('name LIKE ?', "%#{params[:q]}%")
-      @name_results.each do |result|
-        @results.push(result)
+      params[:q].split(" ").each do |word|
+        @name_results = Problem.where('lower(name) LIKE ?', "%#{word}%".downcase)
+        @name_results.each do |result|
+          @results.push(result)
+        end
+        @keyword_results = ProblemKeyword.where('lower(keyword) LIKE ?', "%#{word}%".downcase)
+        @keyword_results.each do |result|
+          @results.push(result.problem)
+        end
+        if user_signed_in?
+          if current_user.admin
+            @tag_results = ProblemTag.where('lower(tag) LIKE ?', "%#{word}%".downcase)
+            @tag_results.each do |result|
+              @results.push(result.problem)
+            end
+          end
+        end
       end
-      @keyword_results = ProblemKeyword.where('keyword LIKE ?', "%#{params[:q]}%")
-      @keyword_results.each do |result|
-        @results.push(result.problem)
+      if @results.length > 0 then
+        @results = @results.uniq{|x| x.problem_id}
       end
     end
   end
