@@ -52,11 +52,18 @@ class Language(Enum):
 
 def main():
     # Create the language->function dictionary
-    functions = {Language.C: c, Language.CPP: cpp, Language.JAVA: java, Language.PYTHON2: python2,
-                 Language.PYTHON3: python3, Language.C_SHARP: c_sharp, Language.D: d, Language.GO: go,
-                 Language.RUBY: ruby, Language.PASCAL: pascal, Language.JAVASCRIPT: javascript, Language.SCALA: scala,
-                 Language.PHP: php, Language.HASKELL: haskell, Language.LISP: lisp, Language.LUA: lua}
-    
+    compile_functions = {Language.C: compile_c, Language.CPP: compile_cpp, Language.JAVA: compile_java,
+                         Language.PYTHON2: None, Language.PYTHON3: None, Language.C_SHARP: compile_c_sharp,
+                         Language.D: compile_d, Language.GO: compile_go, Language.RUBY: compile_ruby,
+                         Language.PASCAL: compile_pascal, Language.JAVASCRIPT: None, Language.SCALA: compile_scala,
+                         Language.PHP: None, Language.HASKELL: None, Language.LISP: None, Language.LUA: None}
+
+    run_functions = {Language.C: run_c, Language.CPP: run_cpp, Language.JAVA: run_java, Language.PYTHON2: run_python2,
+                     Language.PYTHON3: run_python3, Language.C_SHARP: run_c_sharp, Language.D: run_d,
+                     Language.GO: run_go, Language.RUBY: run_ruby, Language.PASCAL: run_pascal,
+                     Language.JAVASCRIPT: run_javascript, Language.SCALA: run_scala, Language.PHP: run_php,
+                     Language.HASKELL: run_haskell, Language.LISP: run_lisp, Language.LUA: run_lua}
+
     # Declare the globals
     global PROGRAM_EXECUTABLE_NAME
     global PROGRAM_OUTPUT_FILENAME
@@ -106,8 +113,17 @@ def main():
             # Call the appropriate function based on language
             functions[language](input_file)
 
-            # Perform output validation
-            return_code = compare_output(SOLUTION_FILENAME, PROGRAM_OUTPUT_FILENAME, delta)
+            # Call the appropriate compile function based on language, don't if its lookup is None
+            func = compile_functions[language]
+
+            if func is not None:
+                return_code = func()
+            else:
+                return_code = None
+
+            if return_code is not None:
+                logging.info("{} compilation: return code {}".format(language.name, return_code))
+                exit(return_code)
 
             return return_code
         except KeyError:
@@ -120,122 +136,202 @@ def main():
     # TODO: Logging
 
 
-def c(input_file):
+
+def compile_c():
+    logging.debug("Running command: \"{}\"".
+                  format(Language.C.compile_command.format(PROGRAM_EXECUTABLE_NAME)))
     completed_process = run(Language.C.compile_command.format(PROGRAM_EXECUTABLE_NAME),
                             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
+        logging.critical("Compile Error! gcc returned code {}".format(completed_process.returncode))
         exit(Judgement.COMPILE_ERROR)
 
+
+def run_c(input_file, output_file):
+    logging.debug("Running command: \"{}\"".
+                  format(Language.C.run_command.format(PROGRAM_EXECUTABLE_NAME, input_file, output_file)))
     completed_process = \
-        run(Language.C.run_command.format(PROGRAM_EXECUTABLE_NAME, input_file, PROGRAM_OUTPUT_FILENAME),
+        run(Language.C.run_command.format(PROGRAM_EXECUTABLE_NAME, input_file, output_file),
             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
+        logging.critical(
+            "Runtime error! User code returned non-zero exit code {}!".format(completed_process.returncode))
         exit(Judgement.RUNTIME_ERROR)
 
 
-def cpp(input_file):
+def compile_cpp():
+    logging.debug("Running command: \"{}\"".
+                  format(Language.CPP.compile_command.format(PROGRAM_EXECUTABLE_NAME)))
     completed_process = \
         run(Language.CPP.compile_command.format(PROGRAM_EXECUTABLE_NAME),
             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
+        logging.critical("Compile Error! g++ returned code {}".format(completed_process.returncode))
         exit(Judgement.COMPILE_ERROR)
 
+
+def run_cpp(input_file, output_file):
+    logging.debug("Running command: \"{}\"".
+                  format(Language.CPP.run_command.format(PROGRAM_EXECUTABLE_NAME, input_file, output_file)))
     completed_process = \
-        run(Language.CPP.run_command.format(PROGRAM_EXECUTABLE_NAME, input_file, PROGRAM_OUTPUT_FILENAME),
+        run(Language.CPP.run_command.format(PROGRAM_EXECUTABLE_NAME, input_file, output_file),
             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
+        logging.critical(
+            "Runtime error! User code returned non-zero exit code {}!".format(completed_process.returncode))
         exit(Judgement.RUNTIME_ERROR)
 
 
-def java(input_file):
-    if MAIN_FILE is None:
-        exit(1)
-
+def compile_java():
+    logging.debug("Running command: \"{}\"".
+                  format(Language.JAVA.compile_command))
     completed_process = \
         run(Language.JAVA.compile_command, stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
+        logging.critical("Compile Error! javac returned code {}".format(completed_process.returncode))
         exit(Judgement.COMPILE_ERROR)
 
+
+def run_java(input_file, output_file):
+    if MAIN_FILE is None:
+        logging.critical("Error! No main file defined while using java!")
+        exit(1)
+
     # The [:-5] slice is to remove the '.java' ending from the main file
+    logging.debug("Running command: \"{}\"".
+                  format(Language.JAVA.run_command.format(MAIN_FILE[:-5], input_file, output_file)))
+
     completed_process = \
-        run(Language.JAVA.run_command.format(MAIN_FILE[:-5], input_file, PROGRAM_OUTPUT_FILENAME),
+        run(Language.JAVA.run_command.format(MAIN_FILE[:-5], input_file, output_file),
             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
+        logging.critical(
+            "Runtime error! User code returned non-zero exit code {}!".format(completed_process.returncode))
         exit(Judgement.RUNTIME_ERROR)
 
 
-def python2(input_file):
+def run_python2(input_file, output_file):
     if MAIN_FILE is None:
+        logging.critical("Error! No main file defined while using python2!")
         exit(1)
 
     # Python is interpreted, so no need to compile
-    completed_process = run(Language.PYTHON2.run_command.format(MAIN_FILE, input_file, PROGRAM_OUTPUT_FILENAME),
+    logging.debug("Running command: \"{}\"".
+                  format(Language.PYTHON2.run_command.format(MAIN_FILE, input_file, output_file)))
+    completed_process = run(Language.PYTHON2.run_command.format(MAIN_FILE, input_file, output_file),
                             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
+        logging.critical(
+            "Runtime error! User code returned non-zero exit code {}!".format(completed_process.returncode))
         exit(Judgement.RUNTIME_ERROR)
 
 
-def python3(input_file):
+def run_python3(input_file, output_file):
     if MAIN_FILE is None:
+        logging.critical("Error! No main file defined while using python3!")
         exit(1)
 
     # Python is interpreted, so no need to compile
-    completed_process = run(Language.PYTHON3.run_command.format(MAIN_FILE, input_file, PROGRAM_OUTPUT_FILENAME),
+    logging.debug("Running command: \"{}\"".
+                  format(Language.PYTHON3.run_command.format(MAIN_FILE, input_file, output_file)))
+    completed_process = run(Language.PYTHON3.run_command.format(MAIN_FILE, input_file, output_file),
                             stdout=PIPE, stderr=PIPE, encoding="UTF-8", shell=True)
 
     if completed_process.returncode != 0:
+        logging.info("Non-zero exit code! User's code returned {}".format(completed_process.returncode))
         exit(Judgement.RUNTIME_ERROR)
 
 
-def c_sharp(input_file):
-    pass
+def compile_c_sharp():
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
 
 
-def d(input_file):
-    pass
+def run_c_sharp(input_file, output_file):
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
 
 
-def go(input_file):
-    pass
+def compile_d():
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
 
 
-def ruby(input_file):
-    pass
+def run_d(input_file, output_file):
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
 
 
-def pascal(input_file):
-    pass
+def compile_go():
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
 
 
-def javascript(input_file):
-    pass
+def run_go(input_file, output_file):
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
 
 
-def scala(input_file):
-    pass
+def compile_ruby():
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
 
 
-def php(input_file):
-    pass
+def run_ruby(input_file, output_file):
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
 
 
-def haskell(input_file):
-    pass
+def compile_pascal():
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
 
 
-def lisp(input_file):
-    pass
+def run_pascal(input_file, output_file):
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
 
 
-def lua(input_file):
-    pass
+def run_javascript(input_file, output_file):
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
+
+
+def compile_scala():
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
+
+
+def run_scala(input_file, output_file):
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
+
+
+def run_php(input_file, output_file):
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
+
+
+def run_haskell(input_file, output_file):
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
+
+
+def run_lisp(input_file, output_file):
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
+
+
+def run_lua(input_file, output_file):
+    logging.info("Not yet implemented")
+    raise NotImplementedError()
 
 
 def compare_output(solution_filename, program_output_filename, delta):
