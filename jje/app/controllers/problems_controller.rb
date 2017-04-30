@@ -1,6 +1,6 @@
 class ProblemsController < ApplicationController
   before_action :authenticate_user!, exclude: [:show]
-  before_action :set_problem, only: [:show, :showUpload, :uploadCode, :uploadOutput]
+  before_action :set_problem, only: [:show, :edit, :update, :showUpload, :uploadCode, :uploadOutput]
 
   # GET /problems/new
   def new
@@ -20,17 +20,46 @@ class ProblemsController < ApplicationController
     # TODO: sanitize keywords/tags
 
     @problem = Problem.new(problem_params)
-
     if @problem.save
       keywords.each do |kw|
-        ProblemKeyword.create(problem_id: @problem.problem_id, keyword: kw)
+        @problem.keywords.create(keyword: kw)
       end
       tags.each do |tag|
-        ProblemTag.create(problem_id: @problem.problem_id, tag: tag)
+        @problem.tags.create(tag: tag)
       end
       redirect_to @problem, flash: {success: 'Problem created!'}
     else
       redirect_to :new_problem, flash: {error: "Failed to create problem: #{@problem.errors.full_messages}"}
+    end
+  end
+
+  # GET /problems/:id/edit
+  def edit
+    unless current_user.admin?
+      redirect_to :problems, flash: {error: 'Only administrators can edit problems.'}
+    end
+    @keywordstring = @problem.keywords.collect(&:keyword).join(' ')
+    @tagstring = @problem.tags.collect(&:tag).join(' ')
+  end
+
+  # PUT /problems/:id
+  def update
+    unless current_user.admin?
+      redirect_to :problems, flash: {error: 'Only administrators can create new problems.'}
+    end
+    keywords = params[:keywords][:allkeywords].split
+    tags = params[:tags][:alltags].split
+    # TODO: sanitize keywords/tags
+
+    if @problem.update(problem_params)
+      @problem.keywords.clear
+      keywords.each do |kw| @problem.keywords.create(keyword: kw) end
+      @problem.tags.clear
+      tags.each do |tag| @problem.tags.create(tag: tag) end
+
+      redirect_to @problem, flash: {success: 'Problem updated!'}
+    else
+      redirect_to @problem, flash: {error: "Failed to update problem: #{@problem.errors.full_messages}"}
     end
   end
 
