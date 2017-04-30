@@ -2,6 +2,8 @@ from subprocess import run, PIPE
 import argparse
 import re
 from enum import Enum, IntEnum
+from os import listdir, makedirs
+from os.path import exists
 
 MAIN_FILE = None
 PROGRAM_EXECUTABLE_NAME = None
@@ -95,8 +97,8 @@ def main():
     parser.add_argument("--diff_files", help="Skip running code and compare output directly", action="store_true")
     args = parser.parse_args()
 
+    # Grab values out of the arg parser
     language = args.language.upper()
-    input_file = args.input_file
     MAIN_FILE = args.main_file
     PROGRAM_EXECUTABLE_NAME = args.executable
     PROGRAM_OUTPUT_FILENAME = args.output_file
@@ -105,13 +107,12 @@ def main():
     delta = args.delta
     diff_files = args.diff_files
 
+    # They want to run code and then diff
     if not diff_files:
         # Grab the given language from the enum
         try:
             language = Language[language]
 
-            # Call the appropriate function based on language
-            functions[language](input_file)
 
             # Call the appropriate compile function based on language, don't if its lookup is None
             func = compile_functions[language]
@@ -125,16 +126,50 @@ def main():
                 logging.info("{} compilation: return code {}".format(language.name, return_code))
                 exit(return_code)
 
-            return return_code
+            # Make an output directory if it doesn't exist
+            if not exists("output"):
+                makedirs("output")
+
+            # Loop over input files and run code
+            for file in listdir("input/"):
+                file_name = file[:file.find(".")]
+                run_functions[language]("input/" + file, PROGRAM_OUTPUT_FILENAME.format(file_name))
+
+                # Perform output validation
+                return_code = compare_output(SOLUTION_FILENAME.format(file_name),
+                                             PROGRAM_OUTPUT_FILENAME.format(file_name), delta)
+
+                # If we get a non-accept return code
+                if return_code != Judgement.ACCEPTED:
+                    return return_code.value
+
+            return return_code.value
         except KeyError:
             print("Language \"{}\" is not supported".format(language))
             exit(1)
     else:
         # Just diff the files
-        return compare_output(SOLUTION_FILENAME, PROGRAM_OUTPUT_FILENAME, delta)
 
-    # TODO: Logging
+        # Make an output directory if it doesn't exist
+        if not exists("output"):
+            makedirs("output")
 
+        return_code = Judgement.GRADER_ERROR
+
+        # Loop over input files and run code
+        for file in listdir("input/"):
+            file_name = file[:file.find(".")]
+            run_functions[language]("input/" + file, PROGRAM_OUTPUT_FILENAME.format(file_name))
+
+            # Perform output validation
+            return_code = compare_output(SOLUTION_FILENAME.format(file_name),
+                                         PROGRAM_OUTPUT_FILENAME.format(file_name), delta)
+
+            # If we get a non-accept return code
+            if return_code != Judgement.ACCEPTED:
+                return return_code.value
+
+        return return_code.value
 
 
 def compile_c():
