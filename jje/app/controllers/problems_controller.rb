@@ -33,6 +33,8 @@ class ProblemsController < ApplicationController
 
     # TODO: handle submission
     destpath = 'the/destination/path'
+    probpath = 'the/problem/path'
+    probnum = 'something'
     File.open(destpath.join(uploaded_main.original_filename), 'wb') do |file|
       file.write(uploaded_main.read)
     end
@@ -41,6 +43,19 @@ class ProblemsController < ApplicationController
         file.write(upfile.read)
       end
     end
+    input = "/home/jjeuser/input"
+    output = "/home/jjeuser/output"
+    code = "/home/jjeuser/code"
+    sandbox = Docker::Container.create(
+      'Image' => 'jje_sandbox:latest',
+      'Volumes' => {input => {},
+                    output => {},
+                    code => {}}
+    )
+    sandbox.start('Binds' => {["#{probpath}/input:#{input}:ro", 
+                               "#{probpath}/output:#{output}:ro", 
+                               "#{destpath}:#{code}:rw"]})
+    # should return a value that we need to deal with.
   end
 
     # POST /problems/:id/submit/output
@@ -52,6 +67,14 @@ class ProblemsController < ApplicationController
     File.open(destpath.join("output"), 'wb') do |file|
       file.write(uploaded_main.read)
     end
+    sandbox = Docker::Container.create(
+      'Image' => 'jje_sandbox:latest',
+      'Volumes' => {"/home/jjeuser/code" => {},
+                    "/home/jjeuser/output" => {}}
+    )
+    sandbox.start('Binds' => {["#{probpath}/output:#{output}:ro", 
+                               "#{destpath}:#{code}:rw"]})
+    # should return a value that we need to deal with.
   end
 
 
