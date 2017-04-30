@@ -1,6 +1,12 @@
 <h1>Tournaments</h1>
 
 <article>
+	<% if user_signed_in? and current_user.admin then %>
+	<section>
+		<h4>Tournament Creation</h4>
+		<%= link_to('Create a New Tournament (admin)', :new_tournament) %>
+	</section>
+	<% end %>
 	<section>
 		<h3>All Tournaments<%=
 			if @pg_count > 1
@@ -15,6 +21,7 @@
 					<th>Starts</th>
 					<th>Ends</th>
 					<th>Status</th>
+					<th>Participants</th>
 					<th>Languages</th>
 				</tr>
 			</thead>
@@ -22,11 +29,16 @@
 				<% @tourneys.each do |tourney| %>
 				<tr>
 					<td><%= tourney.tournament_id %></td>
-					<td>TODO<!-- TODO: get tourney name --></td>
-					<td><%= tourney.start %></td>
-					<td><%= tourney.end %></td>
+					<td><%= link_to(tourney.name, tournament_path(tourney.tournament_id)) %></td>
+					<td><%= tourney.start.getlocal.to_s(:long) %></td>
+					<td><%= tourney.end.getlocal.to_s(:long) %></td>
 					<td><%= (tourney.end < @now ? 'over' : (tourney.start < @now ? 'active' : 'not yet')) %></td>
-					<td>TODO<!-- TODO: tourney langs --></td>
+					<td><%= CompetesIn.where(tournament_id: tourney.tournament_id).count %></td>
+					<td>
+					<% for tourney_lang in TournamentLanguage.where(tournament_id: tourney.tournament_id) do %>
+						<span class="tournament-language"><%= tourney_lang.language %></span>
+					<% end %>
+					</td>
 				</tr>
 				<% end %>
 			</tbody>

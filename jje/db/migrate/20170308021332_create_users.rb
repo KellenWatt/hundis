@@ -7,8 +7,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :company
       t.string :display_name, null: false
       t.string :email
-      t.string :pass
-      t.string :salt
       t.boolean :admin
 
       t.timestamps
