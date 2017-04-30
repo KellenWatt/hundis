@@ -17,7 +17,7 @@
 
 <p>
   <strong>Problem description:</strong>
-  <%= @problem.problem_description %>
+  <%= @problem.description %>
 </p>
 
 <p>
@@ -27,15 +27,15 @@
 
 <p>
   <strong>Keywords:</strong>
-  <% @keywords.each do |kw| %>
+  <% @problem.keywords.each do |kw| %>
     <span class="problem-keyword"><%= kw.keyword %></span>
   <% end %>
 </p>
 
 <p>
   <strong>Tags:</strong>
-  <% @tags.each do |tg| %>
-    <span class="problem-tag"><%= tg.keyword %></span>
+  <% @problem.tags.each do |tg| %>
+    <span class="problem-tag"><%= tg.tag %></span>
   <% end %>
 </p>
 

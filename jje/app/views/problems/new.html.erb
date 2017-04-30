@@ -10,6 +10,17 @@ problem:
 	.tags:
 		:tag
 -->
+<script>
+	var defaults = {
+		createTokensOnBlur: true,
+		delimiter: [' ', ',']
+	}
+	$(function() {
+		$('.tokenfield#keywords_allkeywords').tokenfield(defaults);
+		$('.tokenfield#tags_alltags').tokenfield(defaults);
+	});
+</script>
+
 
 <%= form_for @problem, url: {action: 'create'}, html: {class: 'form-horizontal'} do |f| %>
 	<div class="form-group">

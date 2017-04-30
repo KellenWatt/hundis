@@ -15,7 +15,23 @@ class ProblemsController < ApplicationController
     unless current_user.admin?
       redirect_to :problems, flash: {error: 'Only administrators can create new problems.'}
     end
+    keywords = params[:keywords][:allkeywords].split
+    tags = params[:tags][:alltags].split
+    # TODO: sanitize keywords/tags
+
     @problem = Problem.new(problem_params)
+
+    if @problem.save
+      keywords.each do |kw|
+        ProblemKeyword.create(problem_id: @problem.problem_id, keyword: kw)
+      end
+      tags.each do |tag|
+        ProblemTag.create(problem_id: @problem.problem_id, tag: tag)
+      end
+      redirect_to @problem, flash: {success: 'Problem created!'}
+    else
+      redirect_to :new_problem, flash: {error: "Failed to create problem: #{@problem.errors.full_messages}"}
+    end
   end
 
   # GET /problems/statistics
@@ -25,8 +41,8 @@ class ProblemsController < ApplicationController
 
   # GET /problems/:id
   def show
-    @keywords = ProblemKeyword.where(problem_id: params[:id])
-    @tags = ProblemTag.where(problem_id: params[:id])
+    #@keywords = ProblemKeyword.where(problem_id: params[:id])
+    #@tags = ProblemTag.where(problem_id: params[:id])
   end
 
   # GET /problems/:id/submit
