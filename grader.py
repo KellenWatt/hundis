@@ -18,6 +18,7 @@ class Judgement(IntEnum):
     COMPILE_ERROR = 1
     RUNTIME_ERROR = 2
     WRONG_ANSWER = 3
+    GRADER_ERROR = 4
 
 
 # Declare the language enum
