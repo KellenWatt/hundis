@@ -28,18 +28,20 @@ class StaticPagesController < ApplicationController
       @results = []
       @problem_result
       params[:q].split(" ").each do |word|
-        @name_results = Problem.where('name LIKE ?', "%#{word}%")
+        @name_results = Problem.where('lower(name) LIKE ?', "%#{word}%".downcase)
         @name_results.each do |result|
           @results.push(result)
         end
-        @keyword_results = ProblemKeyword.where('keyword LIKE ?', "%#{word}%")
+        @keyword_results = ProblemKeyword.where('lower(keyword) LIKE ?', "%#{word}%".downcase)
         @keyword_results.each do |result|
           @results.push(result.problem)
         end
-        if current_user.admin
-          @tag_results = ProblemTag.where('tag LIKE ?', "%#{word}%")
-          @tag_results.each do |result|
-            @results.push(result.problem)
+        if user_signed_in?
+          if current_user.admin
+            @tag_results = ProblemTag.where('lower(tag) LIKE ?', "%#{word}%".downcase)
+            @tag_results.each do |result|
+              @results.push(result.problem)
+            end
           end
         end
       end
