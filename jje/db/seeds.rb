@@ -36,6 +36,7 @@ Problem.create!(name: 'Test_problem_7', score: 1, problem_description: 'stuff an
 Problem.create!(name: 'Test_problem_8', score: 1, problem_description: 'stuff and things like that for all people', path: 'some path')
 Problem.create!(name: 'Test_problem_9', score: 1, problem_description: 'stuff and things like that for all people on', path: 'some path')
 Problem.create!(name: 'Test_problem_10', score: 1, problem_description: 'stuff and things like that for all people on Earth', path: 'some path')
+Problem.create!(name: 'The cat', score: 2, problem_description:'This exists solely so I can test my search', path: 'some path')
 
 ProblemKeyword.create!(problem_id: 1, keyword: "cat")
 ProblemKeyword.create!(problem_id: 2, keyword: "dog")

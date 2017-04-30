@@ -18,13 +18,14 @@ class StaticPagesController < ApplicationController
   def search
     if params[:q] and params[:q].length > 0 then
       @results = []
-      @name_results = Problem.where('name LIKE ?', "%#{:q}%")
+      @problem_result
+      @name_results = Problem.where('name LIKE ?', "%#{params[:q]}%")
       @name_results.each do |result|
         @results.push(result)
       end
-      @keyword_results = ProblemKeyword.where('keyword LIKE ?', "%#{:q}%")
+      @keyword_results = ProblemKeyword.where('keyword LIKE ?', "%#{params[:q]}%")
       @keyword_results.each do |result|
-        @results.push(Problem.where("problem_id = ?", result.problem_id))
+        @results.push(result.problem)
       end
     end
   end
