@@ -1,4 +1,61 @@
-<h1>New Problem</h1>
+<h1>Create a new Problem</h1>
 
-<%= render 'form', problem: @problem %>
-<%= link_to 'Back', problems_path %>
+<script>
+	var defaults = {
+		createTokensOnBlur: true,
+		delimiter: [' ', ',']
+	}
+	$(function() {
+		$('.tokenfield#keywords_allkeywords').tokenfield(defaults);
+		$('.tokenfield#tags_alltags').tokenfield(defaults);
+	});
+</script>
+
+<%= form_for @problem, url: {action: 'create'}, html: {class: 'form-horizontal'} do |f| %>
+	<div class="form-group">
+		<%= f.label :name, class: 'col-sm-2 control-label' %>
+		<div class="col-sm-10">
+			<%= f.text_field :name, required: true, class: 'form-control' %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :score, class: 'col-sm-2 control-label' %>
+		<div class="col-sm-10">
+			<%= f.number_field :score, required: true, class: 'form-control', min: 0, step: 1 %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :description, class: 'col-sm-2 control-label' %>
+		<div class="col-sm-10">
+			<%= f.text_area :description, required: true, class: 'form-control', rows: 3 %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<%= fields_for :keywords do |kw_f| %>
+			<%= kw_f.label :allkeywords, class: 'col-sm-2 control-label' %>
+			<div class="col-sm-10">
+				<%= kw_f.text_field :allkeywords, class: 'form-control tokenfield' %>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="form-group">
+		<%= fields_for :tags do |tags_f| %>
+			<%= tags_f.label :alltags, class: 'col-sm-2 control-label' %>
+			<div class="col-sm-10">
+				<%= tags_f.text_field :alltags, class: 'form-control tokenfield' %>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<%= f.submit class: "btn btn-default" %>
+		</div>
+	</div>
+<% end %>
+
+<%= link_to 'Back', :problems 
