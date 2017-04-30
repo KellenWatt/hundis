@@ -2,7 +2,31 @@
 
 <article>
 	<section>
-		<!-- snippet of top user to come -->
+		<h3>Top Users</h3>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Rank</th>
+					<th>ID</th>
+					<th>User</th>
+					<th>University</th>
+					<th>Company</th>
+					<th>Score</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @top_users.each_with_index do |user, index| %>
+				<tr>
+					<td><%= index + 1 %></td>
+					<td><%= user.user_id %></td>
+					<td><%= link_to(user.display_name, user_path(user.user_id)) %></td>
+					<td><%= user.university %></td>
+					<td><%= user.company %></td>
+					<td><%= user.score %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
 	</section>
 	<section>
 		<h3>All Users<%=
@@ -17,7 +41,6 @@
 					<th>User</th>
 					<th>University</th>
 					<th>Company</th>
-					<th>Rank</th>
 					<th>Score</th>
 				</tr>
 			</thead>
@@ -28,7 +51,6 @@
 					<td><%= link_to(user.display_name, user_path(user.user_id)) %></td>
 					<td><%= user.university %></td>
 					<td><%= user.company %></td>
-					<td>TODO<!-- TODO: get rank --></td>
 					<td><%= user.score %></td>
 				</tr>
 				<% end %>
