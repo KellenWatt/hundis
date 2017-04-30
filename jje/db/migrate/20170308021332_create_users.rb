@@ -3,11 +3,11 @@ class CreateUsers < ActiveRecord::Migration[5.0]
     create_table :users, id: false do |t|
       t.primary_key :user_id #primary_key defaults to integer
       t.string :university
-      t.integer :score
+      t.integer :score, default: 0
       t.string :company
       t.string :display_name, null: false
       t.string :email
-      t.boolean :admin
+      t.boolean :admin, default: false
 
       t.timestamps
     end

@@ -80,18 +80,18 @@ ActiveRecord::Schema.define(version: 20170411184553) do
 
   create_table "users", primary_key: "user_id", force: :cascade do |t|
     t.string   "university"
-    t.integer  "score"
+    t.integer  "score",                  default: 0
     t.string   "company"
-    t.string   "display_name",                        null: false
+    t.string   "display_name",                           null: false
     t.string   "email"
-    t.boolean  "admin"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.boolean  "admin",                  default: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
