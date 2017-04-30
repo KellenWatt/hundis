@@ -43,7 +43,9 @@ class StaticPagesController < ApplicationController
           end
         end
       end
-      @results = @results.uniq{|x| x.problem_id}
+      if @results.length > 0 then
+        @results = @results.uniq{|x| x.problem_id}
+      end
     end
   end
 
