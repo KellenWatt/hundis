@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   post  '/problems',                    to: 'problems#create',                        as: :create_problem
   get   '/problems/statistics',         to: 'problems#stats',                         as: :stats_problem
   get   '/problems/:id',                to: 'problems#show',          id: id_cnstrt,  as: :problem
+  get   '/problems/:id/edit',           to: 'problems#edit',          id: id_cnstrt,  as: :edit_problem
+  put   '/problems/:id',                to: 'problems#update',        id: id_cnstrt,  as: :update_problem
   get   '/problems/:id/submit/',        to: 'problems#showUpload',    id: id_cnstrt,  as: :upload_problem
   post  '/problems/:id/submit/code',    to: 'problems#uploadCode',    id: id_cnstrt,  as: :uploadCode_problem
   post  '/problems/:id/submit/output',  to: 'problems#uploadOutput',  id: id_cnstrt,  as: :uploadOutput_problem
