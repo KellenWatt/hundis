@@ -2,6 +2,13 @@ INDEX_PAGE_SIZE = 10
 
 class StaticPagesController < ApplicationController
 
+  def Home
+    @homepage_users = do_paging(User)
+    @homepage_problems = do_paging(Problem)
+    @now = DateTime.current()
+    @homepage_tourneys = do_paging(Tournament)
+  end
+
   def users
     @users = do_paging(User)
   end
@@ -13,6 +20,21 @@ class StaticPagesController < ApplicationController
   def tournaments
     @now = DateTime.current()
     @tourneys = do_paging(Tournament)
+  end
+
+  def search
+    if params[:q] and params[:q].length > 0 then
+      @results = []
+      @problem_result
+      @name_results = Problem.where('name LIKE ?', "%#{params[:q]}%")
+      @name_results.each do |result|
+        @results.push(result)
+      end
+      @keyword_results = ProblemKeyword.where('keyword LIKE ?', "%#{params[:q]}%")
+      @keyword_results.each do |result|
+        @results.push(result.problem)
+      end
+    end
   end
 
   private

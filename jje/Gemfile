@@ -64,3 +64,5 @@ gem 'safe_attributes'
 # Sandboxing stuff
 gem 'docker-api'
 
+# bootstrap tokenfield for problem creation
+gem 'bootstrap_tokenfield_rails', '~> 0.12.1'
