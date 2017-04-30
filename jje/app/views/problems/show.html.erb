@@ -21,21 +21,23 @@
 </p>
 
 <p>
+  <strong>Path:</strong>
+  <%= @problem.path %>
+</p>
+
+<p>
   <strong>Keywords:</strong>
-  <% @problem.keywords.each do |kw| %>
+  <% @keywords.each do |kw| %>
     <span class="problem-keyword"><%= kw.keyword %></span>
   <% end %>
 </p>
 
 <p>
   <strong>Tags:</strong>
-  <% @problem.tags.each do |tg| %>
-    <span class="problem-tag"><%= tg.tag %></span>
+  <% @tags.each do |tg| %>
+    <span class="problem-tag"><%= tg.keyword %></span>
   <% end %>
 </p>
 
-<%= link_to 'Upload Solution', upload_problem_path(@problem) %> |
-<% if user_signed_in? and current_user.admin then %>
-  <%= link_to('Edit (admin)', edit_problem_path(@problem)) %> |
-<% end %>
+<%= link_to 'Upload Solution', upload_problem_path(@problem) %>  |
 <%= link_to 'Back', problems_path %>

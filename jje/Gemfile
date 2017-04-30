@@ -60,6 +60,3 @@ gem 'composite_primary_keys'
 gem 'omniauth-google-oauth2'
 gem 'devise'
 gem 'safe_attributes'
-
-# bootstrap tokenfield for problem creation
-gem 'bootstrap_tokenfield_rails', '~> 0.12.1'

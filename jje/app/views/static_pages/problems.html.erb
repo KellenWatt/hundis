@@ -1,12 +1,6 @@
 <h1>Problems Page</h1>
 
 <article>
-	<% if user_signed_in? and current_user.admin then %>
-	<section>
-		<h4>Problem Creation</h4>
-		<%= link_to('Create a New Problem (admin)', :new_problem) %>
-	</section>
-	<% end %>
 	<section>
 		<h3>All Problems<%=
 			if @pg_count > 1
