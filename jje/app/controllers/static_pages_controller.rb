@@ -27,6 +27,13 @@ class StaticPagesController < ApplicationController
       @keyword_results.each do |result|
         @results.push(result.problem)
       end
+      if current_user.admin
+        @tag_results = ProblemTag.where('tag LIKE ?', "%#{params[:q]}%")
+        @tag_results.each do |result|
+          @results.push(result.problem)
+        end
+      end
+      @results.uniq{|x| x.problem_id}
     end
   end
 
