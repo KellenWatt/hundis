@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Problem:</strong>
   <%= @problem.problem_id %>
@@ -16,28 +14,31 @@
 </p>
 
 <p>
-  <strong>Problem description:</strong>
-  <%= @problem.problem_description %>
+  <strong>Solves:</strong>
+  <%= @problem.solves %>
 </p>
 
 <p>
-  <strong>Path:</strong>
-  <%= @problem.path %>
+  <strong>Problem description:</strong>
+  <%= @problem.description %>
 </p>
 
 <p>
   <strong>Keywords:</strong>
-  <% @keywords.each do |kw| %>
+  <% @problem.keywords.each do |kw| %>
     <span class="problem-keyword"><%= kw.keyword %></span>
   <% end %>
 </p>
 
 <p>
   <strong>Tags:</strong>
-  <% @tags.each do |tg| %>
-    <span class="problem-tag"><%= tg.keyword %></span>
+  <% @problem.tags.each do |tg| %>
+    <span class="problem-tag"><%= tg.tag %></span>
   <% end %>
 </p>
 
 <%= link_to 'Upload Solution', upload_problem_path(@problem) %> |
+<% if user_signed_in? and current_user.admin then %>
+  <%= link_to('Edit (admin)', edit_problem_path(@problem)) %> |
+<% end %>
 <%= link_to 'Back', problems_path %>

@@ -4,7 +4,8 @@ class CreateProblems < ActiveRecord::Migration[5.0]
       t.primary_key :problem_id
       t.string :name
       t.integer :score
-      t.text :problem_description
+      t.text :description
+      t.integer :solves, default: 0
       t.string :path
     end
 

@@ -44,7 +44,8 @@ ActiveRecord::Schema.define(version: 20170411184553) do
   create_table "problems", primary_key: "problem_id", force: :cascade do |t|
     t.string  "name"
     t.integer "score"
-    t.text    "problem_description"
+    t.text    "description"
+    t.integer "solves",      default: 0
     t.string  "path"
   end
 

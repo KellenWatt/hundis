@@ -2,11 +2,11 @@
 @import "bootstrap";
 
 .navbar-default .navbar-nav > li > a{
-	color: purple;
+	color: indigo;
 	font-size: 15px;
 
 	&:hover {
-		background-color: purple;
+		background-color: indigo;
 		color: goldenrod;
 	}
 }
@@ -17,10 +17,10 @@
 
 .navbar-default .navbar-brand {
 	font-size: 20px;
-	color: purple;
+	color: indigo;
 
 	&:hover {
-		background-color:purple;
+		background-color: indigo;
 		color: goldenrod;
 	}
 }

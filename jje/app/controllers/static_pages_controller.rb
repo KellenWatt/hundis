@@ -2,6 +2,14 @@ INDEX_PAGE_SIZE = 10
 
 class StaticPagesController < ApplicationController
 
+  def Home
+    @homepage_users = User.limit(6).order(score: :desc)
+    @easiest_problems = Problem.limit(6).order(score: :asc)
+    @now = DateTime.current()
+    @least_solved_problems = Problem.limit(6).order(solves: :asc)
+    @homepage_tourneys = Tournament.limit(6)
+  end
+
   def users
     @users = do_paging(User)
   end
