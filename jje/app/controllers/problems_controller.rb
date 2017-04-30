@@ -1,7 +1,7 @@
 class ProblemsController < ApplicationController
   before_action :authenticate_user!, exclude: [:show]
   before_action :set_problem, only: [:show, :edit, :update, :showUpload, :uploadCode, :uploadOutput]
-
+  require 'fileutils'
   # GET /problems/new
   def new
     unless current_user.admin?
@@ -89,12 +89,15 @@ class ProblemsController < ApplicationController
     probnum = @problem.problem_id
     destpath = "users/#{current_user.user_id}/submissions/#{probnum}"
     probpath = "problems/#{probnum}"
-    File.open(destpath.join(uploaded_main.original_filename), 'wb') do |file|
+    FileUtils.mkdir_p(destpath)
+    File.open("#{destpath}/#{uploaded_main.original_filename}", 'wb') do |file|
       file.write(uploaded_main.read)
     end
-    uploaded_supp.each do |upfile|
-      File.open(destpath.join(upfile.original_filename), 'wb') do |file|
-        file.write(upfile.read)
+    if uploaded_supp
+      uploaded_supp.each do |upfile|
+        File.open("#{destpath}/#{upfile.original_filename}", 'wb') do |file|
+          file.write(upfile.read)
+        end
       end
     end
     input = "#{sandhome}/input"
@@ -106,10 +109,11 @@ class ProblemsController < ApplicationController
                     output => {},
                     code => {}}
     )
-    sandbox.start('Binds' => {["#{probpath}/input:#{input}:ro", 
+    sandbox.start('Binds' => ["#{probpath}/input:#{input}:ro", 
                                "#{probpath}/output:#{output}:ro", 
-                               "#{destpath}:#{code}:rw"]})
+                               "#{destpath}:#{code}:rw"])
     # should return a value that we need to deal with.
+    redirect_to @problem
   end
 
     # POST /problems/:id/submit/output
@@ -121,7 +125,8 @@ class ProblemsController < ApplicationController
     probnum = @problem.problem_id
     destpath = "users/#{current_user.user_id}/submissions/#{probnum}"
     probpath = "problems/#{probnum}"
-    File.open(destpath.join("output"), 'wb') do |file|
+    FileUtils.mkdir_p(destpath)
+    File.open("#{destpath}/output", 'wb') do |file|
       file.write(uploaded_main.read)
     end
     
@@ -132,8 +137,8 @@ class ProblemsController < ApplicationController
       'Volumes' => {"#{sandhome}/code" => {},
                     "#{sandhome}/output" => {}}
     )
-    sandbox.start('Binds' => {["#{probpath}/output:#{output}:ro", 
-                               "#{destpath}:#{code}:rw"]})
+    sandbox.start('Binds' => ["#{probpath}/output:#{output}:ro", 
+                               "#{destpath}:#{code}:rw"])
     # should return a value that we need to deal with.
   end
 
