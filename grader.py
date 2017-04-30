@@ -109,6 +109,7 @@ def main():
     # They want to run code and then diff
     if not diff_files:
         logging.info("--diff_files was not passed. Determining language")
+
         # Grab the given language from the enum
         try:
             language = Language[language]
@@ -120,64 +121,42 @@ def main():
 
             if func is not None:
                 return_code = func()
+
+                if return_code is not None:
+                    logging.info("{} compilation: return code {}".format(language.name, return_code))
+                    exit(return_code)
             else:
-                return_code = None
-
-            if return_code is not None:
-                logging.info("{} compilation: return code {}".format(language.name, return_code))
-                exit(return_code)
-
-            # Make an output directory if it doesn't exist
-            if not exists("output"):
-                makedirs("output")
-
-            # Loop over input files and run code
-            for file in listdir("input/"):
-                file_name = file[:file.find(".")]
-                run_functions[language]("input/" + file, PROGRAM_OUTPUT_FILENAME.format(file_name))
-
-                # Perform output validation
-                logging.info("Running output validation")
-                return_code = compare_output(SOLUTION_FILENAME.format(file_name),
-                                             PROGRAM_OUTPUT_FILENAME.format(file_name), delta)
-
-                # If we get a non-accept return code
-                if return_code != Judgement.ACCEPTED:
-                    logging.info("One of the test cases could not be validated. Exiting early")
-                    return return_code.value
-
-            logging.info("All test cases passed")
-            return return_code.value
+                logging.info("{} does not need to be compiled".format(language.name))
         except KeyError:
             logging.critical("Language \"{}\" is not supported".format(language))
             exit(1)
     else:
-        # Just diff the files
         logging.info("--diff_files passed. Running only output validation")
 
-        # Make an output directory if it doesn't exist
-        if not exists("output"):
-            makedirs("output")
+    # Make an output directory if it doesn't exist
+    if not exists("output"):
+        makedirs("output")
 
-        return_code = Judgement.GRADER_ERROR
+    # This will change if there's at least one input file
+    return_code = Judgement.GRADER_ERROR
 
-        # Loop over input files and run code
-        for file in listdir("input/"):
-            file_name = file[:file.find(".")]
-            run_functions[language]("input/" + file, PROGRAM_OUTPUT_FILENAME.format(file_name))
+    # Loop over input files and run code
+    for file in listdir("input/"):
+        file_name = file[:file.find(".")]
+        run_functions[language]("input/" + file, PROGRAM_OUTPUT_FILENAME.format(file_name))
 
-            # Perform output validation
-            logging.info("Running output validation")
-            return_code = compare_output(SOLUTION_FILENAME.format(file_name),
-                                         PROGRAM_OUTPUT_FILENAME.format(file_name), delta)
+        # Perform output validation
+        logging.info("Running output validation")
+        return_code = compare_output(SOLUTION_FILENAME.format(file_name),
+                                     PROGRAM_OUTPUT_FILENAME.format(file_name), delta)
 
-            # If we get a non-accept return code
-            if return_code != Judgement.ACCEPTED:
-                logging.info("One of the test cases could not be validated. Exiting early")
-                return return_code.value
+        # If we get a non-accept return code
+        if return_code != Judgement.ACCEPTED:
+            logging.info("One of the test cases could not be validated. Exiting early")
+            return return_code.value
 
-        logging.info("All test cases passed")
-        return return_code.value
+    logging.info("All test cases passed")
+    return return_code.value
 
 
 def compile_c():
