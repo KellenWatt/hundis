@@ -49,7 +49,7 @@ class Language(Enum):
 
 
 def main():
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
     logging.info("Grader started")
 
     # Create the language->function dictionary
