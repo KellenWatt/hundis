@@ -1,15 +1,15 @@
-<h1>Users</h1>
+<h1>Users Page</h1>
 
 <article>
 	<section>
 		<!-- snippet of top user to come -->
 	</section>
 	<section>
-		<h2>All Users<%=
+		<h3>All Users<%=
 			if @pg_count > 1
 				render inline: " <small>(#{@pg} of #{@pg_count})</small>"
 			end
-		%></h2>
+		%></h3>
 		<table class="table table-striped">
 			<thead>
 				<tr>

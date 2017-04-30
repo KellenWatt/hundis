@@ -3,16 +3,16 @@ FROM ubuntu:14.04
 # C/C++, Java, Python3, D, Go, Ruby, C#, Pascal, Javascript, Scala, PHP, Haskell, Lua, 
 # clisp/scheme
 RUN apt-get update
-RUN apt-get upgrade
+RUN apt-get -y upgrade
 
 # NOTE: Any of these may need to be installed from source if necessary
 #       Checks will need to be performed if a switch is made
 
 RUN apt-get -y install g++                  # C/C++
 RUN apt-get -y install python3              # Python 3 (Python 2 on request)
-RUN apt-get -y install dmd                  # Dlang (switch if Grayson objects)
+RUN apt-get -y install gdc                  # Dlang (switch if Grayson objects)
 RUN apt-get -y install golang               # Golang
-RUN apt-get -y install ruby2.3              # Ruby 2.3
+RUN apt-get -y install ruby                 # Ruby 2.3
 RUN apt-get -y install mono-devel           # C#
 RUN apt-get -y install fp-compiler          # Free Pascal
 RUN apt-get -y install nodejs               # JavaScript, may need to find less robust version

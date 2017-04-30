@@ -2,33 +2,107 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.login_btn_icon {
-	height: 2em;
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
 }
 
-h1, h2, h3, h4 {
-	color: goldenrod;
+body {
+  color: white;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+h1 {
+  font-size: 70px;
+  text-align: center;
+  color: goldenrod;
+}
+
+h2, h3, h4, h5, h6 {
+  padding: 20px;
+  color: goldenrod;
+}
+
+h2 {
+  font-size: 45px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+.welcome {
+  p {
+    font-size: 16px;
+    margin: 33px;
+  }
 }
 
 a {
   color: goldenrod;
 
   &:visited {
-    color: purple;
+    color: indigo;
   }
 
   &:hover {
     color: goldenrod;
-    background-color: purple;
+    background-color: indigo;
+  }
+}
+
+.login_btn_icon {
+  height: 2em;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0;
+    background-color: #c00;
+    color: blue;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
   }
 }
 
 thead, th {
-	background-color: goldenrod;
-	color: white;
+  background-color: goldenrod;
+  color: white;
 }
 
 tr {
-	background-color: whitesmoke;
-	color: black;
+  background-color: whitesmoke;
+  color: black;
+}
+label {
+  display: block;
 }
