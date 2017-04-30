@@ -2,6 +2,7 @@ from subprocess import run, PIPE
 import argparse
 import re
 from enum import Enum, IntEnum
+import logging
 from os import listdir, makedirs
 from os.path import exists
 
@@ -48,6 +49,9 @@ class Language(Enum):
 
 
 def main():
+    logging.basicConfig(level=logging.DEBUG)
+    logging.info("Grader started")
+
     # Create the language->function dictionary
     compile_functions = {Language.C: compile_c, Language.CPP: compile_cpp, Language.JAVA: compile_java,
                          Language.PYTHON2: None, Language.PYTHON3: None, Language.C_SHARP: compile_c_sharp,
@@ -104,10 +108,12 @@ def main():
 
     # They want to run code and then diff
     if not diff_files:
+        logging.info("--diff_files was not passed. Determining language")
         # Grab the given language from the enum
         try:
             language = Language[language]
 
+            logging.info("Using {} as a language".format(language.name))
 
             # Call the appropriate compile function based on language, don't if its lookup is None
             func = compile_functions[language]
@@ -131,19 +137,23 @@ def main():
                 run_functions[language]("input/" + file, PROGRAM_OUTPUT_FILENAME.format(file_name))
 
                 # Perform output validation
+                logging.info("Running output validation")
                 return_code = compare_output(SOLUTION_FILENAME.format(file_name),
                                              PROGRAM_OUTPUT_FILENAME.format(file_name), delta)
 
                 # If we get a non-accept return code
                 if return_code != Judgement.ACCEPTED:
+                    logging.info("One of the test cases could not be validated. Exiting early")
                     return return_code.value
 
+            logging.info("All test cases passed")
             return return_code.value
         except KeyError:
-            print("Language \"{}\" is not supported".format(language))
+            logging.critical("Language \"{}\" is not supported".format(language))
             exit(1)
     else:
         # Just diff the files
+        logging.info("--diff_files passed. Running only output validation")
 
         # Make an output directory if it doesn't exist
         if not exists("output"):
@@ -157,13 +167,16 @@ def main():
             run_functions[language]("input/" + file, PROGRAM_OUTPUT_FILENAME.format(file_name))
 
             # Perform output validation
+            logging.info("Running output validation")
             return_code = compare_output(SOLUTION_FILENAME.format(file_name),
                                          PROGRAM_OUTPUT_FILENAME.format(file_name), delta)
 
             # If we get a non-accept return code
             if return_code != Judgement.ACCEPTED:
+                logging.info("One of the test cases could not be validated. Exiting early")
                 return return_code.value
 
+        logging.info("All test cases passed")
         return return_code.value
 
 
@@ -365,12 +378,15 @@ def run_lua(input_file, output_file):
 
 
 def compare_output(solution_filename, program_output_filename, delta):
+    logging.debug("Running diff command \"{}\"".format(DIFF_COMMAND.format(program_output_filename, solution_filename)))
     completed_process = run(DIFF_COMMAND.format(program_output_filename, solution_filename),
                             shell=True, stdout=PIPE, stderr=PIPE)
 
     if completed_process.returncode != 0:
+        logging.info("Non-zero exit code on diff. Starting manual validation")
         return floating_point_validation(solution_filename, program_output_filename, delta)
 
+    logging.info("Regular diff accepted. Output validated")
     return Judgement.ACCEPTED
 
 
@@ -380,11 +396,13 @@ def floating_point_validation(solution_filename, program_output_filename, delta)
     try:
         solution_output = open(solution_filename, "r")
     except FileNotFoundError:
+        logging.critical("Error: No solution file \"{}\" found!".format(solution_filename))
         exit(-1)
 
     try:
         program_output = open(program_output_filename, "r")
     except FileNotFoundError:
+        logging.critical("Error: No program output file \"{}\" found!".format(program_output_filename))
         exit(-1)
 
     solution_line = solution_output.readline()
@@ -393,6 +411,7 @@ def floating_point_validation(solution_filename, program_output_filename, delta)
 
         if output_line == "":
             # Program output hit EOF and the solution has not
+            logging.info("User output file too short! Manual validation failed")
             return Judgement.WRONG_ANSWER
 
         solution_words = solution_line.split(" ")
@@ -403,10 +422,14 @@ def floating_point_validation(solution_filename, program_output_filename, delta)
             solution_word = solution_words[i].strip("\n")
             output_word = output_words[i].strip("\n")
 
+            logging.debug("Comparing {} and {}".format(solution_word, output_word))
+
             # Is this word in the solution a float?
             if re.match("(\+|-)?[0-9]+\.[0-9]+", solution_word):
+                logging.debug("{} is a float".format(solution_word))
                 # Check the other one too
                 if re.match("(\+|-)?[0-9]+\.[0-9]+", output_word):
+                    logging.debug("{} is also a float".format(output_word))
                     # They're both floats. Check the window
 
                     # Convert them
@@ -415,18 +438,25 @@ def floating_point_validation(solution_filename, program_output_filename, delta)
 
                     # Create an upper and lower bound based on delta
                     window = solution_float - delta, solution_float + delta
+                    logging.debug("Float window with delta={}: [{}, {}]".format(delta, window[0], window[1]))
 
                     # Check if the program output is within that window
                     if not (window[0] <= output_float <= window[1]):
+                        logging.critical("Error! {} is not in [{}, {}]".format(output_float, window[0], window[1]))
                         return Judgement.WRONG_ANSWER
                 else:
                     # Other word isn't even a float...
+                    logging.debug("{} is NOT a float. Wrong answer".format(output_word))
                     return Judgement.WRONG_ANSWER
             else:
                 # Just a regular(non-float) 'token'. Check if they're equal
+                logging.debug("{} is not a float. Comparing characters".format(solution_word))
+
                 if solution_word != output_word:
                     # Not equal. Wrong
+                    logging.debug("{} != {}. Wrong".format(solution_word, output_word))
                     return Judgement.WRONG_ANSWER
+                logging.debug("They're equal")
 
         solution_line = solution_output.readline()
 
@@ -435,11 +465,13 @@ def floating_point_validation(solution_filename, program_output_filename, delta)
 
     if output_line != "":
         # Still more user output. Wrong
+        logging.info("User output too long. Manual validation failed")
         return Judgement.WRONG_ANSWER
 
     # Made it all the way out. Everything is validated
+    logging.debug("Floating-point validation accepted!")
     return Judgement.ACCEPTED
 
 
 if __name__ == "__main__":
-    main()
+    exit(main())
