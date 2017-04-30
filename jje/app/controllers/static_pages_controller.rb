@@ -3,10 +3,11 @@ INDEX_PAGE_SIZE = 10
 class StaticPagesController < ApplicationController
 
   def Home
-    @homepage_users = do_paging(User)
-    @homepage_problems = do_paging(Problem)
+    @homepage_users = User.limit(6).order(score: :desc)
+    @easiest_problems = Problem.limit(6).order(score: :asc)
     @now = DateTime.current()
-    @homepage_tourneys = do_paging(Tournament)
+    @least_solved_problems = []
+    @homepage_tourneys = Tournament.limit(6)
   end
 
   def users
