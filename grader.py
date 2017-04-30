@@ -379,9 +379,18 @@ def compare_output(solution_filename, program_output_filename, delta):
     return Judgement.ACCEPTED
 
 
-def floating_point_validation(solution_filename, program_output_filename, delta=.001):
-    solution_output = open(solution_filename, "r")
-    program_output = open(program_output_filename, "r")
+def floating_point_validation(solution_filename, program_output_filename, delta):
+    solution_output = None
+    program_output = None
+    try:
+        solution_output = open(solution_filename, "r")
+    except FileNotFoundError:
+        exit(-1)
+
+    try:
+        program_output = open(program_output_filename, "r")
+    except FileNotFoundError:
+        exit(-1)
 
     solution_line = solution_output.readline()
     while solution_line != "":
@@ -435,44 +444,6 @@ def floating_point_validation(solution_filename, program_output_filename, delta=
 
     # Made it all the way out. Everything is validated
     return Judgement.ACCEPTED
-
-    # Find all floating point numbers and throw them into a list
-    """solution_floats = [word.strip("\n") for line in solution_output for word in line.split(" ")
-                       if re.match("(\+|-)?[0-9]+\.[0-9]+", word)]
-
-    program_floats = [word.strip("\n") for line in program_output for word in line.split(" ")
-                      if re.match("(\+|-)?[0-9]+\.[0-9]+", word)]
-
-    if len(solution_floats) == 0:
-        # No floats to look at
-        return Judgement.WRONG_ANSWER
-    elif len(solution_floats) != len(program_floats):
-        # Output is certainly wrong, there aren't the same number of floats
-        return Judgement.WRONG_ANSWER
-
-    # Same number of floats
-    for i in range(len(solution_floats)):
-        # Grab the correct answer
-        f = solution_floats[i]
-
-        # Convert it to a float
-        f = float(f)
-
-        # Create an upper and lower bound based on delta
-        window = f - delta, f + delta
-
-        # Grab the program answer
-        program_answer = program_floats[i]
-
-        # Convert it
-        program_answer = float(program_answer)
-
-        # Check if the program output is within that window
-        if not (window[0] <= program_answer <= window[1]):
-            return Judgement.WRONG_ANSWER
-
-    # Reached the end without returning false, return true
-    return Judgement.ACCEPTED"""
 
 
 if __name__ == "__main__":
