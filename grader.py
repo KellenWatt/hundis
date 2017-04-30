@@ -10,12 +10,6 @@ PROGRAM_EXECUTABLE_NAME = None
 PROGRAM_OUTPUT_FILENAME = None
 SOLUTION_FILENAME = None
 DIFF_COMMAND = None
-JAVA_COMPILE_COMMAND = "javac *.java"
-JAVA_RUN_COMMAND = "java {} < {} > {}"
-CPP_COMPILE_COMMAND = "g++ *.cpp -std=c++11 -o {}".format(PROGRAM_EXECUTABLE_NAME)
-CPP_RUN_COMMAND = "./{} < {} > {}"
-PYTHON2_RUN_COMMAND = "python2 {} < {} > {}"
-PYTHON3_RUN_COMMAND = "python3 {} < {} > {}"
 
 
 # Declare the judgement return code enum
