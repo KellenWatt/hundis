@@ -1,0 +1,37 @@
+<article>
+	<section>
+		<h3>Search</h3>
+		<%= form_tag(:search, method: 'get', id: "search-form") do %>
+			<div class="input-group">
+				<%= text_field_tag :q, params[:q], class: 'form-control' %>
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="submit">Search</button>
+				</span>
+			</div>
+		<% end %>
+
+	</section>
+	<% if @results then %>
+		<section>
+			<h3>Search Results (problems)</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @results.each do |prob| %>
+					<tr>
+						<td><%= prob.problem_id %></td>
+						<td><%= link_to(prob.name, problem_path(prob.problem_id)) %></td>
+						<td><%= prob.score %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</section>
+	<% end %>
+</article>

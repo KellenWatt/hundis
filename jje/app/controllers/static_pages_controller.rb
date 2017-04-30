@@ -22,6 +22,21 @@ class StaticPagesController < ApplicationController
     @tourneys = do_paging(Tournament)
   end
 
+  def search
+    if params[:q] and params[:q].length > 0 then
+      @results = []
+      @problem_result
+      @name_results = Problem.where('name LIKE ?', "%#{params[:q]}%")
+      @name_results.each do |result|
+        @results.push(result)
+      end
+      @keyword_results = ProblemKeyword.where('keyword LIKE ?', "%#{params[:q]}%")
+      @keyword_results.each do |result|
+        @results.push(result.problem)
+      end
+    end
+  end
+
   private
     def do_paging (pagetype)
       @pg_count = (pagetype.count / INDEX_PAGE_SIZE.to_f).ceil
