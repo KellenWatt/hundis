@@ -39,6 +39,7 @@ Problem.create!(name: 'Entertainer', score: 50, description: 'stuff and things l
 
 ProblemKeyword.create!(problem_id: 1, keyword: "cat")
 ProblemKeyword.create!(problem_id: 2, keyword: "dog")
+ProblemKeyword.create!(problem_id: 11, keyword: "cat")
 ProblemKeyword.create!(problem_id: 3, keyword: "catdog")
 
 ProblemTag.create!(problem_id: 1, tag: "heap")
