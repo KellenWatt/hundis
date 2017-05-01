@@ -1,55 +1,65 @@
-<p>
-  <strong>Problem:</strong>
-  <%= @problem.problem_id %>
-</p>
+<span class="problem-page">
+  <div class="panel problem-info">
+    <p>
+      <strong>Score:</strong>
+      <%= @problem.score %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @problem.name %>
-</p>
+    <p>
+      <strong>Solves:</strong>
+      <%= @problem.solves %>
+    </p>
 
-<p>
-  <strong>Score:</strong>
-  <%= @problem.score %>
-</p>
-
-<p>
-  <strong>Solves:</strong>
-  <%= @problem.solves %>
-</p>
-
-<p>
-  <strong>Problem description:</strong>
-  <%= @problem.description %>
-</p>
-
-<p>
-  <strong>Keywords:</strong>
-  <% @problem.keywords.each do |kw| %>
-    <span class="problem-keyword"><%= kw.keyword %></span>
-  <% end %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <% @problem.tags.each do |tg| %>
-    <span class="problem-tag"><%= tg.tag %></span>
-  <% end %>
-</p>
-
-<p>
-  <strong>Input Files:</strong>
-  <% if Dir.exist? @input_path then %>
-    <% Dir.entries(@input_path).each do |fname| %>
-      <% unless fname == '.' or fname == '..' %>
-        <a href="/problems/<%= @problem.problem_id %>/inputs/<%= fname %>" download><%= fname %></a>
+    <p>
+      <strong>Keywords:</strong>
+      <% @problem.keywords.each do |kw| %>
+        <span class="problem-keyword"><%= kw.keyword %></span>
       <% end %>
-    <% end %>
-  <% else %>
-    None
-  <% end %>
-</p>
+    </p>
 
+    <% if user_signed_in? and current_user.admin then %>
+      <p>
+        <strong>Tags:</strong>
+        <% @problem.tags.each do |tg| %>
+          <span class="problem-tag"><%= tg.tag %></span>
+        <% end %>
+      </p>
+    <% end %>
+
+    <p>
+      <strong>Input Files:</strong>
+      <% if Dir.exist? @input_path then %>
+        <% Dir.entries(@input_path).each do |fname| %>
+          <% unless fname == '.' or fname == '..' %>
+            <a href="/problems/<%= @problem.problem_id %>/inputs/<%= fname %>" download><%= fname %></a>
+          <% end %>
+        <% end %>
+      <% else %>
+        None
+      <% end %>
+    </p>
+  </div>
+
+  <div class="panel problems">
+    <div class="panel-heading problem-heading">
+      <p>
+        <strong>
+          Problem #
+          <%= @problem.problem_id %>:
+        </strong>
+          <%= @problem.name %>
+      </p>
+
+      <p>
+      <strong>Problem description:</strong>
+      <%= @problem.description %>
+    </p>
+    </div>
+  </div>
+</span>
+
+
+<div class="links">
 <%= link_to 'Upload Solution', upload_problem_path(@problem) %> |
 <% if user_signed_in? and current_user.admin then %>
   <%= link_to('Edit (admin)', edit_problem_path(@problem)) %> |

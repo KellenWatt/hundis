@@ -2,44 +2,78 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.panel .panel-title {
-	color: indigo;
-	text-align: center;
-	font-size: 25px;
+
+
+// Display Problem Page CSS(problem information)
+p {
+  color: black;
 }
 
-.problems .create-problem a {
-  margin-left: 20px;
+.problem-page .problem-info {
+  float:left;
+  width: 33%;
+  height: 400px;
+}
+
+.problems .problem-heading {
+  text-align: center;
+  font-size: 25px;
+  padding: 25px;
+}
+
+.problems .problem-heading p {
+  color: black;
+}
+
+
+// Problem Page
+.panel .panel-title {
+  color: indigo;
+  text-align: center;
+  font-size: 25px;
+}
+
+.panel .panel-heading a {
   color: white;
 
   &:visited {
-    color: white;
-  }
+      color: indigo;
+    }
 
-  &:hover {
-    color: goldenrod;
-    background-color: indigo;
-  }
+    &:hover {
+      color: goldenrod;
+      background-color: indigo;
+    }
+}
+
+.problems .create-problem a {
+    margin-left: 20px;
+    color: white;
+
+    &:visited {
+      color: white;
+    }
+
+    &:hover {
+      color: goldenrod;
+      background-color: indigo;
+    }
 }
 
 .panel .problem-name {
-	color: indigo;
+  color: indigo;
 }
 
-.panel .panel-name > a {
-	color: indigo;
-	font-size: 100px;
-}
 
 .panel .panel-info {
-	color: black;
+  color: black;
 }
 
 .panel .panel-heading {
-	background-color: goldenrod;
-	color: black;
+  background-color: goldenrod;
+  color: black;
 }
 
 .panel .row {
-	color: black;
+  color: black;
 }
