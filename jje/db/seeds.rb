@@ -26,7 +26,7 @@ User.create!(university: 'Missouri S&T', score: 200, display_name: 'Ashley', ema
 User.create!(university: 'Missouri S&T', score: 350, display_name: 'Grace', email: 'Grace@gmail.com', password: 'srkstksy')
 User.create!(university: 'Missouri S&T', score: 600, display_name: 'Maranda', email: 'Maranda@gmail.com', password: 'stjfaj')
 
-Problem.create!(name: 'Hello, World!', score: 1, description: 'stuff', path: 'some path')
+Problem.create!(name: 'Hello, World!', score: 1, description: 'stuff', path: 'some path', solves: 1)
 Problem.create!(name: 'Mystery Bag', score: 5, description: 'stuff and', path: 'some path')
 Problem.create!(name: 'Cat Toss', score: 3, description: 'stuff and things', path: 'some path')
 Problem.create!(name: 'Maze Run', score: 40, description: 'stuff and thing like', path: 'some path')
@@ -58,7 +58,9 @@ for lang in [ 'C', 'C++', 'Go', 'JavaScript', 'Haskell'] do
 end
 TournamentLanguage.create!(tournament_id: fg.tournament_id, language: 'Python')
 
-UserSubmission.create!(user_id: 1, problem_id: 1, timestamp: DateTime(2001, 9, 10), solved: 1, language: "Python", runtime: 409366.169)
+UserSubmission.create!(user_id: 1, problem_id: 1, timestamp: DateTime.new(2001, 9, 10), language: "PHP")
+UserSubmission.create!(user_id: 1, problem_id: 1, timestamp: DateTime.new(2001, 9, 11), solved: 0, language: "Python", runtime: 4)
+UserSubmission.create!(user_id: 1, problem_id: 1, timestamp: DateTime.new(2001, 9, 12), solved: 1, language: "Python", runtime: 409366.169)
 
 # User(user_id: integer, university: string, score: integer, company: string, display_name: string, email: string, password: string, salt: string, created_at: datetime, updated_at: datetime, encrypted_password: string, reset_password_token: string, reset_password_sent_at: datetime, remember_created_at: datetime, sign_in_count: integer, current_sign_in_at: datetime, last_sign_in_at: datetime, current_sign_in_ip: inet, last_sign_in_ip: inet)
 # User(user_id: integer, university: string, score: integer, company: string, display_name: string, email: string, password: string, salt: string, created_at: datetime, updated_at: datetime)

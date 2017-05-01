@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :submissions]
 
   def index
   end
@@ -47,6 +47,11 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # GET /users/1/submissions
+  def submissions
+    @submissions = @user.submissions
   end
 
   # *VERB* /users/:username/(*all)  =>  *VERB* /users/:id/:all
