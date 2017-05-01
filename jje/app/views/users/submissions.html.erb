@@ -12,17 +12,19 @@
 					<th>Solved?</th>
 					<th>Language</th>
 					<th>Runtime</th>
+					<th>View</th>
 				</tr>
 			</thead>
 			<tbody>
 				<% @submissions.each do |subm| %>
-				<tr>
+				<tr class="<%=(subm.solved ? 'success' : (subm.solved == nil ? '' : 'danger'))%>">
 					<td><%= subm.problem_id %></td>
 					<td><%= link_to(Problem.find(subm.problem_id).name, problem_path(subm.problem_id)) %></td>
 					<td><%= subm.timestamp.getlocal.to_s(:long) %></td>
 					<td><%= (subm.solved ? "Solved" : (subm.solved == nil ? "" : "Failed")) %></td>
 					<td><%= subm.language %></td>
 					<td><%= subm.runtime %></td>
+					<td><%= link_to("View Submission", user_submission_path(subm.user_id, subm.problem_id, subm.timestamp)) %></td>
 				</tr>
 				<% end %>
 			</tbody>

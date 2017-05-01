@@ -1,4 +1,24 @@
-<p id="notice"><%= notice %></p>
+<h2><%= link_to(@user.display_name, @user) %>'s Submission for "<%= link_to("#{@problem.name}", @problem) %>"</h2>
 
-<%= link_to 'Edit', edit_user_submission_path(@user_submission) %> |
-<%= link_to 'Back', user_submissions_path %>
+<p>
+	<strong>Problem:</strong>
+	#<%= @problem.problem_id %>: <%= link_to(@problem.name, @problem) %>
+</p>
+
+<p>
+	<strong>Language:</strong>
+	<%= @user_submission.language %>
+</p>
+
+<p>
+	<strong>Solved:</strong>
+	<%= (@user_submission.solved ? "Solved" : (@user_submission.solved == nil ? "Waiting..." : "Failed")) %>
+</p>
+
+<p>
+	<strong>Runtime:</strong>
+	<%= (@user_submission.runtime ? @user_submission.runtime : "Waiting...") %>
+</p>
+
+
+<%= link_to 'Back', user_submissions_path(@user) %>
