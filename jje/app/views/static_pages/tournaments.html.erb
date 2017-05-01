@@ -1,8 +1,8 @@
 <h1>Tournaments</h1>
 
-<article>
+<article class="tournaments">
 	<% if user_signed_in? and current_user.admin then %>
-	<section>
+	<section class="create-tournament">
 		<h4>Tournament Creation</h4>
 		<%= link_to('Create a New Tournament (admin)', :new_tournament) %>
 	</section>
