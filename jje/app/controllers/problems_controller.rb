@@ -18,6 +18,8 @@ class ProblemsController < ApplicationController
     keywords = params[:keywords][:allkeywords].split
     tags = params[:tags][:alltags].split
     # TODO: sanitize keywords/tags
+    input_files = params[:files][:input]
+    output_files = params[:files][:output]
 
     @problem = Problem.new(problem_params)
     if @problem.save
@@ -27,6 +29,22 @@ class ProblemsController < ApplicationController
       tags.each do |tag|
         @problem.tags.create(tag: tag)
       end
+
+      basepath = Rails.root.join("problems", "#{@problem.problem_id}")
+      Dir.mkdir(basepath)
+      Dir.mkdir(basepath.join('input'))
+      Dir.mkdir(basepath.join('output'))
+      input_files.each do |upfile|
+        File.open(basepath.join('input', upfile.original_filename), 'wb') do |file|
+          file.write(upfile.read)
+        end
+      end
+      output_files.each do |upfile|
+        File.open(basepath.join('output', upfile.original_filename), 'wb') do |file|
+          file.write(upfile.read)
+        end
+      end
+
       redirect_to @problem, flash: {success: 'Problem created!'}
     else
       redirect_to :new_problem, flash: {error: "Failed to create problem: #{@problem.errors.full_messages}"}
@@ -115,6 +133,6 @@ class ProblemsController < ApplicationController
     end
 
     def problem_params
-      params.require(:problem).permit(:name, :score, :description)
+      params.require(:problem).permit(:name, :score, :description, files: {input: [], output: []})
     end
 end
