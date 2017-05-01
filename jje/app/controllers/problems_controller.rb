@@ -1,5 +1,5 @@
 class ProblemsController < ApplicationController
-  before_action :authenticate_user!, exclude: [:show]
+  before_action :authenticate_user!, except: [:show]
   before_action :set_problem, only: [:show, :edit, :update, :showUpload, :uploadCode, :uploadOutput, :downloadInput]
 
   # GET /problems/new

@@ -27,6 +27,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    unless @user == current_user or (user_signed_in? and current_user.admin) then
+      redirect_to @user, flash: {error: "Can only edit your own user!"}
+    end
   end
 
   # PATCH/PUT /users/1

@@ -30,12 +30,14 @@
   <% end %>
 </p>
 
-<p>
-  <strong>Tags:</strong>
-  <% @problem.tags.each do |tg| %>
-    <span class="problem-tag"><%= tg.tag %></span>
-  <% end %>
-</p>
+<% if user_signed_in? and current_user.admin then %>
+  <p>
+    <strong>Tags:</strong>
+    <% @problem.tags.each do |tg| %>
+      <span class="problem-tag"><%= tg.tag %></span>
+    <% end %>
+  </p>
+<% end %>
 
 <p>
   <strong>Input Files:</strong>
