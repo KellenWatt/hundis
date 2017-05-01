@@ -8,28 +8,37 @@
 	font-size: 25px;
 }
 
+.panel .panel-heading a {
+	color: white;
+
+	&:visited {
+    	color: indigo;
+  	}
+
+  	&:hover {
+    	color: goldenrod;
+    	background-color: indigo;
+  	}
+}
+
 .problems .create-problem a {
-  margin-left: 20px;
-  color: white;
+  	margin-left: 20px;
+  	color: white;
 
-  &:visited {
-    color: white;
-  }
+  	&:visited {
+    	color: white;
+  	}
 
-  &:hover {
-    color: goldenrod;
-    background-color: indigo;
-  }
+  	&:hover {
+    	color: goldenrod;
+    	background-color: indigo;
+  	}
 }
 
 .panel .problem-name {
 	color: indigo;
 }
 
-.panel .panel-name > a {
-	color: indigo;
-	font-size: 100px;
-}
 
 .panel .panel-info {
 	color: black;
