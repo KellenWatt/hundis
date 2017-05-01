@@ -23,25 +23,24 @@ class Judgement(IntEnum):
 
 
 # Declare the language enum
+# TODO: @Kellen, figure out the commands. Format is (COMPILE_COMMAND, RUN_COMMAND)
 class Language(Enum):
     C = ("gcc *.c -o {}", "./{} < {} > {}")
     CPP = ("g++ *.cpp -std=c++11 -o {}", "./{} < {} > {}")
     JAVA = ("javac *.java", "java {} < {} > {}")
     PYTHON2 = (None, "python2 {} < {} > {}")
     PYTHON3 = (None, "python3 {} < {} > {}")
-    
-    # TODO: @Kellen, figure out the commands. Format is (COMPILE_COMMAND, RUN_COMMAND)
-    C_SHARP = (None, None)
-    D = (None, None)
-    GO = (None, None)
-    RUBY = (None, None)
-    PASCAL = (None, None)
-    JAVASCRIPT = (None, None)
-    SCALA = (None, None)
-    PHP = (None, None)
-    HASKELL = (None, None)
-    LISP = (None, None)
-    LUA = (None, None)
+    C_SHARP = ("", "")
+    D = ("", "")
+    GO = ("", "")
+    RUBY = ("", "")
+    PASCAL = ("", "")
+    JAVASCRIPT = ("", "")
+    SCALA = ("", "")
+    PHP = ("", "")
+    HASKELL = ("", "")
+    LISP = ("", "")
+    LUA = ("", "")
 
     def __init__(self, compile_command, run_command):
         self.compile_command = compile_command
