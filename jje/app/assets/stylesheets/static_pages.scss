@@ -46,7 +46,7 @@ h4 {
   }
 }
 
-a {
+table a {
   color: goldenrod;
 
   &:visited {
@@ -57,6 +57,10 @@ a {
     color: goldenrod;
     background-color: indigo;
   }
+}
+
+a {
+  color: goldenrod;
 }
 
 .login_btn_icon {

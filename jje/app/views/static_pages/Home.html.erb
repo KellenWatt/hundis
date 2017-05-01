@@ -24,7 +24,7 @@
 				<tbody>
 					<% @homepage_users.each_with_index do |user, index| %>
 					<tr>
-						<td><%= index+1 %></td>
+						<td><%= index %></td>
 						<td><%= link_to(user.display_name, user_path(user.user_id)) %></td>
 						<td><%= user.score %></td>
 					</tr>
