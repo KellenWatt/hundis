@@ -44,12 +44,14 @@ Rails.application.routes.draw do
   get   '/problems/:id/submit/',        to: 'problems#showUpload',    id: id_cnstrt,  as: :upload_problem
   post  '/problems/:id/submit/code',    to: 'problems#uploadCode',    id: id_cnstrt,  as: :uploadCode_problem
   post  '/problems/:id/submit/output',  to: 'problems#uploadOutput',  id: id_cnstrt,  as: :uploadOutput_problem
+  get   '/problems/:id/inputs/*flname', to: 'problems#downloadInput', id: id_cnstrt,  as: :downloadInput_problem, format: false
 
   # Users Subsection
   get   '/users/:id',                   to: 'users#show',             id: id_cnstrt,  as: :user
   get   '/users/:id/edit',              to: 'users#edit',             id: id_cnstrt,  as: :edit_user
   put   '/users/:id',                   to: 'users#update',           id: id_cnstrt,  as: :update_user
-  get   '/users/:id/submissions',       to: 'users#submissions',      id: id_cnstrt,  as: :submissions_user
+  get   '/users/:id/submissions',       to: 'users#submissions',      id: id_cnstrt,  as: :user_submissions
+  get   '/users/:user_id/submissions/:problem_id/:timestamp', to: 'user_submissions#show',  user_id: id_cnstrt, problem_id: id_cnstrt, as: :user_submission
   match '/users/:username/(*all)',      to: 'users#name_to_id', username: nonid_cnst, via: [:get, :put]
 
   # Tournaments Subsection

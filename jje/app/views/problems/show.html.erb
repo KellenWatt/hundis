@@ -30,10 +30,25 @@
   <% end %>
 </p>
 
+<% if user_signed_in? and current_user.admin then %>
+  <p>
+    <strong>Tags:</strong>
+    <% @problem.tags.each do |tg| %>
+      <span class="problem-tag"><%= tg.tag %></span>
+    <% end %>
+  </p>
+<% end %>
+
 <p>
-  <strong>Tags:</strong>
-  <% @problem.tags.each do |tg| %>
-    <span class="problem-tag"><%= tg.tag %></span>
+  <strong>Input Files:</strong>
+  <% if Dir.exist? @input_path then %>
+    <% Dir.entries(@input_path).each do |fname| %>
+      <% unless fname == '.' or fname == '..' %>
+        <a href="/problems/<%= @problem.problem_id %>/inputs/<%= fname %>" download><%= fname %></a>
+      <% end %>
+    <% end %>
+  <% else %>
+    None
   <% end %>
 </p>
 
