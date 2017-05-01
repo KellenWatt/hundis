@@ -84,10 +84,10 @@ def main():
                                                      "Defaults to \"diff {solution_output}{user_output}\"",
                         default="diff {} {}")
     parser.add_argument("-s", "--solution_file", help="The solution file for the user's output to be compared to. "
-                                                      "Defaults to \"output/<input_filename>.sol\"",
-                        default="output/{}.sol")
+                                                      "Defaults to \"solutions/<input_filename>.sol\"",
+                        default="solutions/{}.sol")
     parser.add_argument("--delta", help="The floating-point delta to apply when validating floating-point arithmetic."
-                                        "Defaults to .001", default=.001)
+                                        "Defaults to .05", default=.05, type=float)
     parser.add_argument("--diff_files", help="Skip running code and compare output directly", action="store_true")
     parser.add_argument("--debug", help="Turns on debug output", action="store_true")
     args = parser.parse_args()
@@ -121,16 +121,42 @@ def main():
             func = compile_functions[language]
 
             if func is not None:
+                logging.info("Compiling...")
                 return_code = func()
 
                 if return_code is not None:
                     logging.info("{} compilation: return code {}".format(language.name, return_code))
                     exit(return_code)
+                logging.info("Compilation successful")
             else:
                 logging.info("{} does not need to be compiled".format(language.name))
+
+            # Run through each input file and run the code on it
+            logging.info("Running user code on input")
+            count = 0
+            for file in listdir("input/"):
+                count += 1
+                file_name = file[:file.find(".")]
+                logging.info("{}: {}".format(count, file))
+                return_code = run_functions[language]("input/" + file, PROGRAM_OUTPUT_FILENAME.format(file_name))
+
+                if return_code is not None:
+                    logging.info("Non-zero exit code on {}".format(file))
+                    return return_code.value
+                logging.info("\tSuccessful")
+
+            # If no files exist in the input folder
+            if count == 0:
+                logging.critical("No input files exist! Can't generate output without input!")
+                return Judgement.GRADER_ERROR.value
         except KeyError:
             logging.critical("Language \"{}\" is not supported".format(language))
-            exit(1)
+            exit(Judgement.GRADER_ERROR.value)
+        except OSError:
+            logging.critical("Input folder does not exist!")
+            exit(Judgement.GRADER_ERROR.value)
+        except NotImplementedError:
+            exit(Judgement.GRADER_ERROR.value)
     else:
         logging.info("--diff_files passed. Running only output validation")
 
@@ -141,20 +167,28 @@ def main():
     # This will change if there's at least one input file
     return_code = Judgement.GRADER_ERROR
 
-    # Loop over input files and run code
-    for file in listdir("input/"):
-        file_name = file[:file.find(".")]
-        run_functions[language]("input/" + file, PROGRAM_OUTPUT_FILENAME.format(file_name))
+    logging.info("Validating output")
+    try:
+        # Loop over input files and diff output
+        count = 0
+        for file in listdir("solutions/"):
+            count += 1
+            file_name = file[:file.find(".")]
 
-        # Perform output validation
-        logging.info("Running output validation")
-        return_code = compare_output(SOLUTION_FILENAME.format(file_name),
-                                     PROGRAM_OUTPUT_FILENAME.format(file_name), delta)
+            # Perform output validation
+            logging.info("{}: {}".format(count, file))
+            return_code = compare_output(SOLUTION_FILENAME.format(file_name),
+                                         PROGRAM_OUTPUT_FILENAME.format(file_name), delta)
 
-        # If we get a non-accept return code
-        if return_code != Judgement.ACCEPTED:
-            logging.info("One of the test cases could not be validated. Exiting early")
-            return return_code.value
+            # If we get a non-accept return code
+            if return_code != Judgement.ACCEPTED:
+                logging.info("{} could not be validated. Exiting".format(file))
+                return return_code.value
+
+            logging.info("\tAccepted")
+    except OSError:
+        logging.critical("Solutions folder does not exist!")
+        exit(Judgement.GRADER_ERROR.value)
 
     logging.info("All test cases passed")
     return return_code.value
@@ -358,15 +392,15 @@ def run_lua(input_file, output_file):
 
 
 def compare_output(solution_filename, program_output_filename, delta):
-    logging.debug("Running diff command \"{}\"".format(DIFF_COMMAND.format(program_output_filename, solution_filename)))
+    logging.debug("\tRunning diff command \"{}\"".format(DIFF_COMMAND.format(program_output_filename, solution_filename)))
     completed_process = run(DIFF_COMMAND.format(program_output_filename, solution_filename),
                             shell=True, stdout=PIPE, stderr=PIPE)
 
     if completed_process.returncode != 0:
-        logging.info("Non-zero exit code on diff. Starting manual validation")
+        logging.info("\tNon-zero exit code on diff. Starting manual validation")
         return floating_point_validation(solution_filename, program_output_filename, delta)
 
-    logging.info("Regular diff accepted. Output validated")
+    logging.info("\tRegular diff accepted. Output validated")
     return Judgement.ACCEPTED
 
 
@@ -391,7 +425,7 @@ def floating_point_validation(solution_filename, program_output_filename, delta)
 
         if output_line == "":
             # Program output hit EOF and the solution has not
-            logging.info("User output file too short! Manual validation failed")
+            logging.info("\tUser output file too short! Manual validation failed")
             return Judgement.WRONG_ANSWER
 
         solution_words = solution_line.split(" ")
@@ -402,14 +436,14 @@ def floating_point_validation(solution_filename, program_output_filename, delta)
             solution_word = solution_words[i].strip("\n")
             output_word = output_words[i].strip("\n")
 
-            logging.debug("Comparing {} and {}".format(solution_word, output_word))
+            logging.debug("\tComparing {} and {}".format(solution_word, output_word))
 
             # Is this word in the solution a float?
             if re.match("(\+|-)?[0-9]+\.[0-9]+", solution_word):
-                logging.debug("{} is a float".format(solution_word))
+                logging.debug("\t{} is a float".format(solution_word))
                 # Check the other one too
                 if re.match("(\+|-)?[0-9]+\.[0-9]+", output_word):
-                    logging.debug("{} is also a float".format(output_word))
+                    logging.debug("\t{} is also a float".format(output_word))
                     # They're both floats. Check the window
 
                     # Convert them
@@ -418,25 +452,27 @@ def floating_point_validation(solution_filename, program_output_filename, delta)
 
                     # Create an upper and lower bound based on delta
                     window = solution_float - delta, solution_float + delta
-                    logging.debug("Float window with delta={}: [{}, {}]".format(delta, window[0], window[1]))
+                    logging.debug("\tFloat window with delta={}: [{}, {}]".format(delta, window[0], window[1]))
 
                     # Check if the program output is within that window
                     if not (window[0] <= output_float <= window[1]):
-                        logging.critical("Error! {} is not in [{}, {}]".format(output_float, window[0], window[1]))
+                        logging.critical("\tError! {} is not in [{}, {}]".format(output_float, window[0], window[1]))
                         return Judgement.WRONG_ANSWER
+                    else:
+                        logging.debug("\t{} <= {} <= {}".format(window[0], output_float, window[1]))
                 else:
                     # Other word isn't even a float...
-                    logging.debug("{} is NOT a float. Wrong answer".format(output_word))
+                    logging.debug("\t{} is NOT a float. Wrong answer".format(output_word))
                     return Judgement.WRONG_ANSWER
             else:
                 # Just a regular(non-float) 'token'. Check if they're equal
-                logging.debug("{} is not a float. Comparing characters".format(solution_word))
+                logging.debug("\t{} is not a float. Comparing characters".format(solution_word))
 
                 if solution_word != output_word:
                     # Not equal. Wrong
-                    logging.debug("{} != {}. Wrong".format(solution_word, output_word))
+                    logging.debug("\t{} != {}. Wrong".format(solution_word, output_word))
                     return Judgement.WRONG_ANSWER
-                logging.debug("They're equal")
+                logging.debug("\tThey're equal")
 
         solution_line = solution_output.readline()
 
@@ -445,11 +481,11 @@ def floating_point_validation(solution_filename, program_output_filename, delta)
 
     if output_line != "":
         # Still more user output. Wrong
-        logging.info("User output too long. Manual validation failed")
+        logging.info("\tUser output too long. Manual validation failed")
         return Judgement.WRONG_ANSWER
 
     # Made it all the way out. Everything is validated
-    logging.debug("Floating-point validation accepted!")
+    logging.debug("\tFloating-point validation accepted!")
     return Judgement.ACCEPTED
 
 
