@@ -58,6 +58,7 @@ for lang in [ 'C', 'C++', 'Go', 'JavaScript', 'Haskell'] do
 end
 TournamentLanguage.create!(tournament_id: fg.tournament_id, language: 'Python')
 
+UserSubmission.create!(user_id: 1, problem_id: 1, timestamp: DateTime(2001, 9, 10), solved: 1, language: "Python", runtime: 409366.169)
 
 # User(user_id: integer, university: string, score: integer, company: string, display_name: string, email: string, password: string, salt: string, created_at: datetime, updated_at: datetime, encrypted_password: string, reset_password_token: string, reset_password_sent_at: datetime, remember_created_at: datetime, sign_in_count: integer, current_sign_in_at: datetime, last_sign_in_at: datetime, current_sign_in_ip: inet, last_sign_in_ip: inet)
 # User(user_id: integer, university: string, score: integer, company: string, display_name: string, email: string, password: string, salt: string, created_at: datetime, updated_at: datetime)
