@@ -52,8 +52,10 @@
   <% end %>
 </p>
 
+<div class="links">
 <%= link_to 'Upload Solution', upload_problem_path(@problem) %> |
 <% if user_signed_in? and current_user.admin then %>
   <%= link_to('Edit (admin)', edit_problem_path(@problem)) %> |
 <% end %>
 <%= link_to 'Back', problems_path %>
+</div>

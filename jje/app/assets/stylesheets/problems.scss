@@ -1,3 +1,54 @@
 // Place all the styles related to the Problems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.panel .panel-title {
+	color: indigo;
+	text-align: center;
+	font-size: 25px;
+}
+
+.panel .panel-heading a {
+	color: white;
+
+	&:visited {
+    	color: indigo;
+  	}
+
+  	&:hover {
+    	color: goldenrod;
+    	background-color: indigo;
+  	}
+}
+
+.problems .create-problem a {
+  	margin-left: 20px;
+  	color: white;
+
+  	&:visited {
+    	color: white;
+  	}
+
+  	&:hover {
+    	color: goldenrod;
+    	background-color: indigo;
+  	}
+}
+
+.panel .problem-name {
+	color: indigo;
+}
+
+
+.panel .panel-info {
+	color: black;
+}
+
+.panel .panel-heading {
+	background-color: goldenrod;
+	color: black;
+}
+
+.panel .row {
+	color: black;
+}

@@ -1,10 +1,10 @@
 <h1>Problems Page</h1>
 
-<article>
+<article class="problems">
 	<% if user_signed_in? and current_user.admin then %>
-	<section>
+	<section class="create-problem">
 		<h4>Problem Creation</h4>
-		<p><%= link_to('Create a New Problem (admin)', :new_problem) %></p>
+		<p class="create-new"><%= link_to('Create a New Problem (admin)', :new_problem) %></p>
 	</section>
 	<% end %>
 	<section>
