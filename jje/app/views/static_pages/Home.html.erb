@@ -22,9 +22,9 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% @homepage_users.each do |user| %>
+					<% @homepage_users.each_with_index do |user, index| %>
 					<tr>
-						<td> TODO<!-- TODO: get rank --> </td>
+						<td><%= index %></td>
 						<td><%= link_to(user.display_name, user_path(user.user_id)) %></td>
 						<td><%= user.score %></td>
 					</tr>
@@ -35,7 +35,7 @@
 
 		<div class="col-md-6">
 			<div class="page-headline clearfix">
-				<h3> Recommended Problems </h3>
+				<h3> Easiest Problems </h3>
 			</div>
 
 			<table class="table table-striped problems">
@@ -48,12 +48,12 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% @homepage_problems.each do |prob| %>
+					<% @easiest_problems.each do |prob| %>
 					<tr>
 						<td><%= prob.problem_id %></td>
 						<td><%= link_to(prob.name, problem_path(prob.problem_id)) %></td>
 						<td><%= prob.score %></td>
-						<td>TODO<!-- TODO: get solves --></td>
+						<td><%= prob.solves %></td>
 					</tr>
 					<% end %>
 				</tbody>
@@ -75,12 +75,12 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% @homepage_problems.each do |prob| %>
+					<% @least_solved_problems.each do |prob| %>
 					<tr>
 						<td><%= prob.problem_id %></td>
 						<td><%= link_to(prob.name, problem_path(prob.problem_id)) %></td>
 						<td><%= prob.score %></td>
-						<td>TODO<!-- TODO: get solves --></td>
+						<td><%= prob.solves %></td>
 					</tr>
 					<% end %>
 				</tbody>
@@ -99,15 +99,17 @@
 						<th> Tournament </th>
 						<th> Started </th>
 						<th> Ends </th>
+						<th> Active? </th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @homepage_tourneys.each do |tourney| %>
 					<tr>
 						<td><%= tourney.tournament_id %></td>
-						<td><%= (tourney.end < @now ? 'over' : (tourney.start < @now ? 'active' : 'not yet')) %></td>
+						<td><%= tourney.name %></td>
 						<td><%= tourney.start %></td>
 						<td><%= tourney.end %></td>
+						<td><%= (tourney.end < @now ? 'over' : (tourney.start < @now ? 'active' : 'not yet')) %></td>
 					</tr>
 					<% end %>
 				</tbody>
