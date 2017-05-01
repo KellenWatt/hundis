@@ -48,9 +48,6 @@ class Language(Enum):
 
 
 def main():
-    logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
-    logging.info("Grader started")
-
     # Create the language->function dictionary
     compile_functions = {Language.C: compile_c, Language.CPP: compile_cpp, Language.JAVA: compile_java,
                          Language.PYTHON2: None, Language.PYTHON3: None, Language.C_SHARP: compile_c_sharp,
@@ -104,6 +101,11 @@ def main():
     DIFF_COMMAND = args.diff_command
     delta = args.delta
     diff_files = args.diff_files
+
+    if args.debug:
+        logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
+    else:
+        logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
 
     # They want to run code and then diff
     if not diff_files:
