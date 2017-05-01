@@ -30,13 +30,14 @@ RUN apt-get -y install openjdk-7-jdk
 RUN useradd -m -s /bin/bash jjeuser
 USER jjeuser
 WORKDIR /home/jjeuser
-
+RUN mkdir /home/jjeuser/output
 # retrieve the code/output to be graded
 # should be implicitly done with a mounted filesystem between the host and the container
 
 
 # run the grading mechanism on the input files and code
-CMD python3 grader.py && exit $?
+#CMD python3 grader.py && exit $?
+# !!NOTE!!: This will be done from the server itself, from the container creation code
 # NOTE: This is not an ENTRYPOINT so that the container can still be accessed 
 # in case of debugging
 

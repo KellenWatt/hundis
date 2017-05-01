@@ -119,17 +119,18 @@ class ProblemsController < ApplicationController
       end
     end
     input = "#{sandhome}/input"
-    output = "#{sandhome}/output"
+    output = "#{sandhome}/solutions"
     code = "#{sandhome}/code"
     sandbox = Docker::Container.create(
       'Image' => 'jje_sandbox:latest',
       'Volumes' => {input => {},
-                    output => {},
+                    output => {}, 
                     code => {}}
     )
     sandbox.start('Binds' => ["#{probpath}/input:#{input}:ro", 
                                "#{probpath}/output:#{output}:ro", 
-                               "#{destpath}:#{code}:rw"])
+                               "#{ destpath}:#{code}:rw"],
+                  'Cmd' => ["python3 grader.py #{sandhome}/code/#{uploaded_main.original_filename} #{uploaded_lang}"])
     # should return a value that we need to deal with.
     redirect_to @problem
   end
@@ -148,7 +149,7 @@ class ProblemsController < ApplicationController
       file.write(uploaded_main.read)
     end
     
-    output = "#{sandhome}/output"
+    output = "#{sandhome}/solutions"
     code = "#{sandhome}/code"
     sandbox = Docker::Container.create(
       'Image' => 'jje_sandbox:latest',
@@ -156,8 +157,10 @@ class ProblemsController < ApplicationController
                     "#{sandhome}/output" => {}}
     )
     sandbox.start('Binds' => ["#{probpath}/output:#{output}:ro", 
-                               "#{destpath}:#{code}:rw"])
+                               "#{destpath}:#{code}:rw"],
+                  'Cmd' => ["python3 grader.py --diff_files"])
     # should return a value that we need to deal with.
+    redirect_to @problem
   end
 
   def downloadInput
