@@ -37,7 +37,23 @@
   <% end %>
 </p>
 
+<<<<<<< HEAD
 <div class="links">
+=======
+<p>
+  <strong>Input Files:</strong>
+  <% if Dir.exist? @input_path then %>
+    <% Dir.entries(@input_path).each do |fname| %>
+      <% unless fname == '.' or fname == '..' %>
+        <a href="/problems/<%= @problem.problem_id %>/inputs/<%= fname %>" download><%= fname %></a>
+      <% end %>
+    <% end %>
+  <% else %>
+    None
+  <% end %>
+</p>
+
+>>>>>>> problem-creation
 <%= link_to 'Upload Solution', upload_problem_path(@problem) %> |
 <% if user_signed_in? and current_user.admin then %>
   <%= link_to('Edit (admin)', edit_problem_path(@problem)) %> |

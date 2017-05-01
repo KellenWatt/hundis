@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   get   '/problems/:id/submit/',        to: 'problems#showUpload',    id: id_cnstrt,  as: :upload_problem
   post  '/problems/:id/submit/code',    to: 'problems#uploadCode',    id: id_cnstrt,  as: :uploadCode_problem
   post  '/problems/:id/submit/output',  to: 'problems#uploadOutput',  id: id_cnstrt,  as: :uploadOutput_problem
+  get   '/problems/:id/inputs/*flname', to: 'problems#downloadInput', id: id_cnstrt,  as: :downloadInput_problem, format: false
 
   # Users Subsection
   get   '/users/:id',                   to: 'users#show',             id: id_cnstrt,  as: :user

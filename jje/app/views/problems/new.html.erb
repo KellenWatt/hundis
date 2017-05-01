@@ -12,7 +12,7 @@
 </script>
 
 
-<%= form_for @problem, url: {action: 'create'}, html: {class: 'form-horizontal'} do |f| %>
+<%= form_for(@problem, url: {action: 'create'}, html: {class: 'form-horizontal', multipart: true}) do |f| %>
 	<div class="form-group">
 		<%= f.label :name, class: 'col-sm-2 control-label' %>
 		<div class="col-sm-10">
@@ -51,6 +51,21 @@
 			</div>
 		<% end %>
 	</div>
+
+	<%= fields_for :files do |file_f| %>
+	<div class="form-group">
+		<%= file_f.label :input, "Input Files", class: 'col-sm-2 control-label' %>
+		<div class="col-sm-10">
+			<%= file_f.file_field(:input, required: true, multiple: true) %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= file_f.label :output, "Output Files", class: 'col-sm-2 control-label' %>
+		<div class="col-sm-10">
+			<%= file_f.file_field(:output, required: true, multiple: true) %>
+		</div>
+	</div>
+	<% end %>
 
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
