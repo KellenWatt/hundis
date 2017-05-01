@@ -1,6 +1,6 @@
 class ProblemsController < ApplicationController
   before_action :authenticate_user!, exclude: [:show]
-  before_action :set_problem, only: [:show, :edit, :update, :showUpload, :uploadCode, :uploadOutput]
+  before_action :set_problem, only: [:show, :edit, :update, :showUpload, :uploadCode, :uploadOutput, :downloadInput]
 
   # GET /problems/new
   def new
@@ -88,8 +88,7 @@ class ProblemsController < ApplicationController
 
   # GET /problems/:id
   def show
-    #@keywords = ProblemKeyword.where(problem_id: params[:id])
-    #@tags = ProblemTag.where(problem_id: params[:id])
+    @input_path = Rails.root.join("problems","#{@problem.problem_id}", "input")
   end
 
   # GET /problems/:id/submit
@@ -125,6 +124,15 @@ class ProblemsController < ApplicationController
     end
   end
 
+  def downloadInput
+    flname = File.basename(params[:flname])
+    path = Rails.root.join("problems", "#{@problem.problem_id}", "input", flname)
+    if File.exist?(path) then
+      send_file path
+    else
+      raise ActionController::RoutingError, 'Input File Not Found'
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
