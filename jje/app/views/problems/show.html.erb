@@ -65,11 +65,29 @@
   </div>
 </span>
 
-
 <div class="links">
 <%= link_to 'Upload Solution', upload_problem_path(@problem) %> |
 <% if user_signed_in? and current_user.admin then %>
-  <%= link_to('Edit (admin)', edit_problem_path(@problem)) %> |
+<%= link_to('Edit (admin)', edit_problem_path(@problem)) %> |
 <% end %>
 <%= link_to 'Back', problems_path %>
 </div>
+
+<!-- <h3>Solved by</h3> -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Solve Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @solves.each do |prob| %>
+        <tr>
+            <td><%= link_to(prob.user.display_name, user_path(prob.user_id)) %></td>
+            <td><%= prob.timestamp %></td>
+
+        </tr>
+        <% end %>
+    </tbody>
+</table>

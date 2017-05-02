@@ -90,6 +90,8 @@ class ProblemsController < ApplicationController
   # GET /problems/:id
   def show
     @input_path = Rails.root.join("problems","#{@problem.problem_id}", "input")
+    @solves = UserSubmission.joins(:user).where(["problem_id = %i and solved", @problem.problem_id])
+    .order("user_submissions.timestamp").limit(1)
   end
 
   # GET /problems/:id/submit
