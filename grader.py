@@ -134,7 +134,7 @@ def main():
             # Run through each input file and run the code on it
             logging.info("Running user code on input")
             count = 0
-            for file in listdir("input/"):
+            for file in sorted(listdir("input/")):
                 count += 1
                 file_name = file[:file.find(".")]
                 logging.info("{}: {}".format(count, file))
@@ -171,7 +171,7 @@ def main():
     try:
         # Loop over input files and diff output
         count = 0
-        for file in listdir("solutions/"):
+        for file in sorted(listdir("solutions/")):
             count += 1
             file_name = file[:file.find(".")]
 
