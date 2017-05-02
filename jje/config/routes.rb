@@ -60,7 +60,7 @@ Rails.application.routes.draw do
   post  '/tournaments',                 to: 'tournaments#create',                     as: :create_tournament
   get   '/tournaments/:id',             to: 'tournaments#show',     id: id_cnstrt,    as: :tournament
   get   '/tournaments/:id/edit',        to: 'tournaments#edit',     id: id_cnstrt,    as: :edit_tournament
-  put   '/tournaments/:id',             to: 'tournaments#update',   id: id_cnstrt,    as: :update_tournament
+  patch   '/tournaments/:id',             to: 'tournaments#update',   id: id_cnstrt,    as: :update_tournament
   get   '/tournaments/:id/statistics',  to: 'tournaments#stats',    id: id_cnstrt,    as: :stats_tournament
   get   '/tournaments/:id/join',        to: 'tournaments#join',     id: id_cnstrt,    as: :join_tournament
 

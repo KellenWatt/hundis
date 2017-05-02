@@ -60,8 +60,15 @@ class TournamentsController < ApplicationController
       redirect_to @tournament, flash: {error: 'Only administrators can edit tournaments.'}
       return
     end
+
+    Problem.where(problem_id: params[:problem_id]).each do |prob|
+      unless Contain.exists?(tournament_id: @tournament.tournament_id, problem_id: prob.problem_id)
+        contain = Contain.create(tournament_id: @tournament.tournament_id, problem_id: prob.problem_id)
+      end
+    end
+
     if @tournament.update(tournament_params)
-      redirect_to @tournament, flash: {success: 'Tournament was successfully updated.'}
+      redirect_to :edit_tournament, flash: {success: 'Tournament was successfully updated.'}
     else
       redirect_to @tournament, flash: {error: "Failed to edit tournament: #{@tournament.errors.full_messages}"}
     end
@@ -104,7 +111,7 @@ class TournamentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tournament_params
-      params.require(:tournament).permit(:name, 'start(1i)', 'start(2i)', 'start(3i)', 'start(4i)', 'start(5i)',
+      params.require(:tournament).permit(:name, :start, :end, :problems, :languages, 'start(1i)', 'start(2i)', 'start(3i)', 'start(4i)', 'start(5i)',
                                                 'end(1i)',   'end(2i)',   'end(3i)',   'end(4i)',   'end(5i)')
     end
 end
