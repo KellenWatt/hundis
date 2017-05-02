@@ -1,12 +1,11 @@
+<h1><%= @user.display_name %>'s Profile</h1>
+
 <table class="table table-striped">
     <thead>
         <tr>
-            <th> User Profile </th>
+            <th> Profile Field </th>
             <th>
-                <% if user_signed_in? and (@user == current_user or current_user.admin) then %>
-                    <%= button_to 'Edit', edit_user_path(@user), :method => :get %>
-                <%end%>
-
+            Value
             </th>
         </tr>
     </thead>
@@ -30,10 +29,15 @@
     </tbody> 
 </table>
 
+<% if user_signed_in? and (@user == current_user or current_user.admin) then %>
+    <%= button_to 'Edit Profile', edit_user_path(@user), :method => :get %>
+<%end%>
+
+<h3>Competing in</h3>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Participating in</th>
+            <th>Tournament</th>
         </tr>
     </thead>
     <tbody>
@@ -45,10 +49,11 @@
     </tbody>
 </table>
 
+<h3>Solved Problems</h3>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Solved Problem</th>
+            <th>Name</th>
             <th>Point Value</th>
         </tr>
     </thead>
@@ -62,4 +67,9 @@
         <% end %>
     </tbody>
 </table>
+<% if user_signed_in? and (@user == current_user or current_user.admin) then %>
+    <%= button_to "All Submissions", user_submissions_path(@user.user_id), :method => :get %>
+<%end%>
+
 <%= button_to "Back to All Users", users_path, :method => :get %>
+
