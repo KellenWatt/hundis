@@ -1,7 +1,33 @@
-<p>
-  <strong>User:</strong>
-  <%= @user.user_id %>
-</p>
+<table class="table table-striped">
+    <tbody>
+        <thead>
+            <tr>
+                <th> User Profile </th>
+                <th>
+                    <% if user_signed_in? and (@user == current_user or current_user.admin) then %>
+                        <%= button_to 'Edit', edit_user_path(@user), :method => :get %>
+                    <%end%>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+                </th>
+            </tr>
+        </thead>
+        <tr>
+            <td> Name </td>
+            <td><%= @user.display_name %></td>
+        </tr>
+        <tr>
+            <td> Score </td>
+            <td><%= @user.score %></td>
+        </tr>
+        <tr>
+            <td> University </td>
+            <td><%= @user.university %></td>
+        </tr>
+        <tr>
+            <td> Company </td>
+            <td><%= @user.company %></td>
+        </tr>
+    </tbody>
+</table>
+
+<%= button_to "Back to All Users", users_path, :method => :get %>
