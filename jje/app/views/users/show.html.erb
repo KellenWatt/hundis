@@ -1,7 +1,75 @@
-<p>
-  <strong>User:</strong>
-  <%= @user.user_id %>
-</p>
+<h1><%= @user.display_name %>'s Profile</h1>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Profile Field </th>
+            <th>
+            Value
+            </th>
+        </tr>
+    </thead>
+    <tbody
+        <tr>
+            <td> Name </td>
+            <td><%= @user.display_name %></td>
+        </tr>
+        <tr>
+            <td> Score </td>
+            <td><%= @user.score %></td>
+        </tr>
+        <tr>
+            <td> University </td>
+            <td><%= @user.university %></td>
+        </tr>
+        <tr>
+            <td> Company </td>
+            <td><%= @user.company %></td>
+        </tr>
+    </tbody> 
+</table>
+
+<% if user_signed_in? and (@user == current_user or current_user.admin) then %>
+    <%= button_to 'Edit Profile', edit_user_path(@user), :method => :get %>
+<%end%>
+
+<h3>Competing in</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tournament</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @tournaments.each do |tourn| %>
+        <tr>
+            <td><%= link_to(tourn.name, tournament_path(tourn.tournament_id)) %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<h3>Solved Problems</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Point Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @solves.each do |prob| %>
+        <tr>
+            <td><%= link_to(prob.name, problem_path(prob.problem_id)) %></td>
+            <td><%= prob.score %></td>
+
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<% if user_signed_in? and (@user == current_user or current_user.admin) then %>
+    <%= button_to "All Submissions", user_submissions_path(@user.user_id), :method => :get %>
+<%end%>
+
+<%= button_to "Back to All Users", users_path, :method => :get %>
+
