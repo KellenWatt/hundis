@@ -1,47 +1,27 @@
-// Display Problem Page CSS(problem information)
-  //left information field
-  .problem-page .problem-info {
-    float: left;
-    color: white;
-    background-color: goldenrod;
-    width: 20%;
-    height: flex;
-  }
+// Place all the styles related to the user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
 
-  .problem-page .problem-info p{
-    color: white;
-    padding-top: 10px;
-    padding-left: 5px;
-  }
 
-  //Problem description
+// Display user page CSS(problem information)
   .description {
     float: left;
     width: 80%;
   }
 
-  .description .problem-heading {
+  .user-page .user-heading {
     text-align: center;
     font-size: 25px;
   }
 
-  .description .problem-heading p {
+  .user-page .user-heading p {
     color: white;
   }
 
-  .description .problem-description p {
+  .user-page .user-body p {
     color: black;
-  }
-
-  .description .descriptor {
-    text-align: center;
-    padding-bottom: 20px;
-    font-size: 20px;
-  }
-
-  .description .problem-description {
-    display: 80%;
-    font-size: 14px;
+    padding-top: 10px;
+    padding-left: 10px;
   }
 
   // links on bottom

@@ -1,7 +1,35 @@
-<p>
-  <strong>User:</strong>
-  <%= @user.user_id %>
-</p>
+<div class="panel user-page">
+	<div class="panel-heading user-heading">
+		<p>
+		  <strong>User
+		  	#<%= @user.user_id %>:
+		  </strong>
+		  <%= @user.display_name %>
+		</p>
+	</div>
+
+	<div class="user-body">
+	<p>
+		<strong>Score:</strong>
+		<%= @user.score %>
+	</p>
+
+	<p>
+		<strong>University:</strong>
+		<%= @user.university %>
+	</p>
+
+	<p>
+		<strong>Company:</strong>
+		<%= @user.company %>
+	</p>
+
+	<p>
+		<strong>Created:</strong>
+		<%= @user.created_at %>
+	</p>
+	</div>
+</div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
