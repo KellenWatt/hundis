@@ -115,6 +115,7 @@ class ProblemsController < ApplicationController
       uploaded_supp.each do |upfile|
         File.open("#{destpath}/#{upfile.original_filename}", 'wb') do |file|
           file.write(upfile.read)
+        end
       end
     end
     input = "#{sandhome}/input"
@@ -132,6 +133,7 @@ class ProblemsController < ApplicationController
                   'Cmd' => ["python3 grader.py #{sandhome}/code/#{uploaded_main.original_filename} #{uploaded_lang}"])
     # should return a value that we need to deal with.
     redirect_to @problem
+    
   end
 
     # POST /problems/:id/submit/output
