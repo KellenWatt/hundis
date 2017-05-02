@@ -11,6 +11,7 @@ class StaticPagesController < ApplicationController
   end
 
   def users
+    @top_users = User.limit(10).order(score: :desc)
     @users = do_paging(User)
   end
 

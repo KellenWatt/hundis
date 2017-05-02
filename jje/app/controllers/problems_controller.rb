@@ -1,7 +1,8 @@
 class ProblemsController < ApplicationController
-  before_action :authenticate_user!, exclude: [:show]
-  before_action :set_problem, only: [:show, :edit, :update, :showUpload, :uploadCode, :uploadOutput]
+  before_action :authenticate_user!, except: [:show]
+  before_action :set_problem, only: [:show, :edit, :update, :showUpload, :uploadCode, :uploadOutput, :downloadInput]
   require 'fileutils'
+
   # GET /problems/new
   def new
     unless current_user.admin?
@@ -18,6 +19,8 @@ class ProblemsController < ApplicationController
     keywords = params[:keywords][:allkeywords].split
     tags = params[:tags][:alltags].split
     # TODO: sanitize keywords/tags
+    input_files = params[:files][:input]
+    output_files = params[:files][:output]
 
     @problem = Problem.new(problem_params)
     if @problem.save
@@ -27,6 +30,22 @@ class ProblemsController < ApplicationController
       tags.each do |tag|
         @problem.tags.create(tag: tag)
       end
+
+      basepath = Rails.root.join("problems", "#{@problem.problem_id}")
+      Dir.mkdir(basepath)
+      Dir.mkdir(basepath.join('input'))
+      Dir.mkdir(basepath.join('output'))
+      input_files.each do |upfile|
+        File.open(basepath.join('input', upfile.original_filename), 'wb') do |file|
+          file.write(upfile.read)
+        end
+      end
+      output_files.each do |upfile|
+        File.open(basepath.join('output', upfile.original_filename), 'wb') do |file|
+          file.write(upfile.read)
+        end
+      end
+
       redirect_to @problem, flash: {success: 'Problem created!'}
     else
       redirect_to :new_problem, flash: {error: "Failed to create problem: #{@problem.errors.full_messages}"}
@@ -70,8 +89,7 @@ class ProblemsController < ApplicationController
 
   # GET /problems/:id
   def show
-    #@keywords = ProblemKeyword.where(problem_id: params[:id])
-    #@tags = ProblemTag.where(problem_id: params[:id])
+    @input_path = Rails.root.join("problems","#{@problem.problem_id}", "input")
   end
 
   # GET /problems/:id/submit
@@ -101,17 +119,18 @@ class ProblemsController < ApplicationController
       end
     end
     input = "#{sandhome}/input"
-    output = "#{sandhome}/output"
+    output = "#{sandhome}/solutions"
     code = "#{sandhome}/code"
     sandbox = Docker::Container.create(
       'Image' => 'jje_sandbox:latest',
       'Volumes' => {input => {},
-                    output => {},
+                    output => {}, 
                     code => {}}
     )
     sandbox.start('Binds' => ["#{probpath}/input:#{input}:ro", 
                                "#{probpath}/output:#{output}:ro", 
-                               "#{destpath}:#{code}:rw"])
+                               "#{ destpath}:#{code}:rw"],
+                  'Cmd' => ["python3 grader.py #{sandhome}/code/#{uploaded_main.original_filename} #{uploaded_lang}"])
     # should return a value that we need to deal with.
     redirect_to @problem
   end
@@ -130,7 +149,7 @@ class ProblemsController < ApplicationController
       file.write(uploaded_main.read)
     end
     
-    output = "#{sandhome}/output"
+    output = "#{sandhome}/solutions"
     code = "#{sandhome}/code"
     sandbox = Docker::Container.create(
       'Image' => 'jje_sandbox:latest',
@@ -138,10 +157,21 @@ class ProblemsController < ApplicationController
                     "#{sandhome}/output" => {}}
     )
     sandbox.start('Binds' => ["#{probpath}/output:#{output}:ro", 
-                               "#{destpath}:#{code}:rw"])
+                               "#{destpath}:#{code}:rw"],
+                  'Cmd' => ["python3 grader.py --diff_files"])
     # should return a value that we need to deal with.
+    redirect_to @problem
   end
 
+  def downloadInput
+    flname = File.basename(params[:flname])
+    path = Rails.root.join("problems", "#{@problem.problem_id}", "input", flname)
+    if File.exist?(path) then
+      send_file path
+    else
+      raise ActionController::RoutingError, 'Input File Not Found'
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -150,6 +180,6 @@ class ProblemsController < ApplicationController
     end
 
     def problem_params
-      params.require(:problem).permit(:name, :score, :description)
+      params.require(:problem).permit(:name, :score, :description, files: {input: [], output: []})
     end
 end
