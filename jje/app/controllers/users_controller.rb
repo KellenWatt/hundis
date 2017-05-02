@@ -7,6 +7,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
+    @tournaments = Tournament.joins(:competes_ins).where(["user_id = %i", @user.user_id])
+    @solves = Problem.joins(:submissions).where(["user_id = %i and solved", @user.user_id])
   end
 
   # POST /users
@@ -32,9 +35,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    render_inline "HELLO"
-
-    # TODO: handle user profile edits
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -64,6 +64,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user_id)
+      params.require(:user).permit(:display_name, :university, :company)
     end
 end

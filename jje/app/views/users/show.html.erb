@@ -1,35 +1,79 @@
-<div class="panel user-page">
-	<div class="panel-heading user-heading">
-		<p>
-		  <strong>User
-		  	#<%= @user.user_id %>:
-		  </strong>
-		  <%= @user.display_name %>
-		</p>
-	</div>
+<h1><%= @user.display_name %>'s Profile</h1>
 
-	<div class="user-body">
-	<p>
-		<strong>Score:</strong>
-		<%= @user.score %>
-	</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Profile Field </th>
+            <th>
+            Value
+            </th>
+        </tr>
+    </thead>
+    <tbody
+        <tr>
+            <td> Name </td>
+            <td><%= @user.display_name %></td>
+        </tr>
+        <tr>
+            <td> Score </td>
+            <td><%= @user.score %></td>
+        </tr>
+        <tr>
+            <td> University </td>
+            <td><%= @user.university %></td>
+        </tr>
+        <tr>
+            <td> Company </td>
+            <td><%= @user.company %></td>
+        </tr>
+        <tr>
+        	<td> Date Created </td>
+        	<td><%=@user.created_at %></td>
+        </tr>
+    </tbody> 
+</table>
 
-	<p>
-		<strong>University:</strong>
-		<%= @user.university %>
-	</p>
+<% if user_signed_in? and (@user == current_user or current_user.admin) then %>
+    <%= button_to 'Edit Profile', edit_user_path(@user), :method => :get %>
+<%end%>
 
-	<p>
-		<strong>Company:</strong>
-		<%= @user.company %>
-	</p>
+<h3>Competing in</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tournament</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @tournaments.each do |tourn| %>
+        <tr>
+            <td><%= link_to(tourn.name, tournament_path(tourn.tournament_id)) %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
 
-	<p>
-		<strong>Created:</strong>
-		<%= @user.created_at %>
-	</p>
-	</div>
-</div>
+<h3>Solved Problems</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Point Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @solves.each do |prob| %>
+        <tr>
+            <td><%= link_to(prob.name, problem_path(prob.problem_id)) %></td>
+            <td><%= prob.score %></td>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<% if user_signed_in? and (@user == current_user or current_user.admin) then %>
+ +    <%= button_to "All Submissions", user_submissions_path(@user.user_id), :method => :get %>
+ +<%end%>
+
+<%= button_to "Back to All Users", users_path, :method => :get %>
