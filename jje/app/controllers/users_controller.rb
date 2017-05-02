@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @tournaments = Tournament.joins(:competes_ins).where(:user_id == @user.user_id)
+    @tournaments = Tournament.joins(:competes_ins).where(["user_id = %i", @user.user_id])
+    @solves = Problem.joins(:submissions).where(["user_id = %i and solved", @user.user_id])
   end
 
   # POST /users
