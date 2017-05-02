@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/sign_in" => "devise/sessions#new",      as: 'sign_in' # custom path to login/sign_in
     get "/sign_up" => "devise/registrations#new", as: "new_user_registration" # custom path to sign_up/registration
+    get "/edit_account" => "devise/registrations#edit", as: "edit_account"
     get "/sign_out"=> "devise/sessions#destroy",  as: 'sign_out'
   end
 
@@ -49,7 +50,7 @@ Rails.application.routes.draw do
   # Users Subsection
   get   '/users/:id',                   to: 'users#show',             id: id_cnstrt,  as: :user
   get   '/users/:id/edit',              to: 'users#edit',             id: id_cnstrt,  as: :edit_user
-  put   '/users/:id',                   to: 'users#update',           id: id_cnstrt,  as: :update_user
+  patch '/users/:id',                   to: 'users#update',           id: id_cnstrt,  as: :update_user
   get   '/users/:id/submissions',       to: 'users#submissions',      id: id_cnstrt,  as: :user_submissions
   get   '/users/:user_id/submissions/:problem_id/:timestamp', to: 'user_submissions#show',  user_id: id_cnstrt, problem_id: id_cnstrt, as: :user_submission
   match '/users/:username/(*all)',      to: 'users#name_to_id', username: nonid_cnst, via: [:get, :put]
