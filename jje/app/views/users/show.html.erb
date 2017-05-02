@@ -1,16 +1,16 @@
 <table class="table table-striped">
-    <tbody>
-        <thead>
-            <tr>
-                <th> User Profile </th>
-                <th>
-                    <% if user_signed_in? and (@user == current_user or current_user.admin) then %>
-                        <%= button_to 'Edit', edit_user_path(@user), :method => :get %>
-                    <%end%>
+    <thead>
+        <tr>
+            <th> User Profile </th>
+            <th>
+                <% if user_signed_in? and (@user == current_user or current_user.admin) then %>
+                    <%= button_to 'Edit', edit_user_path(@user), :method => :get %>
+                <%end%>
 
-                </th>
-            </tr>
-        </thead>
+            </th>
+        </tr>
+    </thead>
+    <tbody
         <tr>
             <td> Name </td>
             <td><%= @user.display_name %></td>
@@ -27,7 +27,21 @@
             <td> Company </td>
             <td><%= @user.company %></td>
         </tr>
-    </tbody>
+    </tbody> 
 </table>
 
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Participating in</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @tournaments.each do |tourn| %>
+        <tr>
+            <td><%= link_to(tourn.name, tournament_path(tourn.tournament_id)) %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
 <%= button_to "Back to All Users", users_path, :method => :get %>
