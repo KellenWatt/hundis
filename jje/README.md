@@ -6,7 +6,7 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
+* [Docker](https://docker.com) - required for sandboxing system, and must be had to start the server.
 * System dependencies
 
 * Configuration

@@ -73,7 +73,8 @@
 </table>
 
 <% if user_signed_in? and (@user == current_user or current_user.admin) then %>
- +    <%= button_to "All Submissions", user_submissions_path(@user.user_id), :method => :get %>
- +<%end%>
+    <%= button_to "All Submissions", user_submissions_path(@user.user_id), :method => :get %>
+<%end%>
 
 <%= button_to "Back to All Users", users_path, :method => :get %>
+

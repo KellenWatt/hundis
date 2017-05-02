@@ -1,6 +1,7 @@
 class ProblemsController < ApplicationController
-  before_action :authenticate_user!, exclude: [:show]
+  before_action :authenticate_user!, except: [:show]
   before_action :set_problem, only: [:show, :edit, :update, :showUpload, :uploadCode, :uploadOutput, :downloadInput]
+  require 'fileutils'
 
   # GET /problems/new
   def new
@@ -102,15 +103,35 @@ class ProblemsController < ApplicationController
     uploaded_supp = params[:support]
 
     # TODO: handle submission
-    destpath = 'the/destination/path'
-    File.open(destpath.join(uploaded_main.original_filename), 'wb') do |file|
+    sandhome = "/home/jjeuser"
+    probnum = @problem.problem_id
+    destpath = "users/#{current_user.user_id}/submissions/#{probnum}"
+    probpath = "problems/#{probnum}"
+    FileUtils.mkdir_p(destpath)
+    File.open("#{destpath}/#{uploaded_main.original_filename}", 'wb') do |file|
       file.write(uploaded_main.read)
     end
-    uploaded_supp.each do |upfile|
-      File.open(destpath.join(upfile.original_filename), 'wb') do |file|
-        file.write(upfile.read)
+    if uploaded_supp
+      uploaded_supp.each do |upfile|
+        File.open("#{destpath}/#{upfile.original_filename}", 'wb') do |file|
+          file.write(upfile.read)
       end
     end
+    input = "#{sandhome}/input"
+    output = "#{sandhome}/solutions"
+    code = "#{sandhome}/code"
+    sandbox = Docker::Container.create(
+      'Image' => 'jje_sandbox:latest',
+      'Volumes' => {input => {},
+                    output => {}, 
+                    code => {}}
+    )
+    sandbox.start('Binds' => ["#{probpath}/input:#{input}:ro", 
+                               "#{probpath}/output:#{output}:ro", 
+                               "#{ destpath}:#{code}:rw"],
+                  'Cmd' => ["python3 grader.py #{sandhome}/code/#{uploaded_main.original_filename} #{uploaded_lang}"])
+    # should return a value that we need to deal with.
+    redirect_to @problem
   end
 
     # POST /problems/:id/submit/output
@@ -118,10 +139,27 @@ class ProblemsController < ApplicationController
     uploaded_output = params[:output]
 
     # TODO: handle submission
-    destpath = 'the/destination/path'
-    File.open(destpath.join("output"), 'wb') do |file|
+    sandhome = "/home/jjeuser"
+    probnum = @problem.problem_id
+    destpath = "users/#{current_user.user_id}/submissions/#{probnum}"
+    probpath = "problems/#{probnum}"
+    FileUtils.mkdir_p(destpath)
+    File.open("#{destpath}/output", 'wb') do |file|
       file.write(uploaded_main.read)
     end
+
+    output = "#{sandhome}/solutions"
+    code = "#{sandhome}/code"
+    sandbox = Docker::Container.create(
+      'Image' => 'jje_sandbox:latest',
+      'Volumes' => {"#{sandhome}/code" => {},
+                    "#{sandhome}/output" => {}}
+    )
+    sandbox.start('Binds' => ["#{probpath}/output:#{output}:ro", 
+                               "#{destpath}:#{code}:rw"],
+                  'Cmd' => ["python3 grader.py --diff_files"])
+    # should return a value that we need to deal with.
+    redirect_to @problem
   end
 
   def downloadInput
