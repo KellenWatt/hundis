@@ -1,49 +1,70 @@
 <div class="panel tournament">
-	<div class="panel-heading tournament-heading">
-		<p>
-			<strong>Tournament 
-			#<%= @tournament.tournament_id %>:
-			</strong>
-		<%= @tournament.name %>
-		</p>
-	</div>
+    <div class="panel-heading tournament-heading">
+        <p>
+            <strong>Tournament 
+            #<%= @tournament.tournament_id %>:
+            </strong>
+        <%= @tournament.name %>
+        </p>
+    </div>
 
-	<div class="tournament-body">
-		<p>
-			<strong>Starts:</strong>
-			<%= @tournament.start ? @tournament.start.getlocal.to_s(:long) : "" %>
-		</p>
+    <div class="tournament-body">
+        <p>
+            <strong>Starts:</strong>
+            <%= @tournament.start ? @tournament.start.getlocal.to_s(:long) : "" %>
+        </p>
 
-		<p>
-			<strong>Ends:</strong>
-			<%= @tournament.end ? @tournament.end.getlocal.to_s(:long) : "" %>
-		</p>
+        <p>
+            <strong>Ends:</strong>
+            <%= @tournament.end ? @tournament.end.getlocal.to_s(:long) : "" %>
+        </p>
 
-		<p>
-			<strong>Status:</strong>
-			<%= (@tournament.end < DateTime.current ? 'over' : (@tournament.start < DateTime.current ? 'active' : 'not yet')) %>
-		</p>
+        <p>
+            <strong>Status:</strong>
+            <%= (@tournament.end < DateTime.current ? 'over' : (@tournament.start < DateTime.current ? 'active' : 'not yet')) %>
+        </p>
 
-		<p>
-			<strong>Languages:</strong>
-			<% for tourney_lang in TournamentLanguage.where(tournament_id: @tournament.tournament_id) do %>
-				<span class="tournament-language"><%= tourney_lang.language %></span>
-			<% end %>
-		</p>
+        <p>
+            <strong>Languages:</strong>
+            <% for tourney_lang in TournamentLanguage.where(tournament_id: @tournament.tournament_id) do %>
+                <span class="tournament-language"><%= tourney_lang.language %></span>
+            <% end %>
+        </p>
 
-		<p>
-			<strong>Participants:</strong>
-			<%= CompetesIn.where(tournament_id: @tournament.tournament_id).count %>
-		</p>
-	</div>
+        <p>
+            <strong>Participants:</strong>
+            <%= CompetesIn.where(tournament_id: @tournament.tournament_id).count %>
+        </p>
+    </div>
 </div>
 
-<% if user_signed_in? then %>
-	<%= link_to('Join!', join_tournament_path(@tournament)) %> |
+<% if DateTime.current > @tournament.start then %>
+    <h3> Problems </h3>
 
-	<% if current_user().admin then %>
-		<%= link_to('Edit (admin)', edit_tournament_path(@tournament)) %> |
-	<% end %>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @tournament.problems.each do |prob| %>
+            <tr>
+                <td><%= link_to(prob.name, problem_path(prob.problem_id)) %></td>
+                <td><%= prob.score %></td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+<% end %>
+
+<% if user_signed_in? then %>
+    <%= link_to('Join!', join_tournament_path(@tournament)) %> |
+
+    <% if current_user().admin then %>
+        <%= link_to('Edit (admin)', edit_tournament_path(@tournament)) %> |
+    <% end %>
 <% end %>
 
 <%= link_to 'Back', tournaments_path %>

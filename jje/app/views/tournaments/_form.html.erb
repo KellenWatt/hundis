@@ -11,7 +11,54 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :start %>
+    <%= f.text_field :start %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end %>
+    <%= f.text_field :end %>
+  </div>
+
+
+  <h3> Problems </h3>
+
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <th>id</th>
+              <th>name</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% tournament.problems.each do |prob| %>
+            <tr>
+                <td><%= prob.id %></td>
+                <td><%= prob.name %></td>
+            </tr>
+          <% end %>
+
+          <tr>
+            <td>
+                <form accept-charset="UTF-8" action="/tournaments" method="patch">
+                  <input type="int" name="problem_id" value="" />
+            </td>
+            <td>
+              
+            </td>
+          </tr>
+      </tbody>
+  </table>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
