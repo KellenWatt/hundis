@@ -109,13 +109,13 @@ def main():
 
     # They want to run code and then diff
     if not diff_files:
-        logging.info("--diff_files was not passed. Determining language")
+        logging.info("Determining language")
 
         # Grab the given language from the enum
         try:
             language = Language[language]
 
-            logging.info("Using {} as a language".format(language.name))
+            logging.info("Using {}".format(language.name))
 
             # Call the appropriate compile function based on language, don't if its lookup is None
             func = compile_functions[language]
@@ -158,7 +158,7 @@ def main():
         except NotImplementedError:
             exit(Judgement.GRADER_ERROR.value)
     else:
-        logging.info("--diff_files passed. Running only output validation")
+        logging.info("Running only output validation")
 
     # Make an output directory if it doesn't exist
     if not exists("output"):
@@ -398,7 +398,14 @@ def compare_output(solution_filename, program_output_filename, delta):
 
     if completed_process.returncode != 0:
         logging.info("\tNon-zero exit code on diff. Starting manual validation")
-        return floating_point_validation(solution_filename, program_output_filename, delta)
+        return_code = floating_point_validation(solution_filename, program_output_filename, delta)
+
+        if return_code != Judgement.ACCEPTED:
+            logging.info("\tManual validation failed")
+        else:
+            logging.info("\tManual validation successful")
+
+        return return_code
 
     logging.info("\tRegular diff accepted. Output validated")
     return Judgement.ACCEPTED
@@ -456,7 +463,7 @@ def floating_point_validation(solution_filename, program_output_filename, delta)
 
                     # Check if the program output is within that window
                     if not (window[0] <= output_float <= window[1]):
-                        logging.critical("\tError! {} is not in [{}, {}]".format(output_float, window[0], window[1]))
+                        logging.debug("\tError! {} is not in [{}, {}]".format(output_float, window[0], window[1]))
                         return Judgement.WRONG_ANSWER
                     else:
                         logging.debug("\t{} <= {} <= {}".format(window[0], output_float, window[1]))
