@@ -1,3 +1,31 @@
-// Place all the styles related to the users controller here.
+// Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// Display user page CSS(problem information)
+  .description {
+    float: left;
+    width: 80%;
+  }
+
+  .user-page .user-heading {
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .user-page .user-heading p {
+    color: white;
+  }
+
+  .user-page .user-body p {
+    color: black;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+
+  // links on bottom
+  .links {
+    float: left;
+    padding-left: 10px;
+  }

@@ -51,9 +51,6 @@ bower.json
 # ignores dotfiles
 .*.*
 
-# Pycharm garbage
-.idea/*
-__pycache__/*
 # Ignore Mac junk
 .DS_Store
 

@@ -1,41 +1,42 @@
+<div class="panel tournament">
+	<div class="panel-heading tournament-heading">
+		<p>
+			<strong>Tournament 
+			#<%= @tournament.tournament_id %>:
+			</strong>
+		<%= @tournament.name %>
+	</p>
+	</div>
 
+	<div class="tournament-body">
+		<p>
+			<strong>Starts:</strong>
+			<%= @tournament.start ? @tournament.start.getlocal.to_s(:long) : "" %>
+		</p>
 
-<p>
-	<strong>Tournament:</strong>
-	<%= @tournament.tournament_id %>
-</p>
+		<p>
+			<strong>Ends:</strong>
+			<%= @tournament.end ? @tournament.end.getlocal.to_s(:long) : "" %>
+		</p>
 
-<p>
-	<strong>Name:</strong>
-	<%= @tournament.name %>
-</p>
+		<p>
+			<strong>Status:</strong>
+			<%= (@tournament.end < DateTime.current ? 'over' : (@tournament.start < DateTime.current ? 'active' : 'not yet')) %>
+		</p>
 
-<p>
-	<strong>Starts:</strong>
-	<%= @tournament.start ? @tournament.start.getlocal.to_s(:long) : "" %>
-</p>
+		<p>
+			<strong>Languages:</strong>
+			<% for tourney_lang in TournamentLanguage.where(tournament_id: @tournament.tournament_id) do %>
+				<span class="tournament-language"><%= tourney_lang.language %></span>
+			<% end %>
+		</p>
 
-<p>
-	<strong>Ends:</strong>
-	<%= @tournament.end ? @tournament.end.getlocal.to_s(:long) : "" %>
-</p>
-
-<p>
-	<strong>Status:</strong>
-	<%= (@tournament.end < DateTime.current ? 'over' : (@tournament.start < DateTime.current ? 'active' : 'not yet')) %>
-</p>
-
-<p>
-	<strong>Languages:</strong>
-	<% for tourney_lang in TournamentLanguage.where(tournament_id: @tournament.tournament_id) do %>
-		<span class="tournament-language"><%= tourney_lang.language %></span>
-	<% end %>
-</p>
-
-<p>
-	<strong>Participants:</strong>
-	<%= CompetesIn.where(tournament_id: @tournament.tournament_id).count %>
-</p>
+		<p>
+			<strong>Participants:</strong>
+			<%= CompetesIn.where(tournament_id: @tournament.tournament_id).count %>
+		</p>
+	</div>
+</div>
 
 <% if user_signed_in? then %>
 	<%= link_to('Join!', join_tournament_path(@tournament)) %> |

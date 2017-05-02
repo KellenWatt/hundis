@@ -69,7 +69,3 @@ tmp/*
 
 # Ignore Byebug command history file.
 .byebug_history
-
-#ignore project specific directories
-users
-problems

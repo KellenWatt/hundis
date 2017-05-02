@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :submissions]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -30,9 +30,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    unless @user == current_user or (user_signed_in? and current_user.admin) then
-      redirect_to @user, flash: {error: "Can only edit your own user!"}
-    end
   end
 
   # PATCH/PUT /users/1
@@ -47,11 +44,6 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  # GET /users/1/submissions
-  def submissions
-    @submissions = @user.submissions
   end
 
   # *VERB* /users/:username/(*all)  =>  *VERB* /users/:id/:all

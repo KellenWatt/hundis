@@ -64,9 +64,7 @@ class UserSubmissionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_submission
-      @user_submission = UserSubmission.where(user_id: params[:user_id], problem_id: params[:problem_id], timestamp: params[:timestamp]).first
-      @problem = Problem.find(params[:problem_id])
-      @user = User.find(params[:user_id])
+      @user_submission = UserSubmission.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
