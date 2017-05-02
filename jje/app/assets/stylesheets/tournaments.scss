@@ -15,3 +15,23 @@
     background-color: indigo;
   }
 }
+
+// Display tournament Page CSS(problem information)
+  .tournament .tournament-heading {
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .tournament .tournament-heading p {
+    color: white;
+  }
+
+  .tournament p {
+    color: black;
+  }
+
+  // links on bottom
+  .links {
+    float: left;
+    padding-left: 10px;
+  }

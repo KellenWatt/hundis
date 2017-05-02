@@ -4,7 +4,7 @@
       <strong>Score:</strong>
       <%= @problem.score %>
     </p>
-
+    
     <p>
       <strong>Solves:</strong>
       <%= @problem.solves %>
@@ -40,7 +40,7 @@
     </p>
   </div>
 
-  <div class="panel problems">
+  <div class="panel description">
     <div class="panel-heading problem-heading">
       <p>
         <strong>
@@ -49,11 +49,18 @@
         </strong>
           <%= @problem.name %>
       </p>
+    </div>
+
+    <div class="panel-body problem-description">
+      <div class="descriptor">
+        <p>
+          <strong>Problem description</strong>
+        </p>
+      </div>
 
       <p>
-      <strong>Problem description:</strong>
-      <%= @problem.description %>
-    </p>
+        <%= @problem.description %>
+      </p>
     </div>
   </div>
 </span>
