@@ -1,5 +1,11 @@
-# doggis
+# Hundis
 A online judge program.
+
+**Be Advised: This software is no longer maintained, and is known to have vulnerable dependencies. If you feel like fixing
+it, be my guest.** 
+
+*BY USING THIS SOFTWARE, YOU ACCEPT THAT NONE OF THE AUTHORS OF THIS SOFTWARE CAN BE HELD LIABLE FOR ANY DAMAGES IT MAY 
+CAUSE, EITHER DIRECTLY OR INDIRECTLY.*
 
 ## Software Requirements
 
